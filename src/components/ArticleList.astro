@@ -1,0 +1,28 @@
+---
+import type { CollectionEntry } from "astro:content";
+import ArticleCard from "./ArticleCard.astro";
+import { getArticlesWithUrls } from "../utils/articleUrls";
+
+interface Props {
+  articles: CollectionEntry<"articles">[];
+  emptyMessage?: string;
+}
+
+const { articles, emptyMessage = "No articles yet." } = Astro.props;
+const articlesWithUrls = getArticlesWithUrls(articles);
+---
+
+{articles.length === 0 && <p class="text-gray-500">{emptyMessage}</p>}
+<ul class="space-y-6">
+  {articlesWithUrls.map((article) => (
+    <li>
+      <ArticleCard
+        href={article.url}
+        title={article.data.title}
+        date={article.data.date}
+        description={article.data.description}
+        tags={article.data.tags}
+      />
+    </li>
+  ))}
+</ul>

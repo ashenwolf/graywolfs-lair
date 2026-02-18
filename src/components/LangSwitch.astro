@@ -1,0 +1,18 @@
+---
+interface Props {
+  current: "en" | "ua";
+}
+
+const { current } = Astro.props;
+---
+
+<div class="flex gap-2 mb-6">
+  <a
+    href="/"
+    class:list={["px-3 py-1 rounded text-sm border", current === "en" ? "bg-gray-900 text-white border-gray-900" : "border-gray-300 hover:bg-gray-100"]}
+  >EN</a>
+  <a
+    href="/ua"
+    class:list={["px-3 py-1 rounded text-sm border", current === "ua" ? "bg-gray-900 text-white border-gray-900" : "border-gray-300 hover:bg-gray-100"]}
+  >UA</a>
+</div>

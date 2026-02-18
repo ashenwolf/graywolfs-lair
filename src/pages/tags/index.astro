@@ -1,0 +1,27 @@
+---
+import { getCollection } from "astro:content";
+import Base from "../../layouts/Base.astro";
+
+const articles = await getCollection("articles", ({ data }) => !data.draft && data.lang === "en");
+const tagCounts = new Map<string, number>();
+for (const article of articles) {
+  for (const tag of article.data.tags) {
+    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
+  }
+}
+const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+---
+
+<Base title="Tags" lang="en">
+  <div class="container-inner">
+    <h1 class="text-3xl font-bold mb-8">Tags</h1>
+    {tags.length === 0 && <p class="text-gray-500">No tags yet.</p>}
+    <div class="flex flex-wrap gap-3">
+      {tags.map(([tag, count]) => (
+        <a href={`/tags/${tag}`} class="bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">
+          {tag} <span class="text-gray-500">({count})</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>
