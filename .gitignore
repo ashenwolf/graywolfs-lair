@@ -4,3 +4,7 @@ dist/
 *.db
 *.sqlite
 .DS_Store
+
+# those are generated on build
+public/assets/excalidraw/
+public/assets/mermaid/

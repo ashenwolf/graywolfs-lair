@@ -28,6 +28,6 @@ const { tag, articles } = Astro.props;
 <Base title={`Тег: ${tag}`} lang="ua">
   <div class="container-inner">
     <h1 class="text-3xl font-bold mb-8">Тег: {tag}</h1>
-    <ArticleList articles={articles} emptyMessage="Статей з цим тегом немає." />
+    <ArticleList articles={articles} emptyMessage="Статей з цим тегом немає." lang="ua" />
   </div>
 </Base>
