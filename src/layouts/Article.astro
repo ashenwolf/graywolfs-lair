@@ -1,0 +1,62 @@
+---
+import Base from "./Base.astro";
+
+interface Props {
+  title: string;
+  date: Date;
+  tags: string[];
+  lang?: "en" | "ua";
+  category?: string;
+  image?: string;
+}
+
+const { title, date, tags, lang = "en", category, image } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  "software-engineering": "Software",
+  travel: "Travel",
+  life: "Life",
+};
+
+const tagBase = lang === "ua" ? "/ua/tags" : "/tags";
+---
+
+<Base title={title} lang={lang}>
+  {image && (
+    <div class="w-full max-h-96 overflow-hidden">
+      <img src={image} alt={title} class="w-full h-full object-cover" loading="eager" />
+    </div>
+  )}
+  <article class="max-w-3xl mx-auto px-8 py-12">
+    <header class="mb-8">
+      {category && (
+        <span class="text-xs font-semibold uppercase tracking-wider text-accent block mb-2">
+          {categoryLabels[category] ?? category}
+        </span>
+      )}
+      <h1 class="text-3xl font-bold mb-2">{title}</h1>
+      <time class="text-sm text-gray-500" datetime={date.toISOString()}>
+        {date.toLocaleDateString(lang === "ua" ? "uk-UA" : "en-US", {
+          year: "numeric",
+          month: "long",
+          day: "numeric",
+        })}
+      </time>
+      {tags.length > 0 && (
+        <div class="mt-3 flex flex-wrap gap-2">
+          {tags.map((tag) => (
+            <a
+              href={`${tagBase}/${tag}`}
+              class="text-sm bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200 transition-colors"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
+    </header>
+    <div class="prose prose-gray max-w-none">
+      <slot />
+    </div>
+  </article>
+</Base>

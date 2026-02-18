@@ -1,0 +1,38 @@
+---
+interface Props {
+  lang?: "en" | "ua";
+}
+
+const { lang = "en" } = Astro.props;
+const isUA = lang === "ua";
+const prefix = isUA ? "/ua" : "";
+
+const navLinks = [
+  { href: isUA ? "/ua" : "/", label: isUA ? "Головна" : "Home" },
+  { href: `${prefix}/photography`, label: isUA ? "Фото" : "Photography" },
+  { href: `${prefix}/cv`, label: "CV" },
+];
+
+const langToggle = isUA
+  ? { href: "/", label: "EN" }
+  : { href: "/ua", label: "UA" };
+---
+
+<header class="border-b border-gray-200 py-4">
+  <nav class="max-w-5xl mx-auto px-8 flex items-center justify-center gap-8">
+    {navLinks.map(({ href, label }) => (
+      <a
+        href={href}
+        class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+      >
+        {label}
+      </a>
+    ))}
+    <a
+      href={langToggle.href}
+      class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
+    >
+      {langToggle.label}
+    </a>
+  </nav>
+</header>

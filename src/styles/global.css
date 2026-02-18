@@ -1,0 +1,42 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+@theme {
+    --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+    --color-hero-bg: #e8edf2;
+    --color-accent: #2563eb;
+    --color-surface: #f8fafc;
+}
+
+@utility photo-glow {
+    box-shadow:
+        0 0 40px 8px rgba(37, 99, 235, 0.25),
+        0 0 80px 16px rgba(37, 99, 235, 0.12);
+}
+
+@utility container-inner {
+    max-width: 48rem;
+    margin-inline: auto;
+    padding-inline: 2rem;
+    padding-block: 2rem;
+    width: 100%;
+}
+
+@layer base {
+    html {
+        scroll-behavior: smooth;
+        font-size: 1.5rem;
+    }
+    body {
+        font-family: var(--font-sans);
+    }
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        font-family: var(--font-sans);
+        font-weight: 700;
+    }
+}

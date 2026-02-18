@@ -1,0 +1,59 @@
+---
+interface Props {
+  href: string;
+  title: string;
+  date: Date;
+  category?: string;
+  image?: string;
+  lang?: "en" | "ua";
+}
+
+const { href, title, date, category, image, lang = "en" } = Astro.props;
+
+const categoryLabels: Record<string, string> = {
+  "software-engineering": "Software",
+  travel: "Travel",
+  life: "Life",
+};
+
+const gradients: Record<string, string> = {
+  "software-engineering": "from-blue-400 to-indigo-600",
+  travel: "from-emerald-400 to-teal-600",
+  life: "from-violet-400 to-purple-600",
+};
+const gradient = (category && gradients[category]) ?? "from-gray-300 to-gray-400";
+---
+
+<a href={href} class="group block">
+  <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-surface">
+    {image ? (
+      <img
+        src={image}
+        alt={title}
+        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+        loading="lazy"
+      />
+    ) : (
+      <div class={`w-full h-full bg-gradient-to-br ${gradient}`}></div>
+    )}
+  </div>
+
+  <div class="flex items-center gap-2 mb-1">
+    {category && (
+      <span class="text-xs font-semibold uppercase tracking-wider text-accent">
+        {categoryLabels[category] ?? category}
+      </span>
+    )}
+    <time class="text-xs text-gray-400" datetime={date.toISOString()}>
+      {date.toLocaleDateString(lang === "ua" ? "uk-UA" : "en-US", {
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      })}
+    </time>
+  </div>
+
+  <h3 class="font-bold text-gray-900 leading-snug group-hover:text-accent transition-colors">
+    {title}
+  </h3>
+</a>
