@@ -1,8 +1,9 @@
 ---
 title: "Vi Assistant"
 date: 2009-01-19
-tags: ["assistant", "humor", "vi", "vim"]
+tags: ["assistant", "humor", "vi", "vim", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 ![Vim Assistant](http://www.vim.org/images/vimassistant.gif)

@@ -1,8 +1,9 @@
 ---
 title: "Google Play Music, Popcorn Time і всі, всі, всі"
 date: 2014-08-18
-tags: ["amazon cloud drive", "amazon cloud player", "cloud", "deezer", "google play music", "movie", "popcorn time", "spotify", "video", "музика"]
+tags: ["amazon cloud drive", "amazon cloud player", "cloud", "deezer", "google play music", "movie", "popcorn time", "spotify", "video", "музика", life]
 lang: ua
+category: life
 ---
 
 [![Olivia's Headphone Critique](https://farm9.staticflickr.com/8475/8111525026_ae97f420d2_z.jpg)](https://www.flickr.com/photos/evilpeacock/8111525026 "Olivia's Headphone Critique by Eric Peacock, on Flickr")

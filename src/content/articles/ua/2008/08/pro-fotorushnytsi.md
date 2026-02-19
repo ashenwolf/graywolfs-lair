@@ -1,8 +1,9 @@
 ---
 title: "Про фоторушниці..."
 date: 2008-08-28
-tags: ["camera", "ebay", "nikon", "nikon d80", "nikon d90", "Фото"]
+tags: ["camera", "ebay", "nikon", "nikon d80", "nikon d90", "Фото", life]
 lang: ua
+category: life
 ---
 
 Нарешті, це сталося. Як і пророчили на [DPreview](http://dpreview.com/) в серпні місяці [Nikon нарешті анонсувало](http://www.nikonusa.com/Find-Your-Nikon/Product/Digital-SLR/25446/D90.html) випуск нової моделі фотокамери в сегменті потужних любительських дзеркалок, а саме [Nikon D90](http://www.dpreview.com/previews/nikond90/). Попускав слюні на саму новинку, а там є на що: новий двигунчик обробки зображень (Exceed), якась нова технологія в автофокусуванні (3D Tracking AF), активний режим D-lighting (раніше це була післяобробка), Live View (тобто цю дзеркалку можна юзати як звичайну мильничку, користуючись LCD-дисплеєм як видошукачем), і нарешті це перша дзеркалка, яка може знімати відео (та ще й HDTV).  

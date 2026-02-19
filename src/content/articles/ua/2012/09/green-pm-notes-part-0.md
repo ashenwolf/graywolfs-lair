@@ -1,8 +1,9 @@
 ---
 title: "Нотатки зеленого ПМа. Частина нуль, або вирівнюємо систему координат"
 date: 2012-09-26
-tags: ["philosophy", "pjm", "sociology"]
+tags: ["philosophy", "pjm", "sociology", software-engineering]
 lang: ua
+category: "software-engineering"
 ---
 
 ![Geek and Poke: Управління проектами для чайників (ч. 29)](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358163/gnp-pjm-29_hboli8.gif)

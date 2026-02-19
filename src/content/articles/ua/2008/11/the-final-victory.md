@@ -1,8 +1,9 @@
 ---
 title: "\"The final victory has crushed the autumn silence\" (c)"
 date: 2008-11-27
-tags: ["haggard", "metal", "symphonic", "Музика"]
+tags: ["haggard", "metal", "symphonic", "Музика", life]
 lang: ua
+category: life
 ---
 
 [![](http://lh5.ggpht.com/_2EV_kdfT-JY/SS5yb6P3O3I/AAAAAAAACq8/LTFEYoT9qiQ/s220/PB260501.JPG "Asis (Haggard)")](http://picasaweb.google.com/ferrozer/20081126Haggard)  

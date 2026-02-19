@@ -1,8 +1,9 @@
 ---
 title: "Agile Eastern Europe. Season 3"
 date: 2011-10-14
-tags: ["agile", "conference", "training"]
+tags: ["agile", "conference", "training", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 ![Agileee logo](http://graywolf.org.ua/wp-content/uploads/2011/10/Agile_Logo_eee-300x127.png "Agileee logo")

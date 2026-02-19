@@ -1,8 +1,9 @@
 ---
 title: "Global East Open Air 2010"
 date: 2010-09-07
-tags: ["cruachan", "dark tranquillity", "diablo swing orchestra", "eluveitie", "fest", "global east open air", "global east rock festival", "haggard", "hammerfall", "metal", "moonspell", "obituary", "oomph", "rock", "rotting christ", "sabaton", "sirenia", "the gathering", "venom", "музика"]
+tags: ["cruachan", "dark tranquillity", "diablo swing orchestra", "eluveitie", "fest", "global east open air", "global east rock festival", "haggard", "hammerfall", "metal", "moonspell", "obituary", "oomph", "rock", "rotting christ", "sabaton", "sirenia", "the gathering", "venom", "музика", life]
 lang: ua
+category: life
 ---
 
 Три дні промайнули як мить з усіма своїми позитивними та негативними сторонами. Як завжди основний внесок у позитив зробили команди, що виступали на фесті (цього разу lineup був просто шикарним), негатив знову ж таки по традиції деякі недоліки організації.

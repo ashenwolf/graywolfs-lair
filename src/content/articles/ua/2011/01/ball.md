@@ -1,8 +1,9 @@
 ---
 title: "Бальне"
 date: 2011-01-04
-tags: ["ball", "dances", "fun", "танці"]
+tags: ["ball", "dances", "fun", "танці", life]
 lang: ua
+category: life
 ---
 
 [![Бал 'На Краю Світу...'. Афіша](http://res.cloudinary.com/dsic6qnnl/image/upload/h_300,w_211/v1503358536/afisha-ball_a9y7ne.jpg "Бал 'На Краю Світу...'. Афіша")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358536/afisha-ball_a9y7ne.jpg)

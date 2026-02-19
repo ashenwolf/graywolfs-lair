@@ -1,8 +1,9 @@
 ---
 title: "Skyrim, скрипки та дівчата"
 date: 2012-04-13
-tags: ["lindseystomp", "soundtrack", "video", "violin", "violintay", "youtube", "музика", "скрипка"]
+tags: ["lindseystomp", "soundtrack", "video", "violin", "violintay", "youtube", "музика", "скрипка", life]
 lang: ua
+category: life
 ---
 
 Останнім часом помітив, що дуже багатьом людям сподобався саундтрек до [Skyrim](http://uk.wikipedia.org/wiki/The_Elder_Scrolls_V:_Skyrim) і його переспіви стали з’являтись як гриби після дощу.

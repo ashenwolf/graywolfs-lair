@@ -1,8 +1,9 @@
 ---
 title: "Квітневий Крим 2011, або три пори року за три дні"
 date: 2011-04-26
-tags: ["backpacking", "crimea", "trip", "ukraine", "Фото"]
+tags: ["backpacking", "crimea", "trip", "ukraine", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![On the Road](http://farm6.static.flickr.com/5142/5645987054_51542c3465.jpg)](http://www.flickr.com/photos/ashenwolf/5645987054/ "On the Road")  

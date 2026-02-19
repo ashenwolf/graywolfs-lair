@@ -1,8 +1,9 @@
 ---
 title: "Google App Engine + Django"
 date: 2010-04-08
-tags: ["appengine", "django", "GAE", "gaeutilities", "google", "itblog-ua", "zipimport"]
+tags: ["appengine", "django", "GAE", "gaeutilities", "google", "itblog-ua", "zipimport", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 ![django-logo-negative](http://res.cloudinary.com/dsic6qnnl/image/upload/h_137,w_300/v1503359204/django-logo-negative_mf4xo8.png "django-logo-negative")

@@ -1,8 +1,9 @@
 ---
 title: "Mercurial саторі. Частина 2"
 date: 2010-09-09
-tags: ["dvcs", "howto", "itblog-ua", "mercurial", "tortoisehg", "vcs", "winmerge"]
+tags: ["dvcs", "howto", "itblog-ua", "mercurial", "tortoisehg", "vcs", "winmerge", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 [![TortoiseHG](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358970/tortoisehg-logo_f86ins.png "TortoiseHG")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358970/tortoisehg-logo_f86ins.png)

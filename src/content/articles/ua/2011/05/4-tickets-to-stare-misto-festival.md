@@ -1,8 +1,9 @@
 ---
 title: "Чотири квитки на Старе Місто просяться в гарні руки :)"
 date: 2011-05-16
-tags: ["fest", "festival", "Lviv", "Stare Misto", "ukraine", "музика"]
+tags: ["fest", "festival", "Lviv", "Stare Misto", "ukraine", "музика", life]
 lang: ua
+category: life
 ---
 
 [![Poets of the Fall](http://res.cloudinary.com/dsic6qnnl/image/upload/h_272,w_300/v1503361879/potf_promo_2010_band_dgviz1.jpg "Poets of the Fall")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358523/potf_promo_2010_band_rnsnqu.jpg) Незадовго до травневих свят мну придбав 4 квитки в першу фан-зону на [фестиваль “Старе місто”](http://www.stare-misto.ua/ua/festival), що відбудеться у Львові 28 травня. Але “Акелла прмахнулся” (с), бо виявилось, що я в той час буду поза межами України, а JR з Лєною будуть зайняті своїми справами. Так що шукаю когось, хто дуже хоче побачити наживо _Poets of the Fall_ (я особисто їхав би суто заради них), _No Smoking Orchestra_ Кустуріци, _IAMX_[та інших](http://www.stare-misto.ua/ua/program). Я купляв їх по 120 грн., але враховуючи, що мені треба їх позбутись за тиждень – віддам дешевше.

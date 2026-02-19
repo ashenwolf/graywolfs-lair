@@ -1,8 +1,9 @@
 ---
 title: "Світанковий туман"
 date: 2012-12-19
-tags: ["art", "натхнення", "Фото"]
+tags: ["art", "натхнення", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![](http://farm9.staticflickr.com/8485/8158491399_083c226168.jpg)](http://www.flickr.com/photos/andreybk/8158491399/ "graywolf's flickr photoalbum")

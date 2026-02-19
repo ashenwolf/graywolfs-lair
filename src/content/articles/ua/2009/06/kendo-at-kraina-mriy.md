@@ -1,8 +1,9 @@
 ---
 title: "Кендо на Країні мрій"
 date: 2009-06-19
-tags: ["ethnic", "fest", "folk", "kendo", "кендо", "фест", "фолк"]
+tags: ["ethnic", "fest", "folk", "kendo", "кендо", "фест", "фолк", life]
 lang: ua
+category: life
 ---
 
 ![Kendo, men strike by andhong09](http://farm3.static.flickr.com/2282/2393328669_947d873c03.jpg "Kendo, men strike")  

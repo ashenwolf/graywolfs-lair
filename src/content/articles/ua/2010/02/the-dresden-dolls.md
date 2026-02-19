@@ -1,8 +1,9 @@
 ---
 title: "The Dresden Dolls"
 date: 2010-02-12
-tags: ["alternative", "art rock", "duo", "pop", "progressive", "punk cabaret", "rock", "музика", "панк-кабаре"]
+tags: ["alternative", "art rock", "duo", "pop", "progressive", "punk cabaret", "rock", "музика", "панк-кабаре", life]
 lang: ua
+category: life
 ---
 
 [![The Dresden Dolls](http://res.cloudinary.com/dsic6qnnl/image/upload/h_300,w_199/v1503359269/The_Dresden_Dolls_iaiv04.jpg "The Dresden Dolls")](http://en.wikipedia.org/wiki/The_Dresden_Dolls)

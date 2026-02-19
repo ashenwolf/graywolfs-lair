@@ -1,8 +1,9 @@
 ---
 title: "Вихідневе..."
 date: 2009-02-23
-tags: ["Add new tag", "anime-party", "dell", "dell latitude e6500", "notebook", "Аніме"]
+tags: ["Add new tag", "anime-party", "dell", "dell latitude e6500", "notebook", "Аніме", life]
 lang: ua
+category: life
 ---
 
 Досить такі продуктивні вихідні були… Знайшли нову хату і підписали контракт. Так що на наступних вихідних переїжджаємо в трьошку на Позняках. На роботу добиратися буде дещо складніше, але зрештою можна потерпіти.

@@ -1,8 +1,9 @@
 ---
 title: "Slayer та Megadeth в Києві"
 date: 2010-12-22
-tags: ["Megadeth", "metal", "rock", "Slayer", "рок"]
+tags: ["Megadeth", "metal", "rock", "Slayer", "рок", life]
 lang: ua
+category: life
 ---
 
 ![](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361860/72_logo1_hyn99a.jpg "Slayer logo") Читаю тут собі музичні новини, дивлюсь [відик про те, що Том Арая (бас та вокал Слеєр) зав’язав з хедбегінгом](http://www.youtube.com/watch?v=YN3F8aiVRJs) із-за проблем з шиєю і тут в кінці чую: “They be heading a road with Megadeth for the [European Carnage Tour](http://www.megadeth.com/killingroad.php) which starts March 13 in Ukraine”. Спочатку подумав, що останнє слово почулось. Перекрутив назад, прослухав ще раз. Потім ще раз. Потім поліз на [Фростер](http://froster.org/) і таки да! _13 березня 2011 в міжнародному виставковому центрі_, в рамках туру European Carnage виступатимуть гурти [Slayer](http://metal-archives.com/band.php?id=72) та [Megadeth](http://metal-archives.com/band.php?id=138). Дві з великої четвірки американських треш-гуртів до якої також входять _Metallica_ та _Anthrax_. При чому для мну Слеєр з цієї четвірки – №1 з великим відривом від найближчих переслідувачів. Я їх мріяв побачити і послухати наживо вже хз скільки років. Квитки, правда, дорогі: 400 грн. – загальна зона і 650 грн. – фан, але воно має бути того варте.

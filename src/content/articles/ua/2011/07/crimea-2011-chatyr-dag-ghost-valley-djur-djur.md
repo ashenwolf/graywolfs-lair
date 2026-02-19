@@ -1,8 +1,9 @@
 ---
 title: "Травневий Крим 2011: Чатир-Даг, Долина Привидів, Джурла, Джур-Джур, Чигінітра"
 date: 2011-07-01
-tags: ["crimea", "hiking", "trip", "Крим", "подорожі", "Фото"]
+tags: ["crimea", "hiking", "trip", "Крим", "подорожі", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![Ghost Valley](http://farm6.static.flickr.com/5239/5878303415_a1ff1ea682.jpg)](http://www.flickr.com/photos/ashenwolf/5878303415/ "Ghost Valley")

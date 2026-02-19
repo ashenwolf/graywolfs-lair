@@ -1,8 +1,9 @@
 ---
 title: "\"Парк Київська Русь\""
 date: 2010-04-28
-tags: ["ceremony", "folk", "kyiv rus", "medieval", "park", "ukrainian", "Київська русь", "парк", "середньовіччя", "Україна", "Фото"]
+tags: ["ceremony", "folk", "kyiv rus", "medieval", "park", "ukrainian", "Київська русь", "парк", "середньовіччя", "Україна", "Фото", life]
 lang: ua
+category: life
 ---
 
 ![Парк Київська Русь](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361816/park-kyiv-rus_jylayg.png "Парк Київська Русь")

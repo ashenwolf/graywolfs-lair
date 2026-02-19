@@ -1,8 +1,9 @@
 ---
 title: "Весняний та сонячний Кам'янець"
 date: 2012-06-21
-tags: ["castle", "kamianets", "landscape", "tour", "trip", "євро", "замок", "кам'янець", "Фото"]
+tags: ["castle", "kamianets", "landscape", "tour", "trip", "євро", "замок", "кам'янець", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![The View on Kamianets Castle](http://farm6.staticflickr.com/5346/7416242614_46b28ebe49_z.jpg)](http://www.flickr.com/photos/ashenwolf/7416242614 "The View on Kamianets Castle")

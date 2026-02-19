@@ -1,8 +1,9 @@
 ---
 title: "Мобілізуємо блог"
 date: 2008-08-06
-tags: ["browser", "itblog-ua", "mobile", "phone", "site", "startup", "web"]
+tags: ["browser", "itblog-ua", "mobile", "phone", "site", "startup", "web", life]
 lang: ua
+category: life
 ---
 
 [![Мобільний сайт під управлянням MoFuse. Попередній перегляд сторінки на емуляторі.](http://graywolf.org.ua/wp-content/uploads/2008/08/mofuse-0-160x300.jpg "Mobile site powered by MoFuse")](http://graywolf.org.ua/wp-content/uploads/2008/08/mofuse-0.jpg)Ні, не в армію ми його будемо мобілізувати, а всього-на-всього зробимо придатним для відображення на маленьких екранах мобільних телефонів за допомогою одного цікавого стартапу під назвою [MoFuse](http://www.mofuse.com/). Про потужність і надійність сервісу говорить той факт, що його використовують такі не останні в Інтернеті сайти як [ReadWriteWeb](http://www.readwriteweb.com/), [ReadBurner](http://www.readburner.com/), [Mashable](http://mashable.com/) та багато інших. Завдяки ньому можна зробити гарну мобільну версію вашого блогу всього за кілька хвилин, що я зараз і постараюсь більш-менш детально описати. Тож запускайте секундомір і починемо.

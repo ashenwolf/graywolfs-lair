@@ -1,8 +1,9 @@
 ---
 title: "Equilibrio. The rock opera"
 date: 2009-06-08
-tags: ["epica", "Equilibrio", "metal", "opera", "rock", "xystus", "музика", "опера"]
+tags: ["epica", "Equilibrio", "metal", "opera", "rock", "xystus", "музика", "опера", life]
 lang: ua
+category: life
 ---
 
 Давно щось про музику не писав. Чи це мені так здається? Як би то не було, сьогодні хочу поділитись однією цікавинкою, про яку просто не можу промовчати.

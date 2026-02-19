@@ -1,8 +1,9 @@
 ---
 title: "Horo the Wise cosplay"
 date: 2010-01-20
-tags: ["cosplay", "Holo", "Horo", "Spice and Wolf", "wolf", "Аніме", "косплей", "Холо", "Хоро"]
+tags: ["cosplay", "Holo", "Horo", "Spice and Wolf", "wolf", "Аніме", "косплей", "Холо", "Хоро", life]
 lang: ua
+category: life
 ---
 
 [![Horo the Wise cosplay](http://farm5.static.flickr.com/4039/4289153048_567b07498b.jpg)](http://www.flickr.com/photos/ashenwolf/4289153048/ "graywolf's flickr photoalbum") [![Horo the Wise cosplay](http://farm5.static.flickr.com/4053/4288411389_ce9e7d275f.jpg)](http://www.flickr.com/photos/ashenwolf/4288411389/ "Horo the Wise cosplay by Wolfhowl, on Flickr")  

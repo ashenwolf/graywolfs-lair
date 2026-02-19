@@ -1,8 +1,9 @@
 ---
 title: "Ідеї як ДНК"
 date: 2017-08-27
-tags: ["Блог", "Ідеї", "філософія"]
+tags: ["Блог", "Ідеї", "філософія", life]
 lang: ua
+category: life
 image: "/assets/images/2018/05/Depositphotos_158489244_m-2015.jpg"
 featured: true
 draft: true

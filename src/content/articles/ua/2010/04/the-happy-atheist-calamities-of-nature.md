@@ -1,8 +1,9 @@
 ---
 title: "Щасливий атеїст (\"Природні лиха\")"
 date: 2010-04-08
-tags: ["calamities of nature", "comics", "god", "philosophy", "religion", "webcomic", "релігія", "філософія"]
+tags: ["calamities of nature", "comics", "god", "philosophy", "religion", "webcomic", "релігія", "філософія", life]
 lang: ua
+category: life
 ---
 
 Ще один переклад “Лих природи”. Тут, правда, я не зміг гарно перекласти сенс. Все-таки прямі переклади слів “unsettling” та “empowering” це трохи не те, про що малося на увазі (на мою думку, звісно).

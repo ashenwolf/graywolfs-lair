@@ -1,8 +1,9 @@
 ---
 title: "Країна за спільний кошт"
 date: 2015-03-16
-tags: ["croudfunding", "влада", "держава", "податки", "філософія"]
+tags: ["croudfunding", "влада", "держава", "податки", "філософія", life]
 lang: ua
+category: life
 ---
 
 [![Baloons](http://res.cloudinary.com/dsic6qnnl/image/upload/h_366,w_620/v1503362157/Depositphotos_18376849_original_tlk3fw.jpg)](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503357319/Depositphotos_18376849_original-e1426540104897_zk93zd.jpg)

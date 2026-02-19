@@ -1,8 +1,9 @@
 ---
 title: "Сніжні вихідні"
 date: 2010-02-11
-tags: ["fun", "mountains", "ski", "weekend", "відпочинок", "вихідні"]
+tags: ["fun", "mountains", "ski", "weekend", "відпочинок", "вихідні", life]
 lang: ua
+category: life
 ---
 
 ![Ski & Snowboard](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359278/ski-snowboard_eeabum.png "Ski & Snowboard")

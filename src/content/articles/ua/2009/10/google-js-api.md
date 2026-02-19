@@ -1,8 +1,9 @@
 ---
 title: "Google JS API"
 date: 2009-10-22
-tags: ["api", "google", "javascript", "jquery", "js"]
+tags: ["api", "google", "javascript", "jquery", "js", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 ![Google Code](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359651/code_logo_vje0rh.png "Google Code")Ті, хто займаються Вебом, звісно, давно знають про цю фічу, тому я публікую це не стільки в розрахунку на когось, скільки на згадку собі, бо задовбався при створоенні кожного нового сайту шукати в шаблонах старих сайтів ці заповітні декілька рядків:

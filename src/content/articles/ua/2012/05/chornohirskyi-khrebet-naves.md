@@ -1,8 +1,9 @@
 ---
 title: "Чорногірський хребет навесні (вид зі Смотрича)"
 date: 2012-05-06
-tags: ["Chornohora ridge", "панорама", "Фото", "Чорногірський хребет", "чорногора"]
+tags: ["Chornohora ridge", "панорама", "Фото", "Чорногірський хребет", "чорногора", life]
 lang: ua
+category: life
 ---
 
 [![](http://farm9.staticflickr.com/8162/7147893581_5369b7d233.jpg)](http://www.flickr.com/photos/ashenwolf/7147893581/ "graywolf's flickr photoalbum")  

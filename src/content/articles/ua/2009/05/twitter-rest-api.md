@@ -1,8 +1,9 @@
 ---
 title: "Приклад використання Twitter REST API"
 date: 2009-05-13
-tags: ["api", "bit.ly", "python", "rest", "tricks", "twitter"]
+tags: ["api", "bit.ly", "python", "rest", "tricks", "twitter", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 [![](http://www.python.org/images/python-logo.gif "Python logo")](http://www.python.org/)

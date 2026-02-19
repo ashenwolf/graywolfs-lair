@@ -1,8 +1,9 @@
 ---
 title: "Як мови впливають на наше мислення"
 date: 2015-03-14
-tags: ["англійська", "гіпотеза сапір-ворфа", "мови", "освіта"]
+tags: ["англійська", "гіпотеза сапір-ворфа", "мови", "освіта", life]
 lang: ua
+category: life
 ---
 
 _[![TED languages think](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503357327/language-think_xalfqx.png)](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503357327/language-think_xalfqx.png)_

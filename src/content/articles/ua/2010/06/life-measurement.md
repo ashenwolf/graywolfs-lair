@@ -1,8 +1,9 @@
 ---
 title: "Чим вимірюється життя?"
 date: 2010-06-02
-tags: ["mclaren", "philosophy", "quote"]
+tags: ["mclaren", "philosophy", "quote", life]
 lang: ua
+category: life
 ---
 
 ![Bruce McLaren quote](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361826/intro-quote_qbluhg.jpg "Bruce McLaren quote")

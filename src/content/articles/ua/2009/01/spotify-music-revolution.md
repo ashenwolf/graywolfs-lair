@@ -1,8 +1,9 @@
 ---
 title: "Spotify: нарешті музична революція?"
 date: 2009-01-05
-tags: ["itblog-ua", "p2p", "spotify", "torrent", "інтернет", "музика"]
+tags: ["itblog-ua", "p2p", "spotify", "torrent", "інтернет", "музика", life]
 lang: ua
+category: life
 ---
 
 ![Spotify](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361686/spotify_mj2ev1.png "Spotify")

@@ -1,8 +1,9 @@
 ---
 title: "Code WTF #3"
 date: 2008-12-18
-tags: ["wtf"]
+tags: ["wtf", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 Сьогодні ще цікавого надибав:

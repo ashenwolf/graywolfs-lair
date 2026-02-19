@@ -1,8 +1,9 @@
 ---
 title: "Міста та амбіції"
 date: 2011-07-26
-tags: ["philosophy", "переклад", "Переклади", "Пол Грем", "філософія"]
+tags: ["philosophy", "переклад", "Переклади", "Пол Грем", "філософія", life]
 lang: ua
+category: life
 ---
 
 [![Not Hacked](http://farm2.static.flickr.com/1188/4723667921_d9b96a79b5.jpg)](http://www.flickr.com/photos/gomattolson/4723667921/ "Not Hacked by gomattolson, on Flickr")

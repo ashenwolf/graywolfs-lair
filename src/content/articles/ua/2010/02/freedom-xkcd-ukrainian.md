@@ -1,8 +1,9 @@
 ---
 title: "Свобода (xkcd)"
 date: 2010-02-24
-tags: ["freedom", "webcomic", "xkcd", "свобода"]
+tags: ["freedom", "webcomic", "xkcd", "свобода", life]
 lang: ua
+category: life
 ---
 
 [![Freedom (xkcd українською)](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359239/xkcd-freedom_sdyiak.png "Інколи мене просто лякає скільки можливостей мають інші люди.")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359239/xkcd-freedom_sdyiak.png)
