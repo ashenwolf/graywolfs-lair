@@ -2,7 +2,7 @@
 @plugin "@tailwindcss/typography";
 
 @theme {
-    --font-sans: "Rubik", ui-sans-serif, system-ui, sans-serif;
+    --font-sans: "Noto Serif", ui-serif, Georgia, serif;
     --color-hero-bg: #e8edf2;
     --color-accent: #2563eb;
     --color-surface: #f8fafc;
