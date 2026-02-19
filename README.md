@@ -1,79 +1,104 @@
 # Gulenok's blog
 
-This is a package for my new blog. It will contain:
-- Articles and pages
-- Blog UI
-- Scripts for automation and migration of the data (I have a previous blog on Ghost that I need to import)
+A bilingual (English + Ukrainian) static blog built with Astro 5, deployed to Cloudflare Pages.
 
-## Planned features
+## Stack
 
-- Powered by Astro
-- Deployed via Cloudflare Pages using the `@astrojs/cloudflare` adapter
-- Clean Tailwind-based UI
-- Blog posts written in Markdown, edited in Obsidian
-- Mermaid diagrams rendered client-side via `mermaid` loaded from CDN — compatible with Obsidian's ` ```mermaid ` fenced blocks, no build-time browser dependency
-- Excalidraw images converted to SVG at build time via a script in `tools/scripts/` using `excalidraw-to-svg`, output to `public/assets/excalidraw/`
-- Obsidian transclusions (`![[file.excalidraw]]`, `![[image.png]]`) resolved to `<img>` tags via a custom remark plugin
+- **Astro 5** — static site generation
+- **Tailwind CSS v4** — configured in `src/styles/global.css` via `@theme`/`@utility`/`@layer`; no `tailwind.config.*` file
+- **Cloudflare Pages** via `@astrojs/cloudflare` adapter
+- Content authored in **Markdown**, edited in **Obsidian**
 
-### Build pipeline (Cloudflare Pages)
+## Commands
 
 ```bash
-node tools/scripts/convert-excalidraw.js && astro build
+npm run dev          # Start dev server
+npm run build        # Build (clears Astro cache, then astro build)
+npm run preview      # Preview production build locally
 ```
 
-This runs on every deploy to `main`, so Excalidraw conversion happens automatically.
-
-## Planned folder structure
+## Folder structure
 
 ```
 src/
   content/
     articles/
-      ua/              # ukrainian
-      en/              # english
-    pages/             # static pages (about, etc.)
-  pages/               # Astro route pages (.astro files)
-  layouts/             # layout components
+      en/              # English articles (organized by year/month)
+      ua/              # Ukrainian articles (organized by year/month)
+    pages/             # Static pages (about, etc.)
+  pages/               # Astro route files
+    ua/                # Ukrainian routes (/ua/*)
+  layouts/             # Base.astro, Article.astro
   components/          # UI components
-  styles/              # Tailwind styles
+  plugins/             # Custom remark plugins
+  styles/              # global.css (Tailwind theme)
+  utils/               # articleUrls.ts
 public/
-  assets/              # static assets by date of post
-    YYYY/
-      MM/
-        DD/
-tools/                 # various tools, not deployed
-  scripts/
+  assets/              # Static images (YYYY/MM/DD/)
+    excalidraw/        # Generated at build time (gitignored)
+    mermaid/           # Generated at build time (gitignored)
+tools/
+  scripts/             # Utility and migration scripts (not deployed)
 ```
 
-## Ghost 0.x migration
+## Routing
 
-The previous blog runs on Ghost 0.x with a SQLite database. A one-time migration script at `tools/scripts/migrate-ghost.js` will:
+The site is bilingual. English routes are at the root; Ukrainian routes are under `/ua/`:
 
-1. Read the Ghost SQLite file using `better-sqlite3`
-2. Extract posts from the `posts` table — title, slug, markdown body, `published_at`, status, and language
-3. Convert Ghost's markdown/HTML content to clean markdown compatible with Astro content collections
-4. Download referenced images and save them to `public/assets/YYYY/MM/DD/`
-5. Generate frontmatter (title, slug, date, tags, language, draft status) and write each post to `src/content/articles/{lang}/`
+| Route | File |
+|-------|------|
+| `/` | `src/pages/index.astro` |
+| `/tags` | `src/pages/tags/index.astro` |
+| `/tags/[tag]` | `src/pages/tags/[tag].astro` |
+| `/category/[category]` | `src/pages/category/[category].astro` |
+| `/cv` | `src/pages/cv.astro` |
+| `/photography` | `src/pages/photography/index.astro` |
+| `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
+| `/ua/*` | mirrors the above under `src/pages/ua/` |
 
+Article URLs are date-based (`/YYYY/MM/DD/slug`), generated from frontmatter `date` and filename. See `src/utils/articleUrls.ts`.
+
+## Content collections
+
+Defined in `src/content.config.ts`:
+
+**`articles`** — `src/content/articles/**/*.md` (excludes `*.excalidraw.md`)
+- `title` (required), `date` (required), `tags` (default `[]`), `lang` (`en`|`ua`, default `en`), `draft` (default `false`), `description`, `category` (`software-engineering`|`travel`|`life`), `image`
+
+**`pages`** — `src/content/pages/**/*.md`
+- `title` (required)
+
+## Custom remark plugins
+
+**`remark-obsidian-embeds.js`** — resolves Obsidian `![[filename]]` transclusions:
+- Regular images → `<img>` tags (searched recursively in `public/assets/`)
+- `![[name|500px]]` → image with width set
+- `![[name.excalidraw]]` → converts the source file to SVG at build time (see below)
+
+**`remark-mermaid.js`** — renders ` ```mermaid ` blocks to static SVGs using `beautiful-mermaid`, output to `public/assets/mermaid/` with content-hashed filenames.
+
+## Excalidraw pipeline
+
+When `remark-obsidian-embeds.js` encounters a `![[name.excalidraw]]` embed it:
+1. Locates the `.excalidraw.md` source file (searches from article's directory upward through `src/content/`)
+2. Decompresses the embedded Excalidraw JSON
+3. Converts to SVG via `excalidraw-to-svg`, embeds fonts as base64 data URIs
+4. Applies two upstream bug fixes (wrong font-family, `y="NaN"` on text elements)
+5. Writes the result to `public/assets/excalidraw/`
+
+The standalone `tools/scripts/convert-excalidraw.js` still exists as a utility but is not part of the build.
+
+## Tools
+
+**`tools/scripts/migrate-ghost.js`** — one-time Ghost 0.x → Astro migration:
 ```bash
-# run the migration (one-time)
-node tools/scripts/migrate-ghost.js --db path/to/ghost.db
+node tools/scripts/migrate-ghost.js --db path/to/ghost.db [--ghost-url URL] [--dry-run] [--lang en|ua] [--add-tags tag1,tag2] [--category software-engineering|travel|life]
 ```
+Reads the Ghost SQLite file, converts HTML to Markdown via `turndown`, downloads images, and writes article Markdown files with frontmatter.
 
-The SQLite file should not be committed to the repo — add it to `.gitignore`.
-
-## Getting started
-
+**`tools/scripts/add-categories.js`** — backfills `category` frontmatter on existing articles based on tags:
 ```bash
-# scaffold the Astro project
-npm create astro@latest
-
-# install dependencies
-npm install
-
-# start the dev server
-npm run dev
-
-# build for production
-npm run build
+node tools/scripts/add-categories.js [--dry-run] [--force]
 ```
+
+**`tools/scripts/convert-excalidraw.js`** — standalone Excalidraw → SVG converter (same logic as the remark plugin).
