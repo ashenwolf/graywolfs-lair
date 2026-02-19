@@ -20,7 +20,7 @@ const byCategory = (cat: string) =>
 
   <!-- Hero -->
   <section class="bg-hero-bg w-full">
-    <div class="max-w-5xl mx-auto px-8 py-8 flex flex-col md:flex-row items-stretch gap-12">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 py-8 flex flex-col md:flex-row items-stretch gap-12">
       <div class="flex-1 min-w-0 flex flex-col justify-center">
         <h1 class="text-4xl md:text-5xl font-extrabold mb-5 leading-tight tracking-tight">
           Привіт, я Сергій Гуленок
@@ -44,7 +44,7 @@ const byCategory = (cat: string) =>
   </section>
 
   <!-- Latest Articles -->
-  <section class="max-w-5xl mx-auto px-8 py-16">
+  <section class="max-w-5xl mx-auto px-4 sm:px-8 py-16">
     <h2 class="text-2xl font-bold mb-8">Нові статті</h2>
     {latestArticles.length > 0 ? (
       <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -65,7 +65,7 @@ const byCategory = (cat: string) =>
   </section>
 
   <!-- Category sections -->
-  <div class="max-w-5xl mx-auto px-8 pb-16">
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 pb-16">
     <SectionBlock
       title="Розробка ПЗ"
       description="Занурення в код, архітектуру та ремесло створення програм."
