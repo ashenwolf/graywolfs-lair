@@ -1,8 +1,9 @@
 ---
 title: "C.C. from \"Code Geass\" by Bellatrix Aiden"
 date: 2009-08-24
-tags: ["beauty", "c.c.", "code geass", "cosplay", "model", "Аніме", "Фото"]
+tags: ["beauty", "c.c.", "code geass", "cosplay", "model", "Аніме", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![](http://farm4.static.flickr.com/3506/3850670252_88576c7f22.jpg)](http://www.flickr.com/photos/ashenwolf/3850670252/ "graywolf's flickr photoalbum")  

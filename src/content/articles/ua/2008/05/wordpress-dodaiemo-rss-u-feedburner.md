@@ -1,8 +1,9 @@
 ---
 title: "Wordpress: додаємо RSS у FeedBurner"
 date: 2008-05-09
-tags: ["category filtering", "feedburner", "feeds", "filtering", "htaccess", "itblog-ua", "rss", "rss aggregator", "tag filtering", "tip", "wordpress"]
+tags: ["category filtering", "feedburner", "feeds", "filtering", "htaccess", "itblog-ua", "rss", "rss aggregator", "tag filtering", "tip", "wordpress", life]
 lang: ua
+category: life
 ---
 
 Захотілося мені нещодавно додати свою [RSS](http://graywolf.org.ua/feed/)\-ку з блогу у [Feedburner](http://feedburner.com/) для статистики. Здавалося б: немає нічого простіше, адже для цього у Вордпреса є навіть [спеціальний плагін](http://www.google.com/support/feedburner/bin/topic.py?topic=13252). Та насправді не все йде по маслу, якщо ви використовуєте фільтрацію по тегам чи категоріям (tag/category filtering), а плагін редіректить будь-який feed (повний він чи фільтрований) на повний feed у Фідбьорнері. Ясно було, що потрібно якось їх розмежувати, наприклад, за допомогою файлу _.htaccess_. Покопавшись трохи в інеті знайшов-таки симпатичне рішення:

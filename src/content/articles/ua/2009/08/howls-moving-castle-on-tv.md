@@ -1,8 +1,9 @@
 ---
 title: "Мандрівний замок від Хаяо Міядзакі на ТБ"
 date: 2009-08-21
-tags: ["download", "torrent", "tv", "Аніме", "Міядзакі"]
+tags: ["download", "torrent", "tv", "Аніме", "Міядзакі", life]
 lang: ua
+category: life
 ---
 
 Стараннями панянок [Світанкової](http://lana-svitankova.livejournal.com/) та [Бережної](http://berezhna.livejournal.com/) на світ з’явився переклад чарівної казки від справжнього маестро анімації [Хаяо Міядзакі](http://uk.wikipedia.org/wiki/%D0%9C%D1%96%D1%8F%D0%B4%D0%B7%D0%B0%D0%BA%D1%96_%D0%A5%D0%B0%D1%8F%D0%BE) знятому за мотивами однойменного твору англійської письменниці _Діани Джонс_: [“Мандрівний замок Гаула”](http://uk.wikipedia.org/wiki/%D0%A5%D0%BE%D0%B4%D1%8F%D1%87%D0%B8%D0%B9_%D0%B7%D0%B0%D0%BC%D0%BE%D0%BA_%D0%A5%D0%B0%D1%83%D0%BB%D0%B0).

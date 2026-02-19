@@ -1,8 +1,9 @@
 ---
 title: "Дівчатам з найкращими побажаннями"
 date: 2010-03-08
-tags: ["azalea", "flowers", "азалії", "квіти", "привітання", "Фото"]
+tags: ["azalea", "flowers", "азалії", "квіти", "привітання", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![Азалія](http://farm5.static.flickr.com/4043/4416524387_d825a5c55f.jpg)](http://www.flickr.com/photos/ashenwolf/4416524387/ "Азалія")

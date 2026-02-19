@@ -1,8 +1,9 @@
 ---
 title: "Вебкомікс \"Природні лиха\""
 date: 2010-01-30
-tags: ["calamities of nature", "comics", "fun", "geek and poke", "nemi", "webcomic", "xkcd", "українською"]
+tags: ["calamities of nature", "comics", "fun", "geek and poke", "nemi", "webcomic", "xkcd", "українською", life]
 lang: ua
+category: life
 ---
 
 Нещодавно давно наштовхнувся на сабж: [Calamities of Nature](http://www.calamitiesofnature.com/), додав до свого списку із [xkcd](http://xkcd.com/), [Geek and Poke](http://geekandpoke.typepad.com/) та [Немі](http://community.livejournal.com/ru_nemi/). Судячи по останнім стріпам, місцями досить непоганий. Ось для прикладу:

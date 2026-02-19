@@ -1,8 +1,9 @@
 ---
 title: "Kredobank iFobs з iSignDesktop на Mac"
 date: 2020-09-17
-tags: ["kredobank", "fobs", "java", "isigndesktop", "банк", "кредобанк"]
+tags: ["kredobank", "fobs", "java", "isigndesktop", "банк", "кредобанк", life]
 lang: ua
+category: life
 image: "/assets/images/2020/09/Screenshot-2020-09-17-at-18.28.00.png"
 description: "Невелика інструкція як запустити web-версію iFobs від Кредобанка (та інших банків) на Mac."
 ---

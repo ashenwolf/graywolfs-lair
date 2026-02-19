@@ -1,8 +1,9 @@
 ---
 title: "Анімаційне"
 date: 2010-11-05
-tags: ["animation", "big buck bunny", "blender", "elephants dream", "movie", "open movie project", "sintel", "the secret of kells", "Аніме"]
+tags: ["animation", "big buck bunny", "blender", "elephants dream", "movie", "open movie project", "sintel", "the secret of kells", "Аніме", life]
 lang: ua
+category: life
 ---
 
 ![Sintel](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358729/sintel_cover_vyasyg.jpg)

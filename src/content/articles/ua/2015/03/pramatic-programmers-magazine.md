@@ -1,8 +1,9 @@
 ---
 title: "Прагматично-програмістський журнал"
 date: 2015-03-14
-tags: ["pragmatic bookshelf", "журнал", "література", "програмування"]
+tags: ["pragmatic bookshelf", "журнал", "література", "програмування", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 [![An IT kid](http://res.cloudinary.com/dsic6qnnl/image/upload/h_421,w_620/v1503357336/Depositphotos_7682771_original-e1426339795980_a9an9m.jpg)](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503357336/Depositphotos_7682771_original-e1426339795980_a9an9m.jpg)

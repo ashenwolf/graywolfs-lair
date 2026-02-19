@@ -1,8 +1,9 @@
 ---
 title: "The nature is..."
 date: 2009-10-25
-tags: ["flickr", "Imapix", "landscapes", "nature", "Фото"]
+tags: ["flickr", "Imapix", "landscapes", "nature", "Фото", life]
 lang: ua
+category: life
 ---
 
 Сьогодні на [Флікрі](http://flickr.com/) надибав просто фантастичний [фотосет](http://www.flickr.com/photos/lesec/sets/72157607097992661/) зі знімками природи: пейзажі, звірі, тощо… Самі фото кльові, плюс шикарна післяобробка – яскраві насичені кольори, просто казка якась. Я ледь спинився додаючи якщо не кожну, то через одну-дві фотографії собі у фейворітси на Флікрі. Чорт, аж не віриться, що цей фотограф теж любитель. А ось лінк на весь його фотострім: [Imapix’s Flickr photostream](http://www.flickr.com/photos/lesec/).

@@ -1,8 +1,9 @@
 ---
 title: "Children Who Chase Lost Voices From Deep Below, або Шінкай - \"бобік здох\"?"
 date: 2011-11-08
-tags: ["review", "Аніме"]
+tags: ["review", "Аніме", life]
 lang: ua
+category: life
 ---
 
 [![Hoshi wo ou Kodomo](http://graywolf.org.ua/wp-content/uploads/2011/11/hoshi-wo-ou-kodomo.jpg "Hoshi wo ou Kodomo")](http://graywolf.org.ua/wp-content/uploads/2011/11/hoshi-wo-ou-kodomo.jpg)

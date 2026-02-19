@@ -1,8 +1,9 @@
 ---
 title: "Підсумки 2010, погляд на 2011"
 date: 2011-01-02
-tags: ["2010", "2011", "philosophy", "summary", "year"]
+tags: ["2010", "2011", "philosophy", "summary", "year", life]
 lang: ua
+category: life
 ---
 
 [![Christmas Cat](http://farm6.static.flickr.com/5081/5312884775_18dd393c45.jpg)](http://www.flickr.com/photos/ashenwolf/5312884775/ "Christmas Cat")

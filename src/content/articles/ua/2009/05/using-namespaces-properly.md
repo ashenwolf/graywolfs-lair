@@ -1,8 +1,9 @@
 ---
 title: "Правильне використання просторів імен"
 date: 2009-05-09
-tags: ["c++", "namespaces", "Переклади", "с++"]
+tags: ["c++", "namespaces", "Переклади", "с++", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 Переклад статті [Using Namespaces Properly](http://jelovic.com/articles/using_namespaces.htm) від [Dejan Jelovic](http://www.jelovic.com)

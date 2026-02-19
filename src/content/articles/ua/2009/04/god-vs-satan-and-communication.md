@@ -1,8 +1,9 @@
 ---
 title: "Цікава статистика і контакт без слів"
 date: 2009-04-15
-tags: ["boys", "communication", "girls", "god", "philosophy", "satan"]
+tags: ["boys", "communication", "girls", "god", "philosophy", "satan", life]
 lang: ua
+category: life
 ---
 
 Кинутий сьогодні в корпоративну конфу лінк на цю картинку мене сьогодні дуже потішив. Цікаво, правда, як рахувались числа.

@@ -1,8 +1,9 @@
 ---
 title: "Canta Per Me у виконанні ансамблю \"Анатра\""
 date: 2010-03-22
-tags: ["Anatra", "Kajiura", "Noir", "Аніме", "Анатра", "ансамбль", "Каджіура", "музика", "Нуар"]
+tags: ["Anatra", "Kajiura", "Noir", "Аніме", "Анатра", "ансамбль", "Каджіура", "музика", "Нуар", life]
 lang: ua
+category: life
 ---
 
 [![Noir: Kirika and Marielle](http://res.cloudinary.com/dsic6qnnl/image/upload/h_222,w_300/v1503359227/noir_rj5cb9.jpg "Noir: Kirika and Marielle")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359227/noir_rj5cb9.jpg)  

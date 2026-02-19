@@ -1,8 +1,9 @@
 ---
 title: "CДурнеІм'яКласу"
 date: 2009-05-09
-tags: ["c++", "class", "microsoft", "namespaces", "naming"]
+tags: ["c++", "class", "microsoft", "namespaces", "naming", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 Вирішив на всяк випадок зібрати свої переклади кількарічної давнини на цьому блозі, щоб не загубились якщо що. Нижче – перша ластівка – переклад статті [“CStupidClassName”](http://www.jelovic.com/articles/stupid_naming.htm) від [Dejan Jelovic](http://www.jelovic.com/). За пару годин ще пару перепощу – може комусь стане в нагоді.

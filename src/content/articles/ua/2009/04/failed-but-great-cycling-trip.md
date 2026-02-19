@@ -1,8 +1,9 @@
 ---
 title: "Невдалий, але гарний велопохід"
 date: 2009-04-19
-tags: ["bicycle", "biking", "cycling", "tour", "trip", "велосипед", "велосипеди", "покатушки"]
+tags: ["bicycle", "biking", "cycling", "tour", "trip", "велосипед", "велосипеди", "покатушки", life]
 lang: ua
+category: life
 ---
 
 [![Велоподорож до Пирогово (учасники)](http://res.cloudinary.com/dsic6qnnl/image/upload/c_crop,h_681,w_681,x_0,y_171/h_150,w_150/v1503359813/velo-spring-1_lw64kf.jpg "Велоподорож до Пирогово (учасники)")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359813/velo-spring-1_lw64kf.jpg)

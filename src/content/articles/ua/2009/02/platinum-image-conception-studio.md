@@ -1,8 +1,9 @@
 ---
 title: "Platinum image conception studio"
 date: 2009-02-27
-tags: ["арт", "плівка", "Фото"]
+tags: ["арт", "плівка", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![](http://www.platinumfmd.com.br/portfolio/advert/images/MELISSA-Chapeuzinho.jpg "Gray Wolf and Little Red")](http://www.platinumfmd.com.br/portfolio/advert/pages/Melissa%20chapeuzinho.html)Сьогодні забрав проявлену плівку з кадрами з Gothic Anime Party, але виявилось, що там фактично і друкувати нема чого – все занадто темно (хіба що пару фоток більш-менш заради цікавості надрукую). Я хотів взяти на зйомки в приміщенні ISO400, але в кіоску в переході метро де я поспіхом купляв плівку її не було та ще й схоже що ISO200, яку я взяв, була китайською підробкою. Коротше, fail. Сьогодні зате у [Фотофонді](http://www.fotofond.com.ua/) по дорозі на роботу взяв нормальну кольорову двухсотку та монохромку (якщо виходитиме перейду на нормальну ч/б).

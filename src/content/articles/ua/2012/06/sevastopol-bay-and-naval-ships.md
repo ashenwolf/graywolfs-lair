@@ -1,8 +1,9 @@
 ---
 title: "Севастопольська бухта та її сталеві мешканці"
 date: 2012-06-23
-tags: ["bay", "naval ships", "sea", "Sevastopol", "ships", "Гетьман Сагайдачний", "кораблі", "Севастополь", "Фото"]
+tags: ["bay", "naval ships", "sea", "Sevastopol", "ships", "Гетьман Сагайдачний", "кораблі", "Севастополь", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![Sevastopol Bay](http://farm8.staticflickr.com/7110/7428052628_a5b911b459_z.jpg)](http://www.flickr.com/photos/ashenwolf/7428052628 "Sevastopol Bay")

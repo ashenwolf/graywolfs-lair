@@ -1,8 +1,9 @@
 ---
 title: "Avatar"
 date: 2010-01-02
-tags: ["3D", "Avatar", "Cameron", "IMAX", "Na'Vi", "review", "аватар", "Аймакс", "графіка", "кіно", "кінотеатр", "Камерон", "На'Ві", "огляд", "Пандора"]
+tags: ["3D", "Avatar", "Cameron", "IMAX", "Na'Vi", "review", "аватар", "Аймакс", "графіка", "кіно", "кінотеатр", "Камерон", "На'Ві", "огляд", "Пандора", life]
 lang: ua
+category: life
 ---
 
 ![Avatar](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361781/23_poster_cthcyt.jpg "Avatar")

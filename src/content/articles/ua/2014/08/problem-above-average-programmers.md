@@ -1,8 +1,9 @@
 ---
 title: "Проблема з програмістами, що \"вище середнього\""
 date: 2014-08-18
-tags: ["expert", "itblog-ua", "philosophy", "programming", "self improvement", "training", "переклад", "Переклади"]
+tags: ["expert", "itblog-ua", "philosophy", "programming", "self improvement", "training", "переклад", "Переклади", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 [![Liaoning School by kattebelletje](https://farm4.staticflickr.com/3542/3313736998_16b28ed648_z.jpg)](https://www.flickr.com/photos/kattebelletje/3313736998 "Liaoning School by kattebelletje")

@@ -1,8 +1,9 @@
 ---
 title: "Friendfeed vs Twitter"
 date: 2009-04-08
-tags: ["blogging", "friendfeed", "lifestreaming", "microblogging", "social web", "twitter", "web 2.0", "блогосфера", "твітер", "френдфід"]
+tags: ["blogging", "friendfeed", "lifestreaming", "microblogging", "social web", "twitter", "web 2.0", "блогосфера", "твітер", "френдфід", life]
 lang: ua
+category: life
 ---
 
 [![Feeding my friend © Lisa Brewster](http://farm4.static.flickr.com/3291/2802425844_ca1126b824_m_d.jpg "Feeding my friend")](http://www.flickr.com/photos/9031691@N08/2802425844/)  

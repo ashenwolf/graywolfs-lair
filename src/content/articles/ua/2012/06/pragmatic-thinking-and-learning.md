@@ -1,8 +1,9 @@
 ---
 title: "Прагматичне мислення та навчання"
 date: 2012-06-20
-tags: ["book", "know how", "review", "self improvement", "training", "переклад", "Переклади"]
+tags: ["book", "know how", "review", "self improvement", "training", "переклад", "Переклади", life]
 lang: ua
+category: life
 ---
 
 [![Pragmatic Thinking and Learning cover](http://res.cloudinary.com/dsic6qnnl/image/upload/h_300,w_250/v1503358203/ahptl_ym2xwc.jpg "Pragmatic Thinking and Learning cover")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358203/ahptl_ym2xwc.jpg)Не так давно почав читати одну цікаву книжку – [“Pragmatic Thinking & Learning”](http://pragprog.com/book/ahptl/pragmatic-thinking-and-learning) (“Прагматичне мислення та навчання”) від видавництва [“The Pragmatic Bookshelf”](http://pragprog.com/). Здебільшого орієнтовано на програмістів (інженерів), але там є багато нестандартних (з мого досвіду) думок, які можуть бути цікаві й іншим. Вони то перетікають одна в одну, то здаються слабо пов’язаними, але я спробую виділити основне. Лейтмотив книги полягає в тому, що людський мозок – дуже потужний інструмент (капітан Очевидність, ага), але ми недостатньо ефективно ним користуємось. Дехто користується ним набагато успішніше і ці люди зазвичай є експертами в своїй галузі. А кого ми називаємо експертами?

@@ -1,8 +1,9 @@
 ---
 title: "Tenacious D and The Pick of Destiny"
 date: 2009-10-23
-tags: ["pick of destiny", "rock", "tenacious d"]
+tags: ["pick of destiny", "rock", "tenacious d", life]
 lang: ua
+category: life
 ---
 
 ![Tenacious D](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361768/Tenacious_D_16319__tenacious_d_l_yw90bl.jpg "Tenacious D")Практично випадково, завдяки тому, що JR вирішив на минулих вихідних показати мені пару пісень, які варто було б розучити до наступної здибанки, мну познайомився з творчістю гурту “Tenacious D” та проглянув кіно “Медіатор долі” (“Pick of Destiny”). Причому якось так вдало все склалося – мене якраз нещодавно потягнуло на старий добрий хеві та хард рок – мну на минулому тижні ранні альбоми _W.A.S.P_ переслуховував по колу десятки разів, а до того ще _Kiss_, _Motorhead_ (цих, звісно, під впливом їх живого виступу на [Global East Open Air 2009](http://graywolf.org.ua/2009/08/03/global-east-open-air-2009/)), та інших, тож веселі “Tenacious D” дуже гарно вписались в загальну картину.

@@ -1,8 +1,9 @@
 ---
 title: "Avenue Q"
 date: 2009-01-02
-tags: ["avenue-q", "musicle", "авеню-кю", "вистава", "м'юзікл", "музика"]
+tags: ["avenue-q", "musicle", "авеню-кю", "вистава", "м'юзікл", "музика", life]
 lang: ua
+category: life
 ---
 
 ![Avenue Q](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503360025/qbook-cover_z7jwdf.gif "Avenue Q logo")  

@@ -1,8 +1,9 @@
 ---
 title: "Epica - The Divine Conspiracy"
 date: 2007-09-25
-tags: ["album", "album review", "Музика"]
+tags: ["album", "album review", "Музика", life]
 lang: ua
+category: life
 ---
 
 ![Epica - The Divine Conspiracy (cover)](/assets/images/2007/09/154943.jpg)  

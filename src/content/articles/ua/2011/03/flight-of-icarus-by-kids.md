@@ -1,8 +1,9 @@
 ---
 title: "Flight of Icarus by kids"
 date: 2011-03-05
-tags: ["iron maiden", "kids", "metal", "song", "музика"]
+tags: ["iron maiden", "kids", "metal", "song", "музика", life]
 lang: ua
+category: life
 ---
 
 Сьогодні випадково натрапив в новинах на цей прекрасний ролик, де діти з Уотвільської початкової школи (Watville Primary School) співають _Iron Maiden – Flight of Icarus_. Так мило… 😎

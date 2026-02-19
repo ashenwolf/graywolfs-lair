@@ -1,8 +1,9 @@
 ---
 title: "Немі - комікси для дорослих, які так і не виросли"
 date: 2012-08-13
-tags: ["cartoons", "nemi", "комікси", "немі"]
+tags: ["cartoons", "nemi", "комікси", "немі", life]
 lang: ua
+category: life
 ---
 
 ![](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358181/lisemyhre_wfdag4.jpg "Lise Myhre")

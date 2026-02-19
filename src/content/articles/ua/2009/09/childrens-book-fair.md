@@ -1,8 +1,9 @@
 ---
 title: "Дитяча книжкова ярмарка"
 date: 2009-09-01
-tags: ["book", "fairy-tale", "Аніме"]
+tags: ["book", "fairy-tale", "Аніме", life]
 lang: ua
+category: life
 ---
 
 ![Іван Багряний, "Огненне коло"](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359673/1229697180_mnb91f.jpg)

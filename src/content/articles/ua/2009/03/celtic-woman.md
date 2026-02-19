@@ -1,8 +1,9 @@
 ---
 title: "Celtic Woman"
 date: 2009-03-13
-tags: ["celtic", "celtic woman", "кельтика", "музика"]
+tags: ["celtic", "celtic woman", "кельтика", "музика", life]
 lang: ua
+category: life
 ---
 
 ![Celtic woman](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359965/celticwoman_ipfl6o.jpg "Celtic woman") Нещодавно суто випадково набрів у френдстрічці в ком’юніті [thewolfpack](http://community.livejournal.com/thewolfpack/) прикольну [відеонарізку з вовками](http://www.youtube.com/watch?v=cq_VeUMtyzU). Але найбільше з неї запам’яталася музика: пісня [The Voice](http://en.wikipedia.org/wiki/The_Voice_\(Eimear_Quinn_song\)) у виконанні гурту [Celtic Woman](http://en.wikipedia.org/wiki/Celtic_Woman) (а я до кельтської музики маю неабияку слабкість). До речі, сама пісня як можна прочитати по посиланню вище була переможницею Євробачення у 1996-му році і це лише її кавер. Сам гурт представляє собою п’ять виконавиць: вокалісток Клое Егнью (Chlo? Agnew), Лінн Хіларі (Lynn Hilary), Ліза Келлі (Lisa Kelly), Алекс Шерп (Alex Sharpe) та скрипальку Майред Несбетт (M?ir?ad Nesbitt). Крім того, в одному з їх небагатьох альбомів співає і досить відома в цьому жанрі новозеландська камерна співачка [Хейлі Вестенра (Hayley Westenra)](http://en.wikipedia.org/wiki/Hayley_Westenra). Поки що мені найбільше сподобались пісні у виконанні Клое (до речі, їй зараз всього 19) та Лізи (дуже приємний вокал).

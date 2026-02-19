@@ -1,8 +1,9 @@
 ---
 title: "Mercurial саторі. Частина 1"
 date: 2010-09-02
-tags: ["dvcs", "git", "itblog-ua", "mercurial", "svc", "версіїї", "меркуріал", "рскв", "скв"]
+tags: ["dvcs", "git", "itblog-ua", "mercurial", "svc", "версіїї", "меркуріал", "рскв", "скв", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 [![](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359075/mercurial_logo_rihl7i.png "Mercurial (Меркуріал)")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359075/mercurial_logo_rihl7i.png)

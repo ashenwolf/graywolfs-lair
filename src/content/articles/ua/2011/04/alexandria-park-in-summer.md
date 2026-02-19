@@ -1,8 +1,9 @@
 ---
 title: "Літній парк Олександрія"
 date: 2011-04-11
-tags: ["alexandria", "Bila Tserkva", "park", "Біла Церква", "Олександрія", "Фото"]
+tags: ["alexandria", "Bila Tserkva", "park", "Біла Церква", "Олександрія", "Фото", life]
 lang: ua
+category: life
 ---
 
 [![Canon at Palieva Gora](http://farm6.static.flickr.com/5185/5607405645_bc52fd540a.jpg)](http://www.flickr.com/photos/ashenwolf/5607405645/ "Canon at Palieva Gora") Сьогодні черговий пакунок світлин 2010-го року. На цей раз тема весела та яскрава – білоцерківський [дендропарк “Олександрія”](http://uk.wikipedia.org/wiki/%D0%9E%D0%BB%D0%B5%D0%BA%D1%81%D0%B0%D0%BD%D0%B4%D1%80%D1%96%D1%8F_\(%D0%B4%D0%B5%D0%BD%D0%B4%D1%80%D0%BE%D0%BF%D0%B0%D1%80%D0%BA\)) влітку. Гадаю це гарне продовження вже опублікованих фотографій нашого гарнющого парку [навесні](http://graywolf.org.ua/2010/06/07/may-holidays-in-park-alexandria/) та [восени](http://graywolf.org.ua/2008/12/14/autumnal-alexandria/).

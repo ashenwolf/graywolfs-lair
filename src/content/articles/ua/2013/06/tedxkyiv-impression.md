@@ -1,8 +1,9 @@
 ---
 title: "TEDxKyiv 2013. Враження"
 date: 2013-06-24
-tags: ["inspiration", "philosophy", "tedxkyiv", "натхнення", "філософія"]
+tags: ["inspiration", "philosophy", "tedxkyiv", "натхнення", "філософія", life]
 lang: ua
+category: life
 ---
 
 "TED-лекції — це найкраща річ, яку можна подивитись в Інтернеті"  

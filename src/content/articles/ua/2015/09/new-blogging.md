@@ -1,8 +1,9 @@
 ---
 title: "Ghost – блоггінг \"по-новому\" (с)"
 date: 2015-09-11
-tags: ["Ghost", "markdown", "node.js", "wordpress", "Блог"]
+tags: ["Ghost", "markdown", "node.js", "wordpress", "Блог", life]
 lang: ua
+category: life
 ---
 
 ![Ghost Blog Logo](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503357284/ghost-blog-big_s1hkod.png)

@@ -1,8 +1,9 @@
 ---
 title: "Atlas Shrugged: Part I (Movie)"
 date: 2011-11-08
-tags: ["movie", "philosohphy", "кіно"]
+tags: ["movie", "philosohphy", "кіно", life]
 lang: ua
+category: life
 ---
 
 І раз вже зайшла мова про кінематограф… Мну на днях ще продивився екранізацію першої частини “Атлант розправив плечі” Айн Ренд (про книжку я вже [писав раніше](http://graywolf.org.ua/2010/10/09/who-is-john-galt/)) – благо вона вона вже з’явилася в торрентах ^\_^

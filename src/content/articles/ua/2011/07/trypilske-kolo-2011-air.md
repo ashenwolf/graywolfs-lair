@@ -1,8 +1,9 @@
 ---
 title: "Трипільське коло 2011: Багно :) (Повітря)"
 date: 2011-07-04
-tags: ["ethnic", "festival", "folk", "Трипільське коло", "фест", "фестиваль", "фолк"]
+tags: ["ethnic", "festival", "folk", "Трипільське коло", "фест", "фестиваль", "фолк", life]
 lang: ua
+category: life
 ---
 
 [![Walking in the Dirt](http://farm6.static.flickr.com/5270/5898509380_0544a853d7.jpg)](http://www.flickr.com/photos/ashenwolf/5898509380/ "Walking in the Dirt")

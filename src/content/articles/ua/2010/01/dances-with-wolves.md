@@ -1,8 +1,9 @@
 ---
 title: "Танці з вовками"
 date: 2010-01-19
-tags: ["Avatar", "indians", "wolf", "індіанці", "аватар"]
+tags: ["Avatar", "indians", "wolf", "індіанці", "аватар", life]
 lang: ua
+category: life
 ---
 
 [![Dances with Wolves](http://res.cloudinary.com/dsic6qnnl/image/upload/h_300,w_207/v1503361808/Dances_with_Wolves_poster_dew6pa.jpg "Dances with Wolves")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359385/Dances_with_Wolves_poster_oqf2uh.jpg) Майже місяць тому час від часу читаючи відгуки про _“Аватар”_ я чув згадку про сабж. Той факт, що я пропустив фільм з такою назвою, знятий чорт і коли (1990 рік), володаря семи Оскарів мене просто гнітив, тож я не міг довго чекати і вирішив виправити цей недолік. Так от: маю сказати, що фільми і справді багато в чому схожі (маєтсья на увазі сюжетно), але в той же час враження діаметрально протилежні. Ееее… Тільки протилежні не в тому сенсі, що мені не сподобався [“Танці з вовками”](http://ru.wikipedia.org/wiki/%D0%A2%D0%B0%D0%BD%D1%86%D1%8B_%D1%81_%D0%B2%D0%BE%D0%BB%D0%BA%D0%B0%D0%BC%D0%B8) ([IMDB](http://www.imdb.com/title/tt0099348/)) – якраз навпаки, фільм насправді дуже і дуже кльовий (врахуйте, що я в дитинстві фактично ріс на книжках [Мая](http://uk.wikipedia.org/wiki/%D0%9A%D0%B0%D1%80%D0%BB_%D0%9C%D0%B0%D0%B9), [Ріда](http://uk.wikipedia.org/wiki/%D0%A2%D0%BE%D0%BC%D0%B0%D1%81_%D0%9C%D0%B0%D0%B9%D0%BD_%D0%A0%D1%96%D0%B4), [Купера](http://uk.wikipedia.org/wiki/%D0%94%D0%B6%D0%B5%D0%B9%D0%BC%D1%81_%D0%A4%D0%B5%D0%BD%D1%96%D0%BC%D0%BE%D1%80_%D0%9A%D1%83%D0%BF%D0%B5%D1%80) та [Шульца](http://uk.wikipedia.org/wiki/%D0%A8%D1%83%D0%BB%D1%8C%D1%86_%D0%94%D0%B6%D0%B5%D0%B9%D0%BC%D1%81_%D0%92%D1%96%D0%BB%D0%BB%D0%B0%D1%80%D0%B4) та фільмах з [Мітічем](http://ru.wikipedia.org/wiki/%D0%9C%D0%B8%D1%82%D0%B8%D1%87,_%D0%93%D0%BE%D0%B9%D0%BA%D0%BE), то це для мене взагалі було як свіжий ковток дитинства) – але кльовий абослютно з іншої сторони.

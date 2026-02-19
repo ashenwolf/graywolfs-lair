@@ -1,8 +1,9 @@
 ---
 title: "Скетчноутінг"
 date: 2015-04-06
-tags: ["feature", "sketchnoting", "скетчноунінг", "lifehack", "ideas", "лайфхак", "creative"]
+tags: ["feature", "sketchnoting", "скетчноунінг", "lifehack", "ideas", "лайфхак", "creative", life]
 lang: ua
+category: life
 image: "/assets/images/2017/11/8375234791_b1e1ba3c24_k.jpg"
 description: "Недавно дізнався про цікаву техніку ведення нотаток: “sketchnoting”. Вона використовується під час семінарів, хоча дехто використовує її і під час читання книжок. Вона мене дуже зацікавила, оскільки я просто страшне як не люблю вести нотатки."
 ---

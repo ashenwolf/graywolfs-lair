@@ -1,8 +1,9 @@
 ---
 title: "Prismatic як джерело новин"
 date: 2013-11-27
-tags: ["news", "Prismatic", "rss", "social aggregator", "social networks"]
+tags: ["news", "Prismatic", "rss", "social aggregator", "social networks", life]
 lang: ua
+category: life
 ---
 
 [![Prismatic](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503362124/Prismatic-logo_yx0cs0.png)](http://getprismatic.com/)  

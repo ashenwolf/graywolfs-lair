@@ -1,8 +1,9 @@
 ---
 title: "Два виступи Лева Валкіна в Києві. Враження (UPDATED)"
 date: 2011-08-04
-tags: ["business", "conference", "disqus", "startup"]
+tags: ["business", "conference", "disqus", "startup", life]
 lang: ua
+category: life
 ---
 
 ![Лев Валкін](http://www.erlang-mnesia-video.ru/lev2.jpg "Лев Валкін")

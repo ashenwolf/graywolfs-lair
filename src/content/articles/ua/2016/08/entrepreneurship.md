@@ -1,8 +1,9 @@
 ---
 title: "Тарифне питання, підприємництво і освіта"
 date: 2016-08-24
-tags: ["coursera", "prometheus", "економіка", "КНУ", "НаУКМА", "онлайн освіта", "Україна", "філософія", "feature"]
+tags: ["coursera", "prometheus", "економіка", "КНУ", "НаУКМА", "онлайн освіта", "Україна", "філософія", "feature", life]
 lang: ua
+category: life
 image: "https://images.unsplash.com/photo-1501102057089-b3e50a55eff6?ixlib=rb-0.3.5&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=1080&fit=max&s=297af13dbc73e7f4203880098353c663"
 ---
 

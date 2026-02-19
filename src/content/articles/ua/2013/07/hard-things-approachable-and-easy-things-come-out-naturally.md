@@ -1,8 +1,9 @@
 ---
 title: "\"Складні речі - доступно, прості - робляться самі\""
 date: 2013-07-30
-tags: ["clojure", "code complexity", "icalendar", "itblog-ua", "jvm", "lisp", "parsing", "python"]
+tags: ["clojure", "code complexity", "icalendar", "itblog-ua", "jvm", "lisp", "parsing", "python", "software-engineering"]
 lang: ua
+category: software-engineering
 ---
 
 Якщо перефразувати девіз мови Perl “Зробити прості речі простими, а складні можливими” для LISP, то вийде “Зробити складні речі доступними, а прості робляться самі”  

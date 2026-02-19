@@ -1,8 +1,9 @@
 ---
 title: "Музику - в хмари!"
 date: 2012-05-18
-tags: ["amazon", "amazon cloud drive", "amazon cloud player", "android", "cloud", "dropbox", "google drive"]
+tags: ["amazon", "amazon cloud drive", "amazon cloud player", "android", "cloud", "dropbox", "google drive", life]
 lang: ua
+category: life
 ---
 
 [![Amazon Cloud Drive](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503361912/gra_header._V149420936__nnhrge.png "Amazon Cloud Drive")](http://www.amazon.com/clouddrive/)

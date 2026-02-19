@@ -1,8 +1,9 @@
 ---
 title: "Скажений ковзанкодень"
 date: 2010-01-17
-tags: ["fun", "skates", "skating", "sport", "ковзани", "ковзанка", "хокей"]
+tags: ["fun", "skates", "skating", "sport", "ковзани", "ковзанка", "хокей", life]
 lang: ua
+category: life
 ---
 
 [![Anime skating](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359393/skating_dh3mlb.jpg "Anime skating")](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359393/skating_dh3mlb.jpg)

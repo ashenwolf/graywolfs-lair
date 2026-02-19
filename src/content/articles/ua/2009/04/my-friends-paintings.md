@@ -1,8 +1,9 @@
 ---
 title: "Про картини"
 date: 2009-04-03
-tags: ["paintings", "абстракціонізм", "живопис", "картини", "малювання"]
+tags: ["paintings", "абстракціонізм", "живопис", "картини", "малювання", life]
 lang: ua
+category: life
 ---
 
 !['Коли щастя приходить в сутінки' © Каламєєць Надія.](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503359948/x_e4eecfdd_enhl3n.jpg)  

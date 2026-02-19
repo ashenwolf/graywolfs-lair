@@ -1,8 +1,9 @@
 ---
 title: "Новий податковий кодекс"
 date: 2010-11-17
-tags: ["politics", "tax", "tax code", "ukraine", "політика"]
+tags: ["politics", "tax", "tax code", "ukraine", "політика", life]
 lang: ua
+category: life
 ---
 
 > “Ізя – всьо?”
