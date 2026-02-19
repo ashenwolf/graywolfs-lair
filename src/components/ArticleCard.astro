@@ -13,8 +13,8 @@ interface Props {
 const { href, title, date, description, tags = [], image, lang = "en", tagBase = "/tags" } = Astro.props;
 ---
 
-<a href={href} class="group flex gap-6 items-start">
-  <div class="shrink-0 w-48 aspect-video rounded-lg overflow-hidden bg-gray-100">
+<a href={href} class="group flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">
+  <div class="w-full sm:w-48 sm:shrink-0 aspect-video rounded-lg overflow-hidden bg-gray-100">
     {image ? (
       <img
         src={image}
