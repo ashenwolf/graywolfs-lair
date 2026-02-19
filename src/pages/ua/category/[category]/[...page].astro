@@ -1,0 +1,39 @@
+---
+import type { GetStaticPathsOptions } from "astro";
+import { getCollection } from "astro:content";
+import Base from "../../../../layouts/Base.astro";
+import ArticleList from "../../../../components/ArticleList.astro";
+import Pagination from "../../../../components/Pagination.astro";
+
+export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
+  const articles = await getCollection("articles", ({ data }) => !data.draft && data.lang === "ua");
+  const categories = new Set<string>();
+  for (const article of articles) {
+    if (article.data.category) categories.add(article.data.category);
+  }
+  return [...categories].flatMap((category) => {
+    const filtered = articles
+      .filter((a) => a.data.category === category)
+      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
+    return paginate(filtered, { params: { category }, pageSize: 20 });
+  });
+}
+
+const categoryLabels: Record<string, string> = {
+  "software-engineering": "Розробка ПЗ",
+  travel: "Подорожі",
+  life: "Життя",
+};
+
+const { page } = Astro.props;
+const { category } = Astro.params;
+const label = categoryLabels[category!] ?? category;
+---
+
+<Base title={label} lang="ua">
+  <div class="container-inner">
+    <h1 class="text-3xl font-bold mb-8">{label}</h1>
+    <ArticleList articles={page.data} emptyMessage="Статей у цій категорії немає." lang="ua" />
+    <Pagination page={page} />
+  </div>
+</Base>
