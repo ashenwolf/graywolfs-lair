@@ -1,0 +1,25 @@
+---
+import type { Page } from "astro";
+
+interface Props {
+  page: Page<any>;
+}
+
+const { page } = Astro.props;
+---
+
+{page.lastPage > 1 && (
+  <nav class="flex items-center justify-between mt-12 text-sm">
+    {page.url.prev ? (
+      <a href={page.url.prev} class="text-gray-700 hover:text-black">← Previous</a>
+    ) : (
+      <span class="text-gray-300">← Previous</span>
+    )}
+    <span class="text-gray-500">Page {page.currentPage} of {page.lastPage}</span>
+    {page.url.next ? (
+      <a href={page.url.next} class="text-gray-700 hover:text-black">Next →</a>
+    ) : (
+      <span class="text-gray-300">Next →</span>
+    )}
+  </nav>
+)}

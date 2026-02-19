@@ -14,9 +14,9 @@ const articlesWithUrls = getArticlesWithUrls(articles);
 ---
 
 {articles.length === 0 && <p class="text-gray-500">{emptyMessage}</p>}
-<ul class="space-y-8 divide-y divide-gray-100">
+<ul class="divide-y divide-gray-100">
   {articlesWithUrls.map((article) => (
-    <li class="pt-8 first:pt-0">
+    <li class="py-6 first:pt-0 last:pb-0">
       <ArticleCard
         href={article.url}
         title={article.data.title}
