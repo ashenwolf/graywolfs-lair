@@ -68,10 +68,19 @@ Images are stored in `public/assets/YYYY/MM/DD/` by post date. Mermaid SVGs go t
 - **`ArticleList.astro`** — Renders a list of articles using `ArticleCard`. Props: `articles`, `emptyMessage?`, `lang?`.
 - **`SectionBlock.astro`** — Homepage section with info column (1/3) and 2×2 featured grid (2/3). Props: `title`, `description`, `moreHref`, `moreLinkLabel?`, `articles`, `lang?`.
 - **`SocialLinks.astro`** — Hardcoded social icons (GitHub, LinkedIn, X, Instagram, Flickr, 500px) with inline SVGs.
-- **`LangSwitch.astro`** — Language switcher component (used in Header).
 
 ### Utilities (`src/utils/`)
 - **`articleUrls.ts`** — `getArticleUrl(article)` generates `/YYYY/MM/DD/slug` from frontmatter date and filename. `getArticlesWithUrls(articles)` maps a collection to objects with the `url` property.
+- **`collections.ts`** — `getArticlesByLang(lang)` filters articles by language. `makeTagPaths(lang, opts)` and `makeCategoryPaths(lang, opts)` are `getStaticPaths` factories shared by the en/ua page pairs.
+- **`date.ts`** — `formatDate(date, lang, "short"|"long")` and `formatDateShort(date, lang)` for locale-aware date formatting.
+- **`tags.ts`** — `countTags(articles)` and `getSortedTags(counts)` for tag frequency maps.
+
+### Constants (`src/constants/`)
+- **`labels.ts`** — Single source of truth for all translatable strings and category metadata:
+  - `CATEGORY_LABELS` — category names in both languages
+  - `CATEGORY_GRADIENTS` — Tailwind gradient classes per category
+  - `UI` — UI strings for both languages (nav labels, section headings, empty states)
+  - `buildNav(lang)` — returns `{ navLinks, langToggle }` used by both Header and Footer
 
 ### Tools (`tools/scripts/`)
 - **`migrate-ghost.js`** — One-time Ghost 0.x → Astro migration. CLI: `--db`, `--ghost-url`, `--dry-run`, `--lang`, `--add-tags`, `--category`. Uses `better-sqlite3` and `turndown`.
@@ -80,3 +89,48 @@ Images are stored in `public/assets/YYYY/MM/DD/` by post date. Mermaid SVGs go t
 
 ### Routing / URL Structure
 Articles use a clean date-based URL structure: `/YYYY/MM/DD/slug`. The physical Markdown files remain organized by language in `src/content/articles/en/` and `src/content/articles/ua/`, but the public URLs follow the date-based pattern without any language prefix. URL generation is in `src/utils/articleUrls.ts`; routing is handled by `src/pages/[...slug].astro`.
+
+---
+
+## Design Constraints
+
+### i18n — one truth, two surfaces
+- All translatable strings live in `src/constants/labels.ts` (`UI`, `CATEGORY_LABELS`). Never hardcode user-visible text directly in a component or page.
+- The `lang` prop flows top-down from page → layout → component. Components default to `"en"` when `lang` is omitted.
+- Navigation structure is defined once in `buildNav(lang)`. Do not reconstruct nav links inline in any component.
+
+### Category metadata
+- Valid categories are the `CATEGORIES` tuple in `labels.ts`: `software-engineering`, `travel`, `life`. Do not add a new category without adding it there first (labels for both languages + gradient).
+- Always look up category display names via `CATEGORY_LABELS[category][lang]`. Never hardcode a category label string in a component or page.
+
+### Bilingual page pairs
+- Every page under `src/pages/` has a mirror under `src/pages/ua/`. Keep them in sync structurally — they should differ only in the `lang` argument and genuinely language-specific content (hero copy, etc.).
+- Shared `getStaticPaths` logic belongs in `src/utils/collections.ts` as a factory. Page files delegate to the factory in one line; they do not contain collection-querying logic themselves.
+- Avoid adding language-specific logic to shared components — pass `lang` as a prop and look up strings from `labels.ts`.
+
+### Date formatting
+- All dates rendered to the user must go through `formatDate` or `formatDateShort` from `src/utils/date.ts`. Do not call `toLocaleDateString` inline.
+
+### Styling
+- Tailwind CSS v4 only. All theme tokens (`--color-*`, `--font-*`, custom utilities) are defined in `src/styles/global.css`. Do not create a `tailwind.config.*` file.
+- Use existing design tokens (`text-accent`, `bg-surface`, `bg-hero-bg`, `photo-glow`, `container-inner`, etc.) rather than arbitrary hex values or one-off classes.
+- Category gradients are defined in `CATEGORY_GRADIENTS` in `labels.ts` — do not hardcode gradient classes in components.
+
+### Astro component conventions
+- Import order in frontmatter: external/Astro imports → internal components/layouts → utils → constants → types.
+- `lang` props are always typed as `"en" | "ua"` (the `Lang` type from `labels.ts`), never as plain `string`.
+- Use `Lang` from `labels.ts` for all language type annotations — do not redeclare it locally.
+- Do not create barrel `index.ts` files unless there is a clear need.
+
+### What belongs where
+| Concern | Location |
+|---------|----------|
+| Translatable UI strings | `src/constants/labels.ts` |
+| Category metadata (names, gradients) | `src/constants/labels.ts` |
+| Nav structure | `buildNav()` in `src/constants/labels.ts` |
+| Date formatting | `src/utils/date.ts` |
+| Tag counting / sorting | `src/utils/tags.ts` |
+| Collection filtering + `getStaticPaths` factories | `src/utils/collections.ts` |
+| Article URL generation | `src/utils/articleUrls.ts` |
+| Page markup | `src/pages/` (keep thin — data prep only, delegate logic to utils) |
+| Reusable UI | `src/components/` |
