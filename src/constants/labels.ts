@@ -39,3 +39,15 @@ export const UI = {
     tags: "Теги",
   },
 } satisfies Record<Lang, Record<string, string>>;
+
+export const buildNav = (lang: Lang) => {
+  const t = UI[lang];
+  const prefix = lang === "ua" ? "/ua" : "";
+  const navLinks = [
+    { href: lang === "ua" ? "/ua" : "/", label: t.home },
+    { href: `${prefix}/photography`, label: t.photography },
+    { href: `${prefix}/cv`, label: "CV" },
+  ];
+  const langToggle = lang === "ua" ? { href: "/", label: "EN" } : { href: "/ua", label: "UA" };
+  return { navLinks, langToggle };
+};

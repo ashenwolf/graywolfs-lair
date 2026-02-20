@@ -2,7 +2,7 @@
 import { getCollection } from "astro:content";
 import SocialLinks from "./SocialLinks.astro";
 import { getArticlesWithUrls } from "../utils/articleUrls";
-import { UI } from "../constants/labels";
+import { UI, buildNav } from "../constants/labels";
 import type { Lang } from "../constants/labels";
 import { formatDateShort } from "../utils/date";
 
@@ -11,19 +11,8 @@ interface Props {
 }
 
 const { lang = "en" } = Astro.props;
-const isUA = lang === "ua";
-const prefix = isUA ? "/ua" : "";
 const t = UI[lang as Lang];
-
-const navLinks = [
-  { href: isUA ? "/ua" : "/", label: t.home },
-  { href: `${prefix}/photography`, label: t.photography },
-  { href: `${prefix}/cv`, label: "CV" },
-];
-
-const langToggle = isUA
-  ? { href: "/", label: "EN" }
-  : { href: "/ua", label: "UA" };
+const { navLinks, langToggle } = buildNav(lang as Lang);
 
 const recentArticles = getArticlesWithUrls(
   (await getCollection("articles", ({ data }) => !data.draft && data.lang === lang))
