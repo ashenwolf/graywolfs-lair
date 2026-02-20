@@ -2,7 +2,8 @@
   "templates": {
     "folder": "templates"
   },
-  "attachmentFolderPath": "../../public/assets/images",
+  "attachmentFolderPath": "assets/images",
   "useMarkdownLinks": true,
-  "newLinkFormat": "relative"
+  "newLinkFormat": "relative",
+  "alwaysUpdateLinks": true
 }
