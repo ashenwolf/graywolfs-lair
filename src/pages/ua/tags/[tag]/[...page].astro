@@ -1,25 +1,11 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
-import { getCollection } from "astro:content";
 import Base from "../../../../layouts/Base.astro";
 import ArticleList from "../../../../components/ArticleList.astro";
 import Pagination from "../../../../components/Pagination.astro";
+import { makeTagPaths } from "../../../../utils/collections";
 
-export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
-  const articles = await getCollection("articles", ({ data }) => !data.draft && data.lang === "ua");
-  const tags = new Set<string>();
-  for (const article of articles) {
-    for (const tag of article.data.tags) {
-      tags.add(tag);
-    }
-  }
-  return [...tags].flatMap((tag) => {
-    const filtered = articles
-      .filter((a) => a.data.tags.includes(tag))
-      .sort((a, b) => b.data.date.getTime() - a.data.date.getTime());
-    return paginate(filtered, { params: { tag }, pageSize: 20 });
-  });
-}
+export const getStaticPaths = (opts: GetStaticPathsOptions) => makeTagPaths("ua", opts);
 
 const { page } = Astro.props;
 const { tag } = Astro.params;

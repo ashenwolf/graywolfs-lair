@@ -1,10 +1,10 @@
 ---
-import { getCollection } from "astro:content";
 import Base from "../../../layouts/Base.astro";
 import { countTags, getSortedTags } from "../../../utils/tags";
 import { UI } from "../../../constants/labels";
+import { getArticlesByLang } from "../../../utils/collections";
 
-const articles = await getCollection("articles", ({ data }) => !data.draft && data.lang === "ua");
+const articles = await getArticlesByLang("ua");
 const tags = getSortedTags(countTags(articles));
 const t = UI.ua;
 ---
