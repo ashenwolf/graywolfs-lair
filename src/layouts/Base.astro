@@ -6,9 +6,17 @@ import Footer from "../components/Footer.astro";
 interface Props {
   title: string;
   lang?: "en" | "ua";
+  description?: string;
+  image?: string;
 }
 
-const { title, lang = "en" } = Astro.props;
+const { title, lang = "en", description, image } = Astro.props;
+const siteUrl = "https://gulenok.lu";
+const fullTitle = `${title} — Sergii Gulenok`;
+const ogImage = image
+  ? (image.startsWith("http") ? image : `${siteUrl}${image}`)
+  : `${siteUrl}/assets/images/2026/02/sergii-and-denzel.jpg`;
+const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
 
 <html lang={lang === "ua" ? "uk" : "en"}>
@@ -22,8 +30,25 @@ const { title, lang = "en" } = Astro.props;
       rel="stylesheet"
     />
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
-    <title>{title} — Sergii Gulenok</title>
+    <title>{fullTitle}</title>
+    <link rel="canonical" href={canonicalUrl} />
     <link rel="alternate" type="application/rss+xml" title="Sergii Gulenok" href="/rss.xml" />
+
+    {description && <meta name="description" content={description} />}
+
+    <!-- Open Graph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Sergii Gulenok" />
+    <meta property="og:title" content={fullTitle} />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:image" content={ogImage} />
+    {description && <meta property="og:description" content={description} />}
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={fullTitle} />
+    <meta name="twitter:image" content={ogImage} />
+    {description && <meta name="twitter:description" content={description} />}
   </head>
   <body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans">
     <Header lang={lang} />

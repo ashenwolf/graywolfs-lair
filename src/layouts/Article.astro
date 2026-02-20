@@ -21,7 +21,7 @@ const categoryLabels: Record<string, string> = {
 const tagBase = lang === "ua" ? "/ua/tags" : "/tags";
 ---
 
-<Base title={title} lang={lang}>
+<Base title={title} lang={lang} description={description ?? undefined} image={image ?? undefined}>
   {image && (
     <div class="w-full max-h-96 overflow-hidden">
       <img src={image} alt={title} class="w-full h-full object-cover" loading="eager" />
