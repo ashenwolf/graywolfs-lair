@@ -21,7 +21,9 @@ const { title, lang = "en" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
     <title>{title} — Sergii Gulenok</title>
+    <link rel="alternate" type="application/rss+xml" title="Sergii Gulenok" href="/rss.xml" />
   </head>
   <body class="bg-white text-gray-900 min-h-screen flex flex-col font-sans">
     <Header lang={lang} />

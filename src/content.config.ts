@@ -12,9 +12,9 @@ const articles = defineCollection({
     tags: z.array(z.string()).default([]),
     lang: z.enum(["en", "ua"]).default("en"),
     draft: z.boolean().default(false),
-    description: z.string().optional(),
+    description: z.string().nullish(),
     category: z.enum(["software-engineering", "travel", "life"]).optional(),
-    image: z.string().optional(),
+    image: z.string().nullish(),
   }),
 });
 
