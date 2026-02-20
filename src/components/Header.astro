@@ -16,23 +16,85 @@ const navLinks = [
 const langToggle = isUA
   ? { href: "/", label: "EN" }
   : { href: "/ua", label: "UA" };
+
+const logoUrl = "/assets/images/favicon.png";
 ---
 
 <header class="border-b border-gray-200 py-4">
-  <nav class="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-center gap-8">
+  <nav class="max-w-5xl mx-auto px-4 sm:px-8 flex items-center justify-between">
+
+    <!-- Logo + site title -->
+    <a href={isUA ? "/ua" : "/"} class="flex-shrink-0 flex items-center gap-2">
+      <img
+        src={logoUrl}
+        alt="Sergii Gulenok"
+        width="32"
+        height="32"
+        class="rounded-full"
+      />
+      <span class="font-semibold text-gray-900 text-2xl">Sergii Gulenok</span>
+    </a>
+
+    <!-- Desktop nav -->
+    <div class="hidden sm:flex items-center gap-8">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+        >
+          {label}
+        </a>
+      ))}
+      <a
+        href={langToggle.href}
+        class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
+      >
+        {langToggle.label}
+      </a>
+    </div>
+
+    <!-- Mobile hamburger button -->
+    <button
+      id="mobile-menu-btn"
+      class="sm:hidden flex flex-col justify-center gap-1.5 w-8 h-8 focus:outline-none"
+      aria-label="Toggle menu"
+      aria-expanded="false"
+    >
+      <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
+      <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
+      <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
+    </button>
+  </nav>
+
+  <!-- Mobile dropdown -->
+  <div
+    id="mobile-menu"
+    class="sm:hidden hidden flex-col px-4 pt-3 pb-4 gap-3 border-t border-gray-100 mt-4"
+  >
     {navLinks.map(({ href, label }) => (
       <a
         href={href}
-        class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors"
+        class="text-sm font-medium text-gray-700 hover:text-gray-900 transition-colors py-1"
       >
         {label}
       </a>
     ))}
     <a
       href={langToggle.href}
-      class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
+      class="self-start text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
     >
       {langToggle.label}
     </a>
-  </nav>
+  </div>
 </header>
+
+<script>
+  const btn = document.getElementById("mobile-menu-btn");
+  const menu = document.getElementById("mobile-menu");
+
+  btn?.addEventListener("click", () => {
+    const open = menu?.classList.toggle("hidden") === false;
+    menu?.classList.toggle("flex", open);
+    btn.setAttribute("aria-expanded", String(open));
+  });
+</script>
