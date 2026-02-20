@@ -11,9 +11,10 @@ interface Props {
   lang?: "en" | "ua";
   category?: string;
   image?: string;
+  description?: string | null;
 }
 
-const { title, date, tags, lang = "en", category, image } = Astro.props;
+const { title, date, tags, lang = "en", category, image, description } = Astro.props;
 
 const tagBase = lang === "ua" ? "/ua/tags" : "/tags";
 ---

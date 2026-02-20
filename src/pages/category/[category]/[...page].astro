@@ -6,7 +6,9 @@ import Pagination from "../../../components/Pagination.astro";
 import { CATEGORY_LABELS } from "../../../constants/labels";
 import { makeCategoryPaths } from "../../../utils/collections";
 
-export const getStaticPaths = (opts: GetStaticPathsOptions) => makeCategoryPaths("en", opts);
+export async function getStaticPaths(opts: GetStaticPathsOptions) {
+  return makeCategoryPaths("en", opts);
+}
 
 const { page } = Astro.props;
 const { category } = Astro.params;

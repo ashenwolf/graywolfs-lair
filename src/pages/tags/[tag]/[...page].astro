@@ -5,7 +5,9 @@ import ArticleList from "../../../components/ArticleList.astro";
 import Pagination from "../../../components/Pagination.astro";
 import { makeTagPaths } from "../../../utils/collections";
 
-export const getStaticPaths = (opts: GetStaticPathsOptions) => makeTagPaths("en", opts);
+export async function getStaticPaths(opts: GetStaticPathsOptions) {
+  return makeTagPaths("en", opts);
+}
 
 const { page } = Astro.props;
 const { tag } = Astro.params;
