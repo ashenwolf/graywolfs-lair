@@ -2,6 +2,9 @@
 import { getCollection } from "astro:content";
 import SocialLinks from "./SocialLinks.astro";
 import { getArticlesWithUrls } from "../utils/articleUrls";
+import { UI } from "../constants/labels";
+import type { Lang } from "../constants/labels";
+import { formatDateShort } from "../utils/date";
 
 interface Props {
   lang?: "en" | "ua";
@@ -10,10 +13,11 @@ interface Props {
 const { lang = "en" } = Astro.props;
 const isUA = lang === "ua";
 const prefix = isUA ? "/ua" : "";
+const t = UI[lang as Lang];
 
 const navLinks = [
-  { href: isUA ? "/ua" : "/", label: isUA ? "Головна" : "Home" },
-  { href: `${prefix}/photography`, label: isUA ? "Фото" : "Photography" },
+  { href: isUA ? "/ua" : "/", label: t.home },
+  { href: `${prefix}/photography`, label: t.photography },
   { href: `${prefix}/cv`, label: "CV" },
 ];
 
@@ -34,7 +38,7 @@ const recentArticles = getArticlesWithUrls(
     <!-- Navigation -->
     <div>
       <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
-        {isUA ? "Навігація" : "Navigation"}
+        {t.navigation}
       </h3>
       <ul class="space-y-2">
         {navLinks.map(({ href, label }) => (
@@ -55,7 +59,7 @@ const recentArticles = getArticlesWithUrls(
     <!-- Recent posts -->
     <div>
       <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
-        {isUA ? "Нещодавні статті" : "Recent Posts"}
+        {t.recentPosts}
       </h3>
       <ul class="space-y-4">
         {recentArticles.map((article) => (
@@ -67,15 +71,12 @@ const recentArticles = getArticlesWithUrls(
               {article.data.title}
             </a>
             <time class="text-xs text-gray-400 mt-0.5 block">
-              {article.data.date.toLocaleDateString(
-                isUA ? "uk-UA" : "en-US",
-                { year: "numeric", month: "short" }
-              )}
+              {formatDateShort(article.data.date, lang as Lang)}
             </time>
           </li>
         ))}
         {recentArticles.length === 0 && (
-          <li class="text-sm text-gray-400">{isUA ? "Немає статей" : "No posts yet"}</li>
+          <li class="text-sm text-gray-400">{t.noPosts}</li>
         )}
       </ul>
     </div>
@@ -83,7 +84,7 @@ const recentArticles = getArticlesWithUrls(
     <!-- Social -->
     <div>
       <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
-        {isUA ? "Соцмережі" : "Social"}
+        {t.social}
       </h3>
       <SocialLinks />
     </div>
@@ -113,7 +114,7 @@ const recentArticles = getArticlesWithUrls(
         >
           <path d="M12 19V5M5 12l7-7 7 7" />
         </svg>
-        {isUA ? "Вгору" : "Back to top"}
+        {t.backToTop}
       </a>
     </div>
   </div>

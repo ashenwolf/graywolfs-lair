@@ -1,21 +1,18 @@
 ---
 import { getCollection } from "astro:content";
 import Base from "../../../layouts/Base.astro";
+import { countTags, getSortedTags } from "../../../utils/tags";
+import { UI } from "../../../constants/labels";
 
 const articles = await getCollection("articles", ({ data }) => !data.draft && data.lang === "ua");
-const tagCounts = new Map<string, number>();
-for (const article of articles) {
-  for (const tag of article.data.tags) {
-    tagCounts.set(tag, (tagCounts.get(tag) ?? 0) + 1);
-  }
-}
-const tags = [...tagCounts.entries()].sort((a, b) => b[1] - a[1]);
+const tags = getSortedTags(countTags(articles));
+const t = UI.ua;
 ---
 
-<Base title="Теги" lang="ua">
+<Base title={t.tags} lang="ua">
   <div class="container-inner">
-    <h1 class="text-3xl font-bold mb-8">Теги</h1>
-    {tags.length === 0 && <p class="text-gray-500">Тегів поки немає.</p>}
+    <h1 class="text-3xl font-bold mb-8">{t.tags}</h1>
+    {tags.length === 0 && <p class="text-gray-500">{t.noTags}</p>}
     <div class="flex flex-wrap gap-3">
       {tags.map(([tag, count]) => (
         <a href={`/ua/tags/${tag}`} class="bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">

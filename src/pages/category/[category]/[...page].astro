@@ -4,6 +4,7 @@ import { getCollection } from "astro:content";
 import Base from "../../../layouts/Base.astro";
 import ArticleList from "../../../components/ArticleList.astro";
 import Pagination from "../../../components/Pagination.astro";
+import { CATEGORY_LABELS } from "../../../constants/labels";
 
 export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   const articles = await getCollection("articles", ({ data }) => !data.draft && data.lang === "en");
@@ -19,15 +20,9 @@ export async function getStaticPaths({ paginate }: GetStaticPathsOptions) {
   });
 }
 
-const categoryLabels: Record<string, string> = {
-  "software-engineering": "Software Engineering",
-  travel: "Travel",
-  life: "Life",
-};
-
 const { page } = Astro.props;
 const { category } = Astro.params;
-const label = categoryLabels[category!] ?? category;
+const label = (CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.en) ?? category;
 ---
 
 <Base title={label} lang="en">

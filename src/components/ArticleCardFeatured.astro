@@ -1,4 +1,8 @@
 ---
+import { CATEGORY_LABELS, CATEGORY_GRADIENTS } from "../constants/labels";
+import type { Lang } from "../constants/labels";
+import { formatDate } from "../utils/date";
+
 interface Props {
   href: string;
   title: string;
@@ -10,18 +14,7 @@ interface Props {
 
 const { href, title, date, category, image, lang = "en" } = Astro.props;
 
-const categoryLabels: Record<string, string> = {
-  "software-engineering": "Software",
-  travel: "Travel",
-  life: "Life",
-};
-
-const gradients: Record<string, string> = {
-  "software-engineering": "from-blue-400 to-indigo-600",
-  travel: "from-emerald-400 to-teal-600",
-  life: "from-violet-400 to-purple-600",
-};
-const gradient = (category && gradients[category]) ?? "from-gray-300 to-gray-400";
+const gradient = (category && CATEGORY_GRADIENTS[category as keyof typeof CATEGORY_GRADIENTS]) ?? "from-gray-300 to-gray-400";
 ---
 
 <a href={href} class="group block">
@@ -41,15 +34,11 @@ const gradient = (category && gradients[category]) ?? "from-gray-300 to-gray-400
   <div class="flex items-center gap-2 mb-1">
     {category && (
       <span class="text-xs font-semibold uppercase tracking-wider text-accent">
-        {categoryLabels[category] ?? category}
+        {(CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.[lang as Lang]) ?? category}
       </span>
     )}
     <time class="text-xs text-gray-400" datetime={date.toISOString()}>
-      {date.toLocaleDateString(lang === "ua" ? "uk-UA" : "en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })}
+      {formatDate(date, lang as Lang)}
     </time>
   </div>
 

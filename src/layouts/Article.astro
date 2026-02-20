@@ -1,5 +1,8 @@
 ---
 import Base from "./Base.astro";
+import { CATEGORY_LABELS } from "../constants/labels";
+import type { Lang } from "../constants/labels";
+import { formatDate } from "../utils/date";
 
 interface Props {
   title: string;
@@ -11,12 +14,6 @@ interface Props {
 }
 
 const { title, date, tags, lang = "en", category, image } = Astro.props;
-
-const categoryLabels: Record<string, string> = {
-  "software-engineering": "Software",
-  travel: "Travel",
-  life: "Life",
-};
 
 const tagBase = lang === "ua" ? "/ua/tags" : "/tags";
 ---
@@ -31,16 +28,12 @@ const tagBase = lang === "ua" ? "/ua/tags" : "/tags";
     <header class="mb-8">
       {category && (
         <span class="text-xs font-semibold uppercase tracking-wider text-accent block mb-2">
-          {categoryLabels[category] ?? category}
+          {(CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.[lang as Lang]) ?? category}
         </span>
       )}
       <h1 class="text-3xl font-bold mb-2">{title}</h1>
       <time class="text-sm text-gray-500" datetime={date.toISOString()}>
-        {date.toLocaleDateString(lang === "ua" ? "uk-UA" : "en-US", {
-          year: "numeric",
-          month: "long",
-          day: "numeric",
-        })}
+        {formatDate(date, lang as Lang, "long")}
       </time>
       {tags.length > 0 && (
         <div class="mt-3 flex flex-wrap gap-2">

@@ -1,4 +1,7 @@
 ---
+import { formatDate } from "../utils/date";
+import type { Lang } from "../constants/labels";
+
 interface Props {
   href: string;
   title: string;
@@ -29,11 +32,7 @@ const { href, title, date, description, tags = [], image, lang = "en", tagBase =
 
   <div class="flex-1 min-w-0">
     <time class="text-xs text-gray-400" datetime={date.toISOString()}>
-      {date.toLocaleDateString(lang === "ua" ? "uk-UA" : "en-US", {
-        year: "numeric",
-        month: "short",
-        day: "numeric",
-      })}
+      {formatDate(date, lang as Lang)}
     </time>
     <h2 class="text-lg font-semibold leading-snug group-hover:text-accent transition-colors mt-1 mb-2">
       {title}
