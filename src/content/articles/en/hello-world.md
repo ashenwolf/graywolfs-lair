@@ -1,9 +1,11 @@
 ---
 title: Hello World
-date: 2026-02-18
+date: 2010-01-01
 tags:
   - meta
+  - life
 lang: en
+category: life
 description: The first post on the new blog.
 cover: https://images.unsplash.com/photo-1534432295314-d934309ea09d
 ---
