@@ -22,7 +22,7 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
         height="32"
         class="rounded-full"
       />
-      <span class="font-semibold text-gray-900 text-2xl">Sergii Gulenok</span>
+      <span class="font-semibold text-gray-900 text-xl sm:text-2xl">Sergii Gulenok</span>
     </a>
 
     <!-- Desktop nav -->
@@ -43,17 +43,25 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
       </a>
     </div>
 
-    <!-- Mobile hamburger button -->
-    <button
-      id="mobile-menu-btn"
-      class="sm:hidden flex flex-col justify-center gap-1.5 w-8 h-8 focus:outline-none"
-      aria-label="Toggle menu"
-      aria-expanded="false"
-    >
-      <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
-      <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
-      <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
-    </button>
+    <!-- Mobile: language toggle + hamburger -->
+    <div class="flex items-center gap-2 sm:hidden">
+      <a
+        href={langToggle.href}
+        class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
+      >
+        {langToggle.label}
+      </a>
+      <button
+        id="mobile-menu-btn"
+        class="flex flex-col justify-center gap-1.5 w-8 h-8 focus:outline-none"
+        aria-label="Toggle menu"
+        aria-expanded="false"
+      >
+        <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
+        <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
+        <span class="block h-0.5 w-6 bg-gray-700 transition-all"></span>
+      </button>
+    </div>
   </nav>
 
   <!-- Mobile dropdown -->
@@ -69,12 +77,6 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
         {label}
       </a>
     ))}
-    <a
-      href={langToggle.href}
-      class="self-start text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
-    >
-      {langToggle.label}
-    </a>
   </div>
 </header>
 
