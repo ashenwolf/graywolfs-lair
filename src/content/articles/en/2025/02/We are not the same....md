@@ -13,7 +13,7 @@ image: /assets/images/2026/02/perplexity-image.png
 ---
 One thing I learned over time is that more does not mean better.
 
-More lines of code does not mean that the software does more. More code much more often means more code duplication, bad design and accidental complexity.
+More lines of code does not mean that the software does more. More code quite often means more code duplication, bad or absent high-level design and accidental complexity.
 
 More time spent on architecture does not mean that design is better. Spending too much time often means relying on significantly larger amount of assumptions and over-engineering.
 
