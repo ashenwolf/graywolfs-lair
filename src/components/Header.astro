@@ -37,6 +37,7 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
       ))}
       <a
         href={langToggle.href}
+        data-lang-toggle={lang === "en" ? "ua" : "en"}
         class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
       >
         {langToggle.label}
@@ -47,6 +48,7 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
     <div class="flex items-center gap-2 sm:hidden">
       <a
         href={langToggle.href}
+        data-lang-toggle={lang === "en" ? "ua" : "en"}
         class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
       >
         {langToggle.label}
@@ -89,4 +91,19 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
     menu?.classList.toggle("flex", open);
     btn.setAttribute("aria-expanded", String(open));
   });
+
+  const PROD_DOMAINS = ["gulenok.lu", "graywolf.org.ua"];
+  if (PROD_DOMAINS.includes(window.location.hostname)) {
+    document.querySelectorAll<HTMLAnchorElement>("[data-lang-toggle]").forEach((el) => {
+      const to = el.dataset.langToggle;
+      const path = window.location.pathname;
+      if (to === "ua") {
+        const uaPath = path === "/" ? "/ua" : "/ua" + path;
+        el.href = "https://graywolf.org.ua" + uaPath;
+      } else {
+        const enPath = path.replace(/^\/ua/, "") || "/";
+        el.href = "https://gulenok.lu" + enPath;
+      }
+    });
+  }
 </script>
