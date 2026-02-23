@@ -17,26 +17,27 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
 const recentArticles = getArticlesWithUrls(
   (await getCollection("articles", ({ data }) => !data.draft && data.lang === lang))
     .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-    .slice(0, 2)
+    .slice(0, 2),
 );
 ---
 
 <footer class="border-t border-gray-200 mt-16">
   <div class="max-w-5xl mx-auto px-4 sm:px-8 py-12 grid grid-cols-1 md:grid-cols-3 gap-10">
-
     <!-- Navigation -->
     <div>
       <h3 class="text-xs font-semibold uppercase tracking-wider text-gray-400 mb-4">
         {t.navigation}
       </h3>
       <ul class="space-y-2">
-        {navLinks.map(({ href, label }) => (
-          <li>
-            <a href={href} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
-              {label}
-            </a>
-          </li>
-        ))}
+        {
+          navLinks.map(({ href, label }) => (
+            <li>
+              <a href={href} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
+                {label}
+              </a>
+            </li>
+          ))
+        }
         <li>
           <a href={langToggle.href} class="text-sm text-gray-600 hover:text-gray-900 transition-colors">
             {langToggle.label}
@@ -51,22 +52,17 @@ const recentArticles = getArticlesWithUrls(
         {t.recentPosts}
       </h3>
       <ul class="space-y-4">
-        {recentArticles.map((article) => (
-          <li>
-            <a
-              href={article.url}
-              class="text-sm text-gray-700 hover:text-gray-900 leading-snug block font-medium"
-            >
-              {article.data.title}
-            </a>
-            <time class="text-xs text-gray-400 mt-0.5 block">
-              {formatDateShort(article.data.date, lang as Lang)}
-            </time>
-          </li>
-        ))}
-        {recentArticles.length === 0 && (
-          <li class="text-sm text-gray-400">{t.noPosts}</li>
-        )}
+        {
+          recentArticles.map((article) => (
+            <li>
+              <a href={article.url} class="text-sm text-gray-700 hover:text-gray-900 leading-snug block font-medium">
+                {article.data.title}
+              </a>
+              <time class="text-xs text-gray-400 mt-0.5 block">{formatDateShort(article.data.date, lang as Lang)}</time>
+            </li>
+          ))
+        }
+        {recentArticles.length === 0 && <li class="text-sm text-gray-400">{t.noPosts}</li>}
       </ul>
     </div>
 
@@ -77,19 +73,15 @@ const recentArticles = getArticlesWithUrls(
       </h3>
       <SocialLinks />
     </div>
-
   </div>
 
   <!-- Bottom bar -->
   <div class="border-t border-gray-100">
     <div class="max-w-5xl mx-auto px-4 sm:px-8 py-4 flex items-center justify-between">
       <p class="text-xs text-gray-400">
-        &copy; {new Date().getFullYear()} Sergii Gulenok
+        &copy; 2004-{new Date().getFullYear()} Sergii Gulenok
       </p>
-      <a
-        href="#top"
-        class="text-xs text-gray-400 hover:text-gray-700 flex items-center gap-1.5 transition-colors"
-      >
+      <a href="#top" class="text-xs text-gray-400 hover:text-gray-700 flex items-center gap-1.5 transition-colors">
         <svg
           width="12"
           height="12"
@@ -101,7 +93,7 @@ const recentArticles = getArticlesWithUrls(
           stroke-linejoin="round"
           aria-hidden="true"
         >
-          <path d="M12 19V5M5 12l7-7 7 7" />
+          <path d="M12 19V5M5 12l7-7 7 7"></path>
         </svg>
         {t.backToTop}
       </a>
