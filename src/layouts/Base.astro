@@ -11,7 +11,7 @@ interface Props {
 }
 
 const { title, lang = "en", description, image } = Astro.props;
-const siteUrl = "https://gulenok.lu";
+const siteUrl = lang === "ua" ? "https://graywolf.org.ua" : "https://gulenok.lu";
 const fullTitle = `${title} — Sergii Gulenok`;
 const ogImage = image
   ? (image.startsWith("http") ? image : `${siteUrl}${image}`)
