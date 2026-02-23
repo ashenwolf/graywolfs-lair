@@ -11,7 +11,7 @@ description: My long-term fear about fully AI-driven development
 category: software-engineering
 image: /assets/images/2026/02/Pasted%20image%2020260220190858.png
 ---
-![](/assets/images/2026/02/Pasted%20image%2020260220190858.png)
+![](../../../../assets/images/2026/02/20260220190858.png)
 
 Checking my LinkedIn stream I saw Simon Wardley (yeah, the one that invented [Wardley map](https://en.wikipedia.org/wiki/Wardley_map)), [expressed his concerns](https://www.linkedin.com/posts/simonwardley_im-seeing-non-technical-people-build-massive-activity-7422285867748139008-LtEb?utm_source=social_share_send&utm_medium=member_desktop_web&rcm=ACoAAAD25FABa-zKja27Yk5uhKQcXSwNY1M327c) about the direction in which the software engineering is now moving: "A swarm of agents and the human reduced to a very narrow form of defined decision making (which in itself can be automated) whilst the swarm makes nearly all the decisions." Which would result in atrophy of the skills, where software engineers would lose the ability to reason about the code.
 
