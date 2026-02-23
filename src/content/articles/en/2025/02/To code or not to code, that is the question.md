@@ -9,7 +9,7 @@ lang: en
 draft: false
 description: My long-term fear about fully AI-driven development
 category: software-engineering
-image: /assets/images/2026/02/Pasted%20image%2020260220190858.png
+image: /assets/images/2026/02/20260220190858.png
 ---
 ![](../../../../assets/images/2026/02/20260220190858.png)
 
