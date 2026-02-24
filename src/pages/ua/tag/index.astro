@@ -15,7 +15,7 @@ const t = UI.ua;
     {tags.length === 0 && <p class="text-gray-500">{t.noTags}</p>}
     <div class="flex flex-wrap gap-3">
       {tags.map(([tag, count]) => (
-        <a href={`/ua/tags/${tag}`} class="bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">
+        <a href={`/ua/tag/${tag}`} class="bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">
           {tag} <span class="text-gray-500">({count})</span>
         </a>
       ))}
