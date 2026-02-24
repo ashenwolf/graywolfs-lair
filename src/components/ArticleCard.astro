@@ -13,7 +13,7 @@ interface Props {
   tagBase?: string;
 }
 
-const { href, title, date, description, tags = [], image, lang = "en", tagBase = "/tags" } = Astro.props;
+const { href, title, date, description, tags = [], image, lang = "en", tagBase = "/tag" } = Astro.props;
 ---
 
 <a href={href} class="group flex flex-col sm:flex-row gap-4 sm:gap-6 items-start">

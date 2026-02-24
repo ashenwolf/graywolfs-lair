@@ -16,7 +16,7 @@ interface Props {
 
 const { title, date, tags, lang = "en", category, image, description } = Astro.props;
 
-const tagBase = lang === "ua" ? "/ua/tags" : "/tags";
+const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
 ---
 
 <Base title={title} lang={lang} description={description ?? undefined} image={image ?? undefined}>
