@@ -1,11 +1,13 @@
 ---
 title: "Ісландські нотатки. Частина 1: Рейк'явік"
-date: 2015-05-04
+date: 2015-05-02
 tags: ["Ісландія", "Мандрівки", "Рейк'явік", "Фото", "travel"]
 lang: ua
 category: travel
 image: "https://farm4.staticflickr.com/3867/14359603598_fe332e3f22_h.jpg"
 ---
+
+![Рейк'явік](https://farm4.staticflickr.com/3867/14359603598_fe332e3f22_h.jpg)
 
 Місто Рейк'явік геть невелике - всього 120 тис. осіб (трохи більше половини населення мого рідного міста), але це, тим не менш, половина населення всієї Ісландії, а об'їхати його весь на велосипеді реально за день.
 
@@ -48,7 +50,7 @@ image: "https://farm4.staticflickr.com/3867/14359603598_fe332e3f22_h.jpg"
 А, і ледь не забув! Так, я сфоткався біля штаб-квартири CCP та пам'ятнику Eve Online :)
 
 > Пам'ятник Eve Online Universe поруч з офісом CCP. Я навіть в неї шпілив колись трохи :) [pic.twitter.com/5xeqExiZxr](http://t.co/5xeqExiZxr)
-> 
+>
 > — Sergii Gulenok (@ashenwolf) [28 Травень 2014](https://twitter.com/ashenwolf/status/471802809613312000)
 
 ![](https://farm6.staticflickr.com/5589/14776118479_adc254dfa3_h.jpg)
