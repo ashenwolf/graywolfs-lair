@@ -67,7 +67,7 @@ The physical death of the Patrushevs[^10] and Putins, or an economic collapse ba
 
 [^6]: Reference to pro-USSR minority in Ukraine, predominantly over 70 years old, who see Russia as a continuation of USSR.
 
-[^7]: Reference to the sci-fi novel [Prisoners of Power](https://en.wikipedia.org/wiki/Prisoners_of_Power) by Strugatsky brother that describe a planet, majority of citizens of which are programmed by the "defence towers", that are essentially just broadcasters.
+[^7]: Reference to the sci-fi novel [Prisoners of Power](https://en.wikipedia.org/wiki/Prisoners_of_Power) by Strugatsky brother that describe a planet, majority of citizens of which are programmed by the "defence towers", that are essentially just broadcasters of this programming, but they are called "defence towers" to make people believe that they are protecting them.
 
 [^8]: Common phrase used by Russian to justify any unlawful actions by the government. The 90s hit Russia really hard - there was hunger, and majority of people were extremely poor. Now 90s became a scarecrow in Russia.
 
