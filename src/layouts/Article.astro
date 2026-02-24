@@ -21,8 +21,8 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
 
 <Base title={title} lang={lang} description={description ?? undefined} image={image ?? undefined}>
   {image && (
-    <div class="w-full max-h-96 overflow-hidden">
-      <img src={image} alt={title} class="w-full h-full object-cover" loading="eager" />
+    <div class="w-full h-96 overflow-hidden">
+      <img src={image} alt={title} class="w-full h-full object-cover object-center" loading="eager" />
     </div>
   )}
   <article class="max-w-3xl mx-auto px-4 sm:px-8 py-12">
