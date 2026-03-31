@@ -14,7 +14,9 @@ const { title, lang = "en", description, image } = Astro.props;
 const siteUrl = lang === "ua" ? "https://graywolf.org.ua" : "https://gulenok.lu";
 const fullTitle = `${title} — Sergii Gulenok`;
 const ogImage = image
-  ? (image.startsWith("http") ? image : `${siteUrl}${image}`)
+  ? image.startsWith("http")
+    ? image
+    : `${siteUrl}${image}`
   : `${siteUrl}/assets/images/2026/02/sergii-and-denzel.jpg`;
 const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
 ---
@@ -23,12 +25,8 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,500;0,700;0,900;1,400;1,700&display=swap"
-      rel="stylesheet"
-    />
+
+    <link rel="stylesheet" href="/fonts.css" />
     <link rel="icon" type="image/png" href="/assets/images/favicon.png" />
     <title>{fullTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
