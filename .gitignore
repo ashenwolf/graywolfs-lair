@@ -8,3 +8,4 @@ dist/
 # those are generated on build
 public/assets/excalidraw/
 public/assets/mermaid/
+public/assets/optimized/
