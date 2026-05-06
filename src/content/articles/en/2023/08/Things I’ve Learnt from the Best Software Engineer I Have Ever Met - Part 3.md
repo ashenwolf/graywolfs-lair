@@ -9,7 +9,7 @@ description:
 category: software-engineering
 image: /assets/images/2023/08/20260220195449.png
 ---
-My original list of insights was covered in [Part 2](Things%20I've%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%202.md) and [Part 1](Things%20I’ve%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md). However, during a recent discussion, I found myself echoing a phrase I often heard from Max: “we need to work on the culture of reading code”. This unexpected realization sparked the idea for this short addition to the series.
+My original list of insights was covered in [Part 2](Things%20I've%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%202.md) and [Part 1](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md). However, during a recent discussion, I found myself echoing a phrase I often heard from Max: “we need to work on the culture of reading code”. This unexpected realization sparked the idea for this short addition to the series.
 
 While numerous books on software engineering focus on teaching code writing techniques, from patterns to tests, and syntax in various languages, they often overlook a crucial aspect: software engineers spend roughly 70% of their time reading code, and only 30% writing it. Although this statistic lacks concrete research support, it’s a conservative estimate from my findings. Many might assume reading code is an automatic, unimprovable skill, but that’s far from the truth.
 

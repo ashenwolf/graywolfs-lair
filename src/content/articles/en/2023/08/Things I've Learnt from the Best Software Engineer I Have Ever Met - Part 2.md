@@ -9,7 +9,7 @@ description:
 category: software-engineering
 image: /assets/images/2023/08/20260220195449.png
 ---
-Here is the second part of the useful insights I had got from my colleague and friend Max. You can check the [first part](Things%20I’ve%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md) that is focused on individual productivity.
+Here is the second part of the useful insights I had got from my colleague and friend Max. You can check the [first part](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md) that is focused on individual productivity.
 
 These upcoming reflections might seem disjointed, perhaps even conflicting at first glance, but they’re not.
 
@@ -59,4 +59,4 @@ Since Max appeared on our team he was known to have a specific views on problem 
 
 So, my advice: **Leverage methods you deem fit and encourage peers to elevate their skill set**. Whether it’s adopting idiomatic code for your stack, integrating concepts from other paradigms, or even venturing into low-level optimizations, strive to elevate the standard rather than conforming to it.
 
-If you liked it, the other parts of these series: [Part 1](Things%20I’ve%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md) and [Part 3](Things%20I’ve%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%203.md).
+If you liked it, the other parts of these series: [Part 1](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md) and [Part 3](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%203.md).

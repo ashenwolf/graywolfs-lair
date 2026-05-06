@@ -63,4 +63,4 @@ However, using REPL to move fast does not mean that you are expected to stop wri
 
 Increasing individual performance is about paying attention to the overlooked details and making incremental improvements. Whether it’s mastering the keyboard, nurturing the mind, or optimising the development feedback loop, these strategies collectively contribute to a more productive and satisfying work experience. The journey to enhanced productivity is filled with experimentation and continuous learning, and the insights shared here may offer a valuable starting point on this path.
 
-If you liked it, the other parts of these series:  [Part 2](Things%20I've%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%202.md) and [Part 3](Things%20I’ve%20Learnt%20from%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%203.md).
+If you liked it, the other parts of these series:  [Part 2](Things%20I've%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%202.md) and [Part 3](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%203.md).

@@ -13,12 +13,12 @@
             "state": {
               "type": "split-diff-view",
               "state": {
-                "aFile": "src/content/articles/en/2025/02/To code or not to code, that is the question.md",
-                "bFile": "src/content/articles/en/2025/02/To code or not to code, that is the question.md",
+                "aFile": "src/content/.obsidian/plugins/obsidian-excalidraw-plugin/data.json",
+                "bFile": "src/content/.obsidian/plugins/obsidian-excalidraw-plugin/data.json",
                 "aRef": ""
               },
               "icon": "diff",
-              "title": "Diff: To code or not to code, that is the question  (Working Tree)"
+              "title": "Diff: data.json  (Working Tree)"
             }
           }
         ]
@@ -200,18 +200,22 @@
       "bases:Create new base": false,
       "obsidian-excalidraw-plugin:New drawing": false,
       "markdown-importer:Open format converter": false,
-      "workspaces:Manage workspace layouts": false,
       "obsidian-git:Open Git source control": false
     }
   },
   "active": "d534646232029987",
   "lastOpenFiles": [
-    "articles/en/2025/02/To code or not to code, that is the question.md",
+    "source-materials/software-engineering/We are not the same.md",
+    "articles/en/2025/02/We Are Not the Same....md",
+    "articles/en/2023/08/Things I’ve Learnt From the Best Software Engineer I Have Ever Met - Part 1.md",
+    "articles/en/Nice Drawing.excalidraw.md",
     "articles/en/hello-world.md",
+    "articles/en/2026/02/Why We Fight, Why We Resist.md",
+    "articles/en/2023/08/Things I’ve Learnt From the Best Software Engineer I Have Ever Met - Part 3.md",
+    "articles/en/2023/08/Things I've Learnt From the Best Software Engineer I Have Ever Met - Part 2.md",
+    "articles/en/2025/02/To Code or Not to Code, That Is the Question.md",
+    "assets/images/2026/02/software-we-are-not-the-same-2.jpg",
     "assets/images/favicon.png",
-    "articles/en/2023/08/Things I’ve Learnt from the Best Software Engineer I Have Ever Met - Part 3.md",
-    "articles/en/2023/08/Things I've Learnt from the Best Software Engineer I Have Ever Met - Part 2.md",
-    "articles/en/2023/08/Things I’ve Learnt from the Best Software Engineer I Have Ever Met - Part 1.md",
     "assets/images/2023/08/20260220223356.png",
     "assets/images/2023/08/20260220223431.png",
     "assets/images/2023/08/20260220195449.png",
@@ -222,14 +226,12 @@
     "assets/images/Pasted image 20260220194546.png",
     "assets/images/2026/02/Pasted image 20260220190858.png",
     "assets/images/2026/02/sergii-and-denzel.jpg",
-    "assets/images/2023/08/1_SpQgK985lWvYzEJAXubhMA.gif",
     "assets/images/2023/08",
     "articles/en/2023/08",
     "articles/en/2023",
     "templates/Article (English).md",
     "articles/en/2025/02",
     "articles/en/2025",
-    "articles/en/Nice Drawing.excalidraw.md",
     "templates/Article (Ukrainian).md",
     "templates",
     "assets/images/2025",
@@ -248,8 +250,6 @@
     "articles/ua/2015/07/islandski-notatki-chastina-5-lodoviki.md",
     "articles/ua/2014/11/welcome-to-ghost.md",
     "articles/ua/2018/04/khorvatski-narisi-ostriv-khvar.md",
-    "articles/ua/2017/08/test.md",
-    "articles/ua/2015/05/valiensiia-chastina-1.md",
-    "articles/ua/2015/05/ispaniia-iak-prokhodiat-vikhidni.md"
+    "articles/ua/2017/08/test.md"
   ]
 }
