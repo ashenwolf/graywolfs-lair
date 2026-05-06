@@ -42,6 +42,8 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
             <a
               href={`${tagBase}/${tag}`}
               class="text-sm bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200 transition-colors"
+              data-ph-tag={tag}
+              data-ph-article={title}
             >
               {tag}
             </a>
@@ -53,6 +55,23 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
       <slot />
     </div>
     <div id="disqus_thread" class="mt-12"></div>
+    <script is:inline define:vars={{ articleTitle: title, articleCategory: category, articleTags: tags, articleLang: lang }}>
+      window.posthog?.capture('article_read', {
+        title: articleTitle,
+        category: articleCategory,
+        tags: articleTags,
+        lang: articleLang,
+      });
+
+      document.querySelectorAll('[data-ph-tag]').forEach(function (el) {
+        el.addEventListener('click', function () {
+          window.posthog?.capture('tag_clicked', {
+            tag: el.getAttribute('data-ph-tag'),
+            article_title: el.getAttribute('data-ph-article'),
+          });
+        });
+      });
+    </script>
     <script>
       var disqus_config = function () {
         this.page.url = window.location.href;

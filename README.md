@@ -7,6 +7,7 @@ A bilingual (English + Ukrainian) static blog built with Astro 5, deployed to Cl
 - **Astro 5** — static site generation
 - **Tailwind CSS v4** — configured in `src/styles/global.css` via `@theme`/`@utility`/`@layer`; no `tailwind.config.*` file
 - **Cloudflare Pages** via `@astrojs/cloudflare` adapter
+- **PostHog** — client-side analytics (EU instance)
 - Content authored in **Markdown**, edited in **Obsidian**
 
 ## Commands
@@ -99,6 +100,13 @@ The `integration-optimize-images.js` Astro integration runs after build and post
 - Outputs optimized files to `public/assets/optimized/` (gitignored)
 
 This means you keep original images in your Markdown and `public/assets/` — optimization happens automatically on `npm run build`.
+
+## Analytics (PostHog)
+
+Client-side tracking via `src/components/posthog.astro`, included in `Base.astro` `<head>`.
+
+- EU instance (`https://eu.i.posthog.com`), configured via env vars `PUBLIC_POSTHOG_PROJECT_TOKEN` and `PUBLIC_POSTHOG_HOST`
+- Custom events: `article_read`, `tag_clicked`, `cv_viewed`, `social_link_clicked`, `language_switched`, `article_card_clicked`, `category_more_clicked`
 
 ## Tools
 

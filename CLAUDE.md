@@ -90,6 +90,34 @@ Images are stored in `public/assets/YYYY/MM/DD/` by post date. Mermaid SVGs go t
 ### Routing / URL Structure
 Articles use a clean date-based URL structure: `/YYYY/MM/DD/slug`. The physical Markdown files remain organized by language in `src/content/articles/en/` and `src/content/articles/ua/`, but the public URLs follow the date-based pattern without any language prefix. URL generation is in `src/utils/articleUrls.ts`; routing is handled by `src/pages/[...slug].astro`.
 
+### PostHog Analytics (`src/components/posthog.astro`)
+Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
+
+**Configuration:**
+- Env vars: `PUBLIC_POSTHOG_PROJECT_TOKEN`, `PUBLIC_POSTHOG_HOST` (defined in `.env`, set in Cloudflare Pages env)
+- EU instance: `https://eu.i.posthog.com`
+- Project ID: 173488
+- Dashboard: https://eu.posthog.com/project/173488/dashboard/664021
+
+**Custom events:**
+
+| Event | Properties | File |
+|-------|-----------|------|
+| `article_read` | `title`, `category`, `tags`, `lang` | `Article.astro` |
+| `tag_clicked` | `tag`, `article_title` | `Article.astro` |
+| `cv_viewed` | — | `cv.astro` |
+| `social_link_clicked` | `platform` | `SocialLinks.astro` |
+| `language_switched` | `to_lang` | `Header.astro` |
+| `article_card_clicked` | `title`, `category`, `href` | `ArticleCardFeatured.astro` |
+| `category_more_clicked` | `section`, `href` | `SectionBlock.astro` |
+
+**Guidelines for adding new events:**
+- Use `posthog.capture('event_name', { props })` in an inline `<script>` within the component
+- Keep event names snake_case and descriptive
+- Include contextual properties (what was clicked, which page, which language)
+- Don't track PII — no emails, names, or IP-derived data
+- The PostHog snippet uses `is:inline` to avoid Astro processing; new tracking scripts should do the same
+
 ---
 
 ## Design Constraints

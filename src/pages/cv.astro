@@ -7,7 +7,7 @@ import Base from "../layouts/Base.astro";
     <h1>Sergii Gulenok</h1>
     <p class="text-lg text-gray-600 not-prose mb-1">Full-Stack Engineer · Front-End Tech Lead @ Amazon Fulfillment Technology</p>
     <p class="text-sm text-gray-500 not-prose mb-8">
-      Luxembourg · <a href="mailto:sergii.gulenok@gmail.com">sergii.gulenok@gmail.com</a> · <a href="https://www.linkedin.com/in/sergii-gulenok">LinkedIn</a> · <a href="https://gulenok.lu">gulenok.lu</a>
+      Luxembourg · <a href="mailto:sergii.gulenok@gmail.com">sergii.gulenok@gmail.com</a> · <a href="https://www.linkedin.com/in/sergii-gulenok">LinkedIn</a> · <a href="https://github.com/ashenwolf">GitHub</a> · <a href="https://gulenok.lu">gulenok.lu</a>
     </p>
 
     <h2>Summary</h2>
@@ -69,6 +69,14 @@ import Base from "../layouts/Base.astro";
       <li><strong>Corporate Programs</strong> (Kyiv, 2004–2006) — system and network administrator.</li>
     </ul>
 
+    <h2>Side Projects</h2>
+    <ul>
+      <li><strong><a href="https://github.com/ashenwolf/roude-leiw-web">Roude Léiw</a></strong> — Luxembourgish language learning app. Identified a gap, built the product end-to-end.</li>
+      <li><strong><a href="https://github.com/ashenwolf/letzcalc">LetzCalc</a></strong> — Luxembourg tax calculator. Scratched my own itch, turned out others had it too.</li>
+      <li><strong><a href="https://github.com/ashenwolf/cloudflare-trello-mcp">Trello MCP</a></strong> — MCP server for Trello on Cloudflare Workers. Quick spike to connect AI agents to project boards.</li>
+      <li><strong><a href="https://github.com/ashenwolf/gmail-invoice-importer">Gmail Invoice Importer</a></strong> — automates invoice extraction from Gmail. Built to save myself 30 minutes/month.</li>
+    </ul>
+
     <h2>Education</h2>
     <h3>Taras Shevchenko National University of Kyiv</h3>
     <p>Master's degree, Mathematics & Software Engineering · 2002 – 2007</p>
@@ -84,6 +92,10 @@ import Base from "../layouts/Base.astro";
     </ul>
   </article>
 </Base>
+
+<script is:inline>
+  window.posthog?.capture('cv_viewed');
+</script>
 
 <style is:global>
   @media print {

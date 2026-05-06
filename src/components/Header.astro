@@ -106,4 +106,12 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
       }
     });
   }
+
+  document.querySelectorAll<HTMLAnchorElement>("[data-lang-toggle]").forEach((el) => {
+    el.addEventListener("click", () => {
+      (window as any).posthog?.capture("language_switched", {
+        to_lang: el.dataset.langToggle,
+      });
+    });
+  });
 </script>

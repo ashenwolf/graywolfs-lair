@@ -17,7 +17,7 @@ const { href, title, date, category, image, lang = "en" } = Astro.props;
 const gradient = (category && CATEGORY_GRADIENTS[category as keyof typeof CATEGORY_GRADIENTS]) ?? "from-gray-300 to-gray-400";
 ---
 
-<a href={href} class="group block">
+<a href={href} class="group block" data-ph-card-title={title} data-ph-card-category={category}>
   <div class="aspect-video rounded-xl overflow-hidden mb-3 bg-surface">
     {image ? (
       <img
@@ -46,3 +46,15 @@ const gradient = (category && CATEGORY_GRADIENTS[category as keyof typeof CATEGO
     {title}
   </h3>
 </a>
+
+<script>
+  document.querySelectorAll<HTMLAnchorElement>('[data-ph-card-title]').forEach((el) => {
+    el.addEventListener('click', () => {
+      (window as any).posthog?.capture('article_card_clicked', {
+        title: el.dataset.phCardTitle,
+        category: el.dataset.phCardCategory,
+        href: el.getAttribute('href'),
+      });
+    });
+  });
+</script>

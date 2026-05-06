@@ -43,8 +43,19 @@ const socials = [
       title={label}
       role="listitem"
       class="text-gray-500 hover:text-gray-900 transition-colors"
+      data-ph-social={label}
     >
       <Fragment set:html={svg} />
     </a>
   ))}
 </div>
+
+<script is:inline>
+  document.querySelectorAll('[data-ph-social]').forEach(function (el) {
+    el.addEventListener('click', function () {
+      window.posthog?.capture('social_link_clicked', {
+        platform: el.getAttribute('data-ph-social'),
+      });
+    });
+  });
+</script>
