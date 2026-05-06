@@ -97,12 +97,11 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
     document.querySelectorAll<HTMLAnchorElement>("[data-lang-toggle]").forEach((el) => {
       const to = el.dataset.langToggle;
       const path = window.location.pathname;
+      const isArticle = /^(\/ua)?\/\d{4}\/\d{2}\/\d{2}\//.test(path);
       if (to === "ua") {
-        const uaPath = path === "/" ? "/ua" : "/ua" + path;
-        el.href = "https://graywolf.org.ua" + uaPath;
+        el.href = "https://graywolf.org.ua" + (isArticle ? "/ua" : path === "/" ? "/ua" : "/ua" + path);
       } else {
-        const enPath = path.replace(/^\/ua/, "") || "/";
-        el.href = "https://gulenok.lu" + enPath;
+        el.href = "https://gulenok.lu" + (isArticle ? "/" : path.replace(/^\/ua/, "") || "/");
       }
     });
   }
