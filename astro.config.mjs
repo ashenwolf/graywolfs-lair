@@ -9,7 +9,9 @@ import remarkImageCaptions from "./src/plugins/remark-image-captions.js";
 export default defineConfig({
   site: "https://gulenok.lu",
   output: "static",
-  adapter: cloudflare(),
+  adapter: cloudflare({
+    prerenderEnvironment: "node",
+  }),
   vite: {
     plugins: [tailwindcss()],
   },
