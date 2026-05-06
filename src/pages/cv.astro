@@ -2,9 +2,100 @@
 import Base from "../layouts/Base.astro";
 ---
 
-<Base title="CV" lang="en">
-  <div class="container-inner">
-    <h1 class="text-3xl font-bold mb-4">CV</h1>
-    <p class="text-gray-600">Coming soon.</p>
-  </div>
+<Base title="CV" lang="en" description="Sergii Gulenok — Full-Stack Engineer & Front-End Tech Lead at Amazon. ~20 years in software engineering.">
+  <article class="max-w-5xl mx-auto px-4 sm:px-8 py-12 prose prose-neutral">
+    <h1>Sergii Gulenok</h1>
+    <p class="text-lg text-gray-600 not-prose mb-1">Full-Stack Engineer · Front-End Tech Lead @ Amazon Fulfillment Technology</p>
+    <p class="text-sm text-gray-500 not-prose mb-8">
+      Luxembourg · <a href="mailto:sergii.gulenok@gmail.com">sergii.gulenok@gmail.com</a> · <a href="https://www.linkedin.com/in/sergii-gulenok">LinkedIn</a> · <a href="https://gulenok.lu">gulenok.lu</a>
+    </p>
+
+    <h2>Summary</h2>
+    <p>~20 years turning complex problems into simple tools. Currently Front-End Technical Lead at Amazon in Luxembourg — React, TypeScript, micro-frontends, but the tech is secondary to whether users can get their job done without thinking about it.</p>
+    <p>Past lives: 3D dental CAD software, internal HR tools for promotions and trip planning, independent consulting, managing distributed teams. Production code in JS/TS, C++, C#, F#, Clojure, Java, Scala, Python — whatever the problem called for.</p>
+    <p>Lately interested in where AI actually helps engineers think better versus where it just produces more code faster. The distinction matters — most software problems are people problems in disguise, and no amount of generated code fixes a bad abstraction.</p>
+
+    <h2>Experience</h2>
+
+    <h3>Amazon <span class="font-normal text-gray-500">· Luxembourg</span></h3>
+    <p class="text-sm text-gray-500 not-prose -mt-2 mb-2">December 2020 – Present</p>
+
+    <h4>Front-End Technical Lead — Fulfillment Technology (2024–present)</h4>
+    <p>Own the front-end architecture for fulfillment tools. Complex operational workflows that need to feel simple — fewer clicks, less confusion, happier users. Multi-tenant platform, many teams shipping independently.</p>
+
+    <h4>Full-Stack Senior Engineer — Worldwide Stores Finance Technology (2020–2024)</h4>
+    <ul>
+      <li>Built a large-dataset analysis tool — user-friendly pivot tables over dozens of terabytes. Designed a custom query language (MongoDB-inspired) and a database definition language supporting context-aware fields, computed fields, and automatic join resolution. Generated optimized queries for Athena, Kylin, and StarRocks, routing to the optimal engine per use case. Used daily by 5,000+ finance and operations users worldwide for decisions that previously required a BI engineer to build custom dashboards for each case.</li>
+      <li>EU Financial bridging tool — automated 65% of manual bridging effort for 400+ weekly users across 110+ EU warehouses. Voted #2 out of 41 bridging tools org-wide.</li>
+      <li>Headcount management and requisition approval system — replaced fragmented PowerBI dashboards and manual processes across 110+ warehouses. Automated requisition checks gave back 6 hours/week to the central team; field managers called it a "life-changer."</li>
+    </ul>
+
+    <h3>Toptal <span class="font-normal text-gray-500">· Remote</span></h3>
+    <p class="text-sm text-gray-500 not-prose -mt-2 mb-2">June 2020 – December 2020</p>
+    <p>Accepted into the Toptal network (top 3% screening). Worked on client projects bridging the gap before relocating to Luxembourg for Amazon.</p>
+
+    <h3>Independent Consulting <span class="font-normal text-gray-500">· Kyiv</span></h3>
+    <p class="text-sm text-gray-500 not-prose -mt-2 mb-2">November 2015 – December 2020</p>
+    <p>Independent consulting practice serving US and EU clients. No PMs, no dedicated infrastructure teams — pulled requirements directly from users, shaped the product, built it, shipped it:</p>
+    <ul>
+      <li><strong>Grammarly</strong> — built the tools that ran their people operations: how trips got approved, how performance was reviewed, how promotions happened. No product manager — gathered needs directly from HR and managers, translated those into requirements, and delivered. Used by the entire company.</li>
+      <li><strong>US real-estate startups</strong> — sole engineer on the website and back office for a company among the top five online wholesale land marketplaces in the US. Wore every hat from customer interviews to deployment.</li>
+      <li><strong>Dentsply Implants</strong> — continued work on 3D dental CAD tooling (see below).</li>
+      <li><strong>InfoSec Institute</strong> — engineering and consulting.</li>
+    </ul>
+    <p>Also mentored junior engineers into developers who could handle production systems without hand-holding.</p>
+
+    <h3>Dentsply Implants n.v. <span class="font-normal text-gray-500">· Kyiv</span></h3>
+
+    <h4>Senior Software Engineer <span class="font-normal text-gray-500">· Kyiv · Apr 2015 – Feb 2016</span></h4>
+    <p>Part of a 3-person team building two medical software products: a 3D CAD system for dental technicians (released 2015, still in production use) and the scan processing tool for the Atlantis™ Web Order system.</p>
+    <ul>
+      <li>Rebuilt the core state machine and UI layer — significantly reduced the codebase, eliminated a class of recurring bugs, and cut development time for similar applications by ~20%.</li>
+      <li>Built 3D rendering features and extracted reusable libraries from internal tools. Advocated for functional programming techniques that were adopted by other teams.</li>
+    </ul>
+
+    <h4>People Manager / Software Project Manager <span class="font-normal text-gray-500">· Feb 2011 – Jun 2015</span></h4>
+    <p>Managed distributed teams of up to 12 engineers and analysts. Delivered 16 projects in 4 years — full lifecycle from requirements through deployment and support.</p>
+    <p>Introduced lean and agile practices. Made a point of doing every team role myself (SE, QA, BA) — hard to manage work you don't understand.</p>
+
+    <h3>Materialise Dental <span class="font-normal text-gray-500">· Kyiv · Sep 2009 – Feb 2011</span></h3>
+    <p>Rewrote a core design module nearly from scratch as part of a 2-engineer, 1-QA team. Aggressive schedule, shipped on time, debuted successfully at IDS (largest European dental show). Several design ideas were later adopted by competing products.</p>
+    <p>First to introduce Continuous Integration and nightly builds in the department. Drove the migration from Subversion to Mercurial.</p>
+
+    <h3>Earlier roles</h3>
+    <ul>
+      <li><strong>CommerceLab</strong> (Kyiv, 2008–2009) — led 3 engineers building Windows security tools. Built an in-house VirusTotal clone and a shared component library.</li>
+      <li><strong>IMU</strong> (2006–2008) — Windows security and system maintenance tools, including a local transparent proxy. Designed reusable module architecture.</li>
+      <li><strong>Corporate Programs</strong> (Kyiv, 2004–2006) — system and network administrator.</li>
+    </ul>
+
+    <h2>Education</h2>
+    <h3>Taras Shevchenko National University of Kyiv</h3>
+    <p>Master's degree, Mathematics & Software Engineering · 2002 – 2007</p>
+
+    <h2>Skills</h2>
+    <p>Primary: React, TypeScript, Java, Node.js, AWS. Also shipped production code in C++, C#, F#, Python, Scala, Clojure. Micro frontends, Module Federation, 3D graphics (DirectX/SlimDX).</p>
+
+    <h2>Languages</h2>
+    <ul>
+      <li>Ukrainian — Native</li>
+      <li>English — Full professional proficiency</li>
+      <li>Italian — Elementary</li>
+    </ul>
+  </article>
 </Base>
+
+<style is:global>
+  @media print {
+    header, footer { display: none !important; }
+    @page { margin: 1.5cm; }
+    article { padding: 0 !important; max-width: none !important; }
+    * { font-size: 11px !important; line-height: 1.4 !important; }
+    h1 { font-size: 20px !important; }
+    h2 { font-size: 16px !important; }
+    h3 { font-size: 14px !important; }
+    h4 { font-size: 12px !important; }
+    ul { list-style-type: square !important; }
+    li { padding-left: 0 !important; }
+  }
+</style>
