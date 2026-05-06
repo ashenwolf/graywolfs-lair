@@ -4,13 +4,12 @@ import { createHash } from "node:crypto";
 import sharp from "sharp";
 
 const PUBLIC_DIR = resolve(process.cwd(), "public");
-const OPTIMIZED_DIR = resolve(PUBLIC_DIR, "assets/optimized");
 const MAX_WIDTH = 1200;
 const QUALITY = 80;
 
 const cache = new Map();
 
-async function optimizeImage(srcPath) {
+async function optimizeImage(srcPath, outputDir) {
   if (cache.has(srcPath)) return cache.get(srcPath);
   if (!existsSync(srcPath)) return null;
 
@@ -21,9 +20,10 @@ async function optimizeImage(srcPath) {
 
   const hash = createHash("md5").update(`${srcPath}-${width}-${QUALITY}`).digest("hex").slice(0, 8);
   const name = `${basename(srcPath, extname(srcPath))}-${hash}.webp`;
-  const outPath = resolve(OPTIMIZED_DIR, name);
+  const optimizedDir = resolve(outputDir, "assets/optimized");
 
-  mkdirSync(OPTIMIZED_DIR, { recursive: true });
+  mkdirSync(optimizedDir, { recursive: true });
+  const outPath = resolve(optimizedDir, name);
   if (!existsSync(outPath)) {
     await img.resize(width).webp({ quality: QUALITY }).toFile(outPath);
   }
@@ -53,7 +53,7 @@ export default function imageOptimization() {
           while ((match = imgRegex.exec(html)) !== null) {
             const [full, before, src, ext, after] = match;
             const srcPath = resolve(PUBLIC_DIR, src.slice(1));
-            const result = await optimizeImage(srcPath);
+            const result = await optimizeImage(srcPath, htmlDir);
             if (!result) continue;
 
             const hasLoading = /loading=/i.test(before + after);
