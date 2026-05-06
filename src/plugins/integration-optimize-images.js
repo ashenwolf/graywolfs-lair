@@ -60,10 +60,11 @@ export default function imageOptimization() {
             const hasDecoding = /decoding=/i.test(before + after);
             const hasWidth = /\bwidth=/i.test(before + after);
             const hasHeight = /\bheight=/i.test(before + after);
+            const hasFetchpriority = /fetchpriority=/i.test(before + after);
 
             let attrs = "";
             if (!hasLoading) attrs += ` loading="lazy"`;
-            if (!hasDecoding) attrs += ` decoding="async"`;
+            if (!hasDecoding && !hasFetchpriority) attrs += ` decoding="async"`;
             if (!hasWidth) attrs += ` width="${result.width}"`;
             if (!hasHeight) attrs += ` height="${result.height}"`;
 
