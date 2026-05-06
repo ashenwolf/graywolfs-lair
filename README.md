@@ -37,6 +37,8 @@ public/
   assets/              # Static images (YYYY/MM/DD/)
     excalidraw/        # Generated at build time (gitignored)
     mermaid/           # Generated at build time (gitignored)
+    optimized/         # Optimized WebP images (generated at build time, gitignored)
+  fonts/               # Self-hosted Noto Serif WOFF2 subsets (latin + cyrillic)
 tools/
   scripts/             # Utility and migration scripts (not deployed)
 ```
@@ -87,6 +89,16 @@ When `remark-obsidian-embeds.js` encounters a `![[name.excalidraw]]` embed it:
 5. Writes the result to `public/assets/excalidraw/`
 
 The standalone `tools/scripts/convert-excalidraw.js` still exists as a utility but is not part of the build.
+
+## Image optimization
+
+The `integration-optimize-images.js` Astro integration runs after build and post-processes all generated HTML:
+- Finds `<img>` tags pointing to local PNG/JPG files in `public/assets/`
+- Converts them to WebP (max 1200px width, quality 80) using sharp
+- Adds `loading="lazy"`, `decoding="async"`, and `width`/`height` attributes
+- Outputs optimized files to `public/assets/optimized/` (gitignored)
+
+This means you keep original images in your Markdown and `public/assets/` — optimization happens automatically on `npm run build`.
 
 ## Tools
 
