@@ -11,14 +11,14 @@
             "id": "d534646232029987",
             "type": "leaf",
             "state": {
-              "type": "split-diff-view",
+              "type": "markdown",
               "state": {
-                "aFile": "src/content/.obsidian/plugins/obsidian-excalidraw-plugin/data.json",
-                "bFile": "src/content/.obsidian/plugins/obsidian-excalidraw-plugin/data.json",
-                "aRef": ""
+                "file": "articles/en/hello-world.md",
+                "mode": "source",
+                "source": false
               },
-              "icon": "diff",
-              "title": "Diff: data.json  (Working Tree)"
+              "icon": "lucide-file",
+              "title": "hello-world"
             }
           }
         ]
@@ -205,15 +205,15 @@
   },
   "active": "d534646232029987",
   "lastOpenFiles": [
-    "source-materials/software-engineering/We are not the same.md",
     "articles/en/2025/02/We Are Not the Same....md",
-    "articles/en/2023/08/Things I’ve Learnt From the Best Software Engineer I Have Ever Met - Part 1.md",
-    "articles/en/Nice Drawing.excalidraw.md",
-    "articles/en/hello-world.md",
     "articles/en/2026/02/Why We Fight, Why We Resist.md",
+    "articles/en/2025/02/To Code or Not to Code, That Is the Question.md",
     "articles/en/2023/08/Things I’ve Learnt From the Best Software Engineer I Have Ever Met - Part 3.md",
     "articles/en/2023/08/Things I've Learnt From the Best Software Engineer I Have Ever Met - Part 2.md",
-    "articles/en/2025/02/To Code or Not to Code, That Is the Question.md",
+    "articles/en/2023/08/Things I’ve Learnt From the Best Software Engineer I Have Ever Met - Part 1.md",
+    "source-materials/software-engineering/We are not the same.md",
+    "articles/en/Nice Drawing.excalidraw.md",
+    "articles/en/hello-world.md",
     "assets/images/2026/02/software-we-are-not-the-same-2.jpg",
     "assets/images/favicon.png",
     "assets/images/2023/08/20260220223356.png",

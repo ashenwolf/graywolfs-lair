@@ -1,5 +1,5 @@
 ---
-title: To code or not to code, that is the question
+title: To Code or Not to Code, That Is the Question
 date: 2026-02-20
 tags:
   - software-engineering

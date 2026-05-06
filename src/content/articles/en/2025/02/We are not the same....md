@@ -1,6 +1,6 @@
 ---
-title: We are not the same
-date: 2026-02-21
+title: We Are Not the Same...
+date: 2026-02-22
 tags:
   - software-engineering
   - AI

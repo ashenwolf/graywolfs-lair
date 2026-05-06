@@ -1,5 +1,5 @@
 ---
-title: "Things I’ve Learnt from the Best Software Engineer I Have Ever Met: Part 1"
+title: Things I’ve Learnt From the Best Software Engineer I Have Ever Met - Part 1
 date: 2023-08-10
 tags:
   - software-engineering
