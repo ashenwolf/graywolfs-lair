@@ -60,7 +60,6 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
     <div class="prose prose-gray max-w-none prose-code:text-[0.85em] prose-pre:text-[0.85em] prose-pre:leading-snug">
       <slot />
     </div>
-    <div id="disqus_thread" class="mt-12"></div>
     <script
       is:inline
       define:vars={{ articleTitle: title, articleCategory: category, articleTags: tags, articleLang: lang }}
@@ -80,19 +79,6 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
           });
         });
       });
-    </script>
-    <script>
-      var disqus_config = function () {
-        this.page.url = window.location.href;
-        this.page.identifier = window.location.pathname;
-      };
-      (function () {
-        var d = document,
-          s = d.createElement("script");
-        s.src = "https://graywolfs-lair.disqus.com/embed.js";
-        s.setAttribute("data-timestamp", +new Date());
-        (d.head || d.body).appendChild(s);
-      })();
     </script>
   </article>
 </Base>
