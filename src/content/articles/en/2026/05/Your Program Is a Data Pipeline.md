@@ -322,4 +322,15 @@ The pipeline was always there. You just need to see it. And once you do, you sto
 
 P.S. LISP-family languages took this idea to its logical extreme: what if the data flowing through your pipeline *was itself code*? But that's a story for another article.
 
+---
+## References
+
+- Steve McConnell, [*Code Complete* — Table-Driven Methods](https://www.oreilly.com/library/view/code-complete-2nd/0735619670/ch18.html) (2004) — replacing branching logic with data lookups.
+- Scott Wlaschin, [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/) (2014) — modeling success/failure paths as data.
+- Scott Wlaschin, [*Domain Modeling Made Functional*](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/) (2018) — encoding business rules in types.
+- Rich Hickey, [The Value of Values](https://www.infoq.com/presentations/Value-Values) (2012) — why values beat places.
+- Yehonathan Sharvit, [*Data-Oriented Programming*](https://www.manning.com/books/data-oriented-programming) (2022) — separating code from data, language-agnostic.
+- Mike Acton, [Data-Oriented Design](https://www.youtube.com/watch?v=rX0ItVEVjHc) (CppCon 2014) — "The purpose of all programs is to transform data."
+
+----
 *Cover Photo by [Shubham Dhage](https://unsplash.com/@theshubhamdhage?utm_source=Obsidian%20Image%20Inserter%20Plugin&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=Obsidian%20Image%20Inserter%20Plugin&utm_medium=referral)*
