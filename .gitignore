@@ -10,3 +10,4 @@ public/assets/excalidraw/
 public/assets/mermaid/
 public/assets/optimized/
 .env
+.wrangler/
