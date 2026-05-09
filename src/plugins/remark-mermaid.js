@@ -6,6 +6,17 @@ import { createHash } from "node:crypto";
 
 const MERMAID_DIR = resolve(process.cwd(), "public/assets/mermaid");
 
+const MERMAID_THEME = {
+  bg: "#ffffff",
+  fg: "#1f2937",
+  accent: "#2563eb",
+  muted: "#4b5563",
+  line: "#6b7280",
+  padding: 12,
+  nodeSpacing: 32,
+  layerSpacing: 44,
+};
+
 export default function remarkMermaid() {
   return async (tree) => {
     const promises = [];
@@ -14,10 +25,10 @@ export default function remarkMermaid() {
       if (node.lang !== "mermaid") return;
 
       promises.push(
-        renderMermaid(node.value)
+        renderMermaid(node.value, MERMAID_THEME)
           .then((svg) => {
             const hash = createHash("md5")
-              .update(node.value)
+              .update(node.value + JSON.stringify(MERMAID_THEME))
               .digest("hex")
               .slice(0, 10);
             const filename = `diagram-${hash}.svg`;

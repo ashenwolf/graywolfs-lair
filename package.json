@@ -3,8 +3,8 @@
   "type": "module",
   "version": "0.0.1",
   "scripts": {
-    "dev": "astro dev",
-    "build": "rm -rf .astro node_modules/.astro/data-store.json && astro build",
+    "dev": "rm -rf .astro node_modules/.astro/data-store.json public/assets/mermaid && astro dev",
+    "build": "rm -rf .astro node_modules/.astro/data-store.json public/assets/mermaid && astro build",
     "preview": "astro preview",
     "astro": "astro",
     "migrate-ghost": "node tools/scripts/migrate-ghost.js"
