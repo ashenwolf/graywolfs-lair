@@ -151,6 +151,30 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 - Use `Lang` from `labels.ts` for all language type annotations — do not redeclare it locally.
 - Do not create barrel `index.ts` files unless there is a clear need.
 
+### Data flow — concentrate complexity in producers
+
+Every page, component, and route is the end of a pipeline. Push transformation work upstream into producers; keep consumers stupid. Consumers read pre-computed fields — they do not sort, filter, enrich, or re-derive.
+
+- **One producer per shape.** If multiple consumers need the same filtered/sorted/enriched data, that work lives in one function, not N. Adding a sixth `await getCollection(...).filter(...).sort(...)` to a page is a smell — the producer should already return that shape.
+- **Producers output the consumer-ready shape.** `getArticlesByLang(lang)` in `src/utils/collections.ts` is the single producer for "published articles in this language." It filters drafts, sorts by date desc, and attaches URLs in one pass. Every page, the Footer, the RSS feed, and the tag/category path factories consume its output directly.
+- **Type the enriched shape explicitly.** `ArticleWithUrl` (in `src/utils/articleUrls.ts`) is the contract that flows through the system. Components that need URLs declare `articles: ArticleWithUrl[]` in their props — they do not accept raw `CollectionEntry<"articles">[]` and re-enrich.
+- **Working backwards beats working forwards.** When adding a feature, first write down the shape the consumer wants. Then push the work to produce it as far upstream as it'll go. The consumer should look like rendering, not data prep.
+
+### Escape hatches
+
+Don't force the abstraction when consumers genuinely need different shapes:
+- `src/pages/[...slug].astro` calls `getCollection` directly because it builds routes for both languages and intentionally includes drafts (so they can be previewed via direct URL during local dev). It is the only sanctioned second path into the article collection. If you add another, leave a comment explaining why.
+- **Don't pre-emptively factor.** If only one consumer needs a transformation, leave it inline. The point of consolidating is to kill *repeated* work, not to anticipate hypothetical reuse.
+- **Flags are a smell.** If a producer would need parameters like `getArticlesByLang(lang, { includeDrafts: true })` to serve two consumers, the consumers want different shapes. Split the producer instead of branching it internally.
+
+### Remark plugins follow the same rule
+
+Remark plugins are pipeline stages by construction — unified composes them in order, each reads the MDAST tree and emits a transformed tree the next stage consumes. Apply the producer/consumer rule when writing one:
+- **Emit standard AST shapes** (`image`, `link`, `paragraph`, `html`) that downstream stages and rehype can render without plugin-specific knowledge. `remark-obsidian-embeds.js` translates `![[name]]` into plain `image` nodes; `remark-mermaid.js` translates ` ```mermaid ` code blocks into `image` nodes pointing at generated SVGs. Downstream rendering is unaware either plugin ran.
+- **Never emit a custom node shape that requires a paired downstream plugin to interpret.** If reading your plugin's output requires a second plugin you also wrote, you split one producer across two stages.
+- **Side-effect output is fine when deterministic and content-addressable.** Both plugins write generated SVGs to `public/assets/...`. `remark-mermaid.js` content-hashes the filename so reruns are idempotent. If a plugin writes files, hash on the inputs that affect the output (source content + theme/config) so cache busting is automatic.
+- **Don't read state the prior stage didn't put in the tree.** A plugin that needs to know "did the obsidian plugin already run?" is a sign of leaky pipeline boundaries — fix the producer to put what's needed into the AST.
+
 ### What belongs where
 | Concern | Location |
 |---------|----------|

@@ -1,24 +1,19 @@
 ---
-import { getCollection } from "astro:content";
 import SocialLinks from "./SocialLinks.astro";
-import { getArticlesWithUrls } from "../utils/articleUrls";
 import { UI, buildNav } from "../constants/labels";
 import type { Lang } from "../constants/labels";
 import { formatDateShort } from "../utils/date";
+import { getArticlesByLang } from "../utils/collections";
 
 interface Props {
-  lang?: "en" | "ua";
+  lang?: Lang;
 }
 
 const { lang = "en" } = Astro.props;
-const t = UI[lang as Lang];
-const { navLinks, langToggle } = buildNav(lang as Lang);
+const t = UI[lang];
+const { navLinks, langToggle } = buildNav(lang);
 
-const recentArticles = getArticlesWithUrls(
-  (await getCollection("articles", ({ data }) => !data.draft && data.lang === lang))
-    .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
-    .slice(0, 2),
-);
+const recentArticles = (await getArticlesByLang(lang)).slice(0, 2);
 ---
 
 <footer class="border-t border-gray-200 mt-16">
@@ -58,7 +53,7 @@ const recentArticles = getArticlesWithUrls(
               <a href={article.url} class="text-sm text-gray-700 hover:text-gray-900 leading-snug block font-medium">
                 {article.data.title}
               </a>
-              <time class="text-xs text-gray-400 mt-0.5 block">{formatDateShort(article.data.date, lang as Lang)}</time>
+              <time class="text-xs text-gray-400 mt-0.5 block">{formatDateShort(article.data.date, lang)}</time>
             </li>
           ))
         }

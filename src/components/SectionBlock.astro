@@ -1,15 +1,15 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import ArticleCardFeatured from "./ArticleCardFeatured.astro";
-import { getArticlesWithUrls } from "../utils/articleUrls";
+import type { ArticleWithUrl } from "../utils/articleUrls";
+import type { Lang } from "../constants/labels";
 
 interface Props {
   title: string;
   description: string;
   moreHref: string;
   moreLinkLabel?: string;
-  articles: CollectionEntry<"articles">[];
-  lang?: "en" | "ua";
+  articles: ArticleWithUrl[];
+  lang?: Lang;
 }
 
 const {
@@ -20,8 +20,6 @@ const {
   articles,
   lang = "en",
 } = Astro.props;
-
-const articlesWithUrls = getArticlesWithUrls(articles);
 ---
 
 <section class="py-12">
@@ -41,7 +39,7 @@ const articlesWithUrls = getArticlesWithUrls(articles);
     <div class="flex-1">
       {articles.length > 0 ? (
         <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          {articlesWithUrls.slice(0, 4).map((article) => (
+          {articles.slice(0, 4).map((article) => (
             <ArticleCardFeatured
               href={article.url}
               title={article.data.title}

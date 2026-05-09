@@ -1,21 +1,20 @@
 ---
-import type { CollectionEntry } from "astro:content";
 import ArticleCard from "./ArticleCard.astro";
-import { getArticlesWithUrls } from "../utils/articleUrls";
+import type { ArticleWithUrl } from "../utils/articleUrls";
+import type { Lang } from "../constants/labels";
 
 interface Props {
-  articles: CollectionEntry<"articles">[];
+  articles: ArticleWithUrl[];
   emptyMessage?: string;
-  lang?: "en" | "ua";
+  lang?: Lang;
 }
 
 const { articles, emptyMessage = "No articles yet.", lang = "en" } = Astro.props;
-const articlesWithUrls = getArticlesWithUrls(articles);
 ---
 
 {articles.length === 0 && <p class="text-gray-500">{emptyMessage}</p>}
 <ul class="divide-y divide-gray-100">
-  {articlesWithUrls.map((article) => (
+  {articles.map((article) => (
     <li class="py-6 first:pt-0 last:pb-0">
       <ArticleCard
         href={article.url}

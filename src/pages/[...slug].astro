@@ -1,24 +1,14 @@
 ---
 import { getCollection, render } from "astro:content";
 import Article from "../layouts/Article.astro";
+import { getArticleUrl } from "../utils/articleUrls";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles");
-  return articles.map((article) => {
-    const date = new Date(article.data.date);
-    const year = date.getFullYear();
-    const month = String(date.getMonth() + 1).padStart(2, '0');
-    const day = String(date.getDate()).padStart(2, '0');
-
-    // Extract slug from article ID (e.g., "en/hello-world" -> "hello-world")
-    const slugParts = article.id.split('/');
-    const slug = slugParts[slugParts.length - 1].replace('.md', '');
-
-    return {
-      params: { slug: `${year}/${month}/${day}/${slug}` },
-      props: { article },
-    };
-  });
+  return articles.map((article) => ({
+    params: { slug: getArticleUrl(article).slice(1) },
+    props: { article },
+  }));
 }
 
 const { article } = Astro.props;
