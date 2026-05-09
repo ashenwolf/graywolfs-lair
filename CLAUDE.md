@@ -143,6 +143,7 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 - Tailwind CSS v4 only. All theme tokens (`--color-*`, `--font-*`, custom utilities) are defined in `src/styles/global.css`. Do not create a `tailwind.config.*` file.
 - Use existing design tokens (`text-accent`, `bg-surface`, `bg-hero-bg`, `photo-glow`, `container-inner`, etc.) rather than arbitrary hex values or one-off classes.
 - Category gradients are defined in `CATEGORY_GRADIENTS` in `labels.ts` — do not hardcode gradient classes in components.
+- Prefer Tailwind classes over hand-written CSS. Global element styles (`scroll-smooth` on `<html>`, `font-sans` on `<body>`) belong as classes on the element in `Base.astro`, not in `@layer base` in `global.css`. Prose typography overrides belong as `prose-*` modifier classes on the prose container (they live in `@layer utilities` and beat the plugin's `@layer components` styles). Only add CSS to `global.css` when no Tailwind class can express the rule (e.g. attribute selectors like `[src*="..."]`, or complex `@keyframes`).
 
 ### Astro component conventions
 - Import order in frontmatter: external/Astro imports → internal components/layouts → utils → constants → types.
