@@ -9,27 +9,27 @@ lang: en
 draft: false
 description: The AI content economy is self-referential. The people posting about 10x productivity are selling courses, not shipping products. Meanwhile, 92,000 engineers lost their jobs this year based on the promise.
 category: software-engineering
-image: /assets/images/2026/05/2cfec30a-9684-4445-8a02-17300b7e40e1_1153x987.jpg
+image: /assets/images/2026/05/dca5b4001b88399f9013259d10a7a129.jpg
 ---
 Open LinkedIn on any given Tuesday. Three posts in, someone "replaced their entire engineering team with Claude and saved $200k." By post six, a founder built a full SaaS product over a weekend. By post ten, you're wondering if you've been doing software wrong for the past decade.
 
 But here's the thing I noticed. Look at what these people actually *do*. Click through to their profiles. Check their products. Nine times out of ten, the product IS the post. The thing they shipped is the content about AI. The course. The $997 masterclass. The "AI workflow" template.
 
-They are not showing you a product that solves a business problem. They are teaching you how to use AI -- not how to build the thing. The content is about the tool, never about the output.
+They are not showing you a product that solves a business problem. They are teaching you how to use AI, not how to build the thing. The content is about the tool, never about the output.
 
 This would be fine if it stayed on LinkedIn. Content creators gonna create content. The problem is who's *reading* it.
 
-CTOs and VPs see these posts and do napkin math. "If AI makes engineers 10x productive, I can fire 50% and still get 5x the output. Same budget, five times the result." [Cloudflare cut 1,100 people in May](https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/), saying AI made their jobs obsolete -- while posting record revenue. [GM laid off 600 IT workers](https://techcrunch.com/2026/05/11/gm-just-laid-off-hundreds-of-it-workers-to-hire-those-with-stronger-ai-skills/) to "make room for AI-focused backgrounds." [Tech layoffs hit 92,000 in 2026](https://cybernews.com/ai-news/tech-layoffs-ai/) so far. A 33% increase from last year.
+CTOs and VPs see these posts and do napkin math. "If AI makes engineers 10x productive, I can fire 50% and still get 5x the output. Same budget, five times the result." [Cloudflare cut 1,100 people in May](https://techcrunch.com/2026/05/08/cloudflare-says-ai-made-1100-jobs-obsolete-even-as-revenue-hit-a-record-high/), saying AI made their jobs obsolete, while posting record revenue. [GM laid off 600 IT workers](https://techcrunch.com/2026/05/11/gm-just-laid-off-hundreds-of-it-workers-to-hire-those-with-stronger-ai-skills/) to "make room for AI-focused backgrounds." [Tech layoffs hit 92,000 in 2026](https://cybernews.com/ai-news/tech-layoffs-ai/) so far. A 33% increase from last year.
 
-Here's what's wild: a [Gartner study from this month](https://fortune.com/2026/05/11/ai-automation-layoffs-gartner-study-roi/) found that 80% of companies that piloted AI reported workforce reductions -- *regardless of whether the technology was actually generating returns*. They're firing people based on the *promise*, not the results.
+Here's what's wild: a [Gartner study from this month](https://fortune.com/2026/05/11/ai-automation-layoffs-gartner-study-roi/) found that 80% of companies that piloted AI reported workforce reductions *regardless of whether the technology was actually generating returns*. They're firing people based on the *promise*, not the results.
 
 The 10x productivity claim comes from people selling shovels. And the executives buying those shovels are paying for them with headcount.
 
 So what happens to the engineers who survive the cut?
 
-They use AI. Not because they're excited about it -- because they have no choice. The workload of 100 people doesn't disappear when you fire 50. You just need the remaining 50 to *look* like they're keeping up. AI helps with that. It generates code fast. It generates documentation fast. It generates the *appearance* of progress fast.
+They use AI. Not because they're excited about it, but because they have no choice. The workload of 100 people doesn't disappear when you fire 50. You just need the remaining 50 to *look* like they're keeping up. AI helps with that. It generates code fast. It generates documentation fast. It generates the *appearance* of progress fast.
 
-I've seen this firsthand. A codebase written predominantly by AI -- tons of code, tons of documentation, looks like a well-functioning system from the outside. But open a file and you can't tell why a function exists. The code is correct -- syntactically, logically -- but it has no *intent*. It's like reading a book translated by someone who speaks the language but has never lived in the country.
+I've seen this firsthand. A codebase written predominantly by AI : tons of code, tons of documentation, looks like a well-functioning system from the outside. But open a file and you can't tell why a function exists. The code is correct -- syntactically, logically -- but it has no *intent*. It's like reading a book translated by someone who speaks the language but has never lived in the country.
 
 And here's the trap: the system incentivizes speed, so you trust AI's judgment instead of diving deep. Every shortcut makes the next shortcut more necessary. Understanding erodes. The codebase grows but comprehension shrinks. It's a ticking bomb.
 
@@ -41,13 +41,13 @@ A recent essay called ["Appearing Productive in the Workplace"](https://noonesha
 
 This is the part the LinkedIn crowd never talks about. The struggle to understand a problem *is* the value. The time spent reading code, breaking things, rebuilding them -- that's not inefficiency. That's how expertise forms. Cut that out and you don't get faster engineers. You get faster typists who can't debug their own systems.
 
-The essay describes a colleague who spent two months building a system with AI. Great deal of code, great deal of documentation, great deal of what looked like progress. He could not, when asked, explain how any of it worked. The schemas were wrong from day one -- obvious to anyone with two years in the field. But management was too invested in the appearance of momentum to want it disturbed.
+The essay describes a colleague who spent two months building a system with AI. Great deal of code, great deal of documentation, great deal of what looked like progress. He could not, when asked, explain how any of it worked. The schemas were wrong from day one. Obvious to anyone with two years in the field. But management was too invested in the appearance of momentum to want it disturbed.
 
 We are not digging faster. We are digging faster *in the wrong place*. And nobody wants to stop the excavator to check the map.
 
 There's a reason [Linear](https://linear.app) -- 178 people, $100M ARR -- is widely considered a better product than Jira with its army of thousands. DHH wrote about this in [*ReWork*](https://basecamp.com/books/rework): underdo your competitors. Don't build 10 features. Build 2, but nail them.
 
-AI does the opposite. It makes building cheap, so you build everything. Ten features instead of two. Twelve-page requirements docs instead of one. Code to support every possible edge case, because why not -- it only took thirty seconds to generate. The codebase balloons. The product becomes generic. Barely usable by customers, barely maintainable by engineers, barely understandable by anyone.
+AI does the opposite. It makes building cheap, so you build everything. Ten features instead of two. Twelve-page requirements docs instead of one. Code to support every possible edge case, because why not? It only took thirty seconds to generate. The codebase balloons. The product becomes generic. Barely usable by customers, barely maintainable by engineers, barely understandable by anyone.
 
 The hard part of building products was never typing code. It was deciding what *not* to build. AI has no taste for that. And the people firing their teams don't seem to either.
 
@@ -56,11 +56,11 @@ I'm not anti-AI. I use it daily. It's great for prototypes, brainstorming, draft
 But a prototype is not a product. A demo is not a business. And a LinkedIn post is not evidence that you can fire half your engineering team.
 
 ![Draw the resto of the owl](../../../../assets/images/2026/05/2cfec30a-9684-4445-8a02-17300b7e40e1_1153x987.jpg)
-The next time you see "built this in 3 hours with AI" -- ask yourself: is it still running six months later? Does anyone understand how it works? Would you bet your company on it?
+The next time you see "built this in 3 hours with AI", ask yourself: is it still running six months later? Does anyone understand how it works? Would you bet your company on it?
 
 The firms still doing the work properly -- slowly, deliberately, with people who understand what they're building -- will be in a position to charge for it. The firms that hollowed themselves out will discover that what they hollowed out was the thing the client was paying for.
 
-P.S. This article was written with AI assistance -- for brainstorming and drafting. I can explain every sentence in it. Can your AI-generated codebase say the same?
+P.S. This article was written with AI assistance for brainstorming and drafting. I can explain every sentence in it. Can your AI-generated codebase say the same?
 
 ## Appendix: References & Data
 
