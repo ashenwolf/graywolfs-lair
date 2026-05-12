@@ -2,6 +2,7 @@
 import ArticleCardFeatured from "./ArticleCardFeatured.astro";
 import type { ArticleWithUrl } from "../utils/articleUrls";
 import type { Lang } from "../constants/labels";
+import { getCoverImage } from "../utils/coverImages";
 
 interface Props {
   title: string;
@@ -45,7 +46,7 @@ const {
               title={article.data.title}
               date={article.data.date}
               category={article.data.category}
-              image={article.data.image}
+              image={getCoverImage(article.data.image, article.data.category)}
               lang={lang}
             />
           ))}

@@ -2,6 +2,7 @@
 import ArticleCard from "./ArticleCard.astro";
 import type { ArticleWithUrl } from "../utils/articleUrls";
 import type { Lang } from "../constants/labels";
+import { getCoverImage } from "../utils/coverImages";
 
 interface Props {
   articles: ArticleWithUrl[];
@@ -22,7 +23,7 @@ const { articles, emptyMessage = "No articles yet.", lang = "en" } = Astro.props
         date={article.data.date}
         description={article.data.description}
         tags={article.data.tags}
-        image={article.data.image}
+        image={getCoverImage(article.data.image, article.data.category)}
         lang={lang}
       />
     </li>

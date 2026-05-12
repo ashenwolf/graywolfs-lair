@@ -4,6 +4,7 @@ import SocialLinks from "../components/SocialLinks.astro";
 import ArticleCardFeatured from "../components/ArticleCardFeatured.astro";
 import SectionBlock from "../components/SectionBlock.astro";
 import { getArticlesByLang } from "../utils/collections";
+import { getCoverImage } from "../utils/coverImages";
 
 const allArticles = await getArticlesByLang("en");
 const latestArticles = allArticles.slice(0, 6);
@@ -51,7 +52,7 @@ const byCategory = (cat: string) =>
             title={article.data.title}
             date={article.data.date}
             category={article.data.category}
-            image={article.data.image}
+            image={getCoverImage(article.data.image, article.data.category)}
             lang="en"
           />
         ))}

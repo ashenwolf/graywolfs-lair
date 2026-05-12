@@ -2,6 +2,7 @@
 import { getCollection, render } from "astro:content";
 import Article from "../layouts/Article.astro";
 import { getArticleUrl } from "../utils/articleUrls";
+import { getCoverImage } from "../utils/coverImages";
 
 export async function getStaticPaths() {
   const articles = await getCollection("articles");
@@ -13,6 +14,8 @@ export async function getStaticPaths() {
 
 const { article } = Astro.props;
 const { Content } = await render(article);
+
+const image = getCoverImage(article.data.image, article.data.category);
 ---
 
 <Article
@@ -21,7 +24,7 @@ const { Content } = await render(article);
   tags={article.data.tags}
   lang={article.data.lang}
   category={article.data.category}
-  image={article.data.image}
+  image={image || undefined}
   description={article.data.description}
 >
   <Content />
