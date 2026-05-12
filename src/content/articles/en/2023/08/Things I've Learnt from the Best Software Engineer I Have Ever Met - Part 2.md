@@ -16,7 +16,7 @@ These upcoming reflections might seem disjointed, perhaps even conflicting at fi
 ![](../../../../assets/images/2023/08/20260220223356.png)
 ### Focus on the Right Problems
 
-All the brilliance in engineering can go to waste if directed at the wrong problem. Although this sentiment is commonly known, it’s striking how many engineers seem indifferent to understanding the business context of their work. This disconnect is especially pronounced in outsourcing firms without accessible business stakeholders, but it’s also prevalent in vast product companies — including the likes of FAANG — where technical teams can become siloed from business, and connected only through intermediaries.
+All the brilliance in engineering can go to waste if directed at the wrong problem. Although this sentiment is commonly known, it’s striking how many engineers seem indifferent to understanding the business context of their work. This disconnect is especially pronounced in outsourcing firms without accessible business stakeholders, but it’s also prevalent in vast product companies -- including the likes of FAANG -- where technical teams can become siloed from business, and connected only through intermediaries.
 
 Max was considered a huge pain in the ass by many managers because he refused to work on anything, unless the person who brought him a task or feature to implement could explain why we need to spend time developing it. Needless to say that most natural argumentation “Because I told you so”, never worked. This approach of challenging everything was quite irritating, however in retrospective I realise that it was a great exercise that helped us to reach clarity on the problem domain. If neither me, nor our analysts could answer those questions (and as you can imagine, it happened a lot), we would get back to customers and make sure those topics are covered. When Max was satisfied with answers he would agree to put the feature or task into the backlog.
 
@@ -28,7 +28,7 @@ This principle is difficult to follow, and to be honest, I am not as uncompromis
 
 ### Missing the Mark Doesn’t Mean Total Loss
 
-Although it’s essential to pursue the right goals, not hitting them doesn’t render our efforts worthless. Even if a project fails to deliver business value, the experience and experimentation — especially with unfamiliar architectures or technologies — holds immense worth.
+Although it’s essential to pursue the right goals, not hitting them doesn’t render our efforts worthless. Even if a project fails to deliver business value, the experience and experimentation -- especially with unfamiliar architectures or technologies -- holds immense worth.
 
 Max was a champion at trying many novel ideas, when working on any projects. As our team was dwarfed by our potential competitors, we were bound to punch well above our weight, incorporating measured risks. Some of those were quite crazy, and, obviously, not all of them worked. Or, to be fair, they did not always work in a way that was designed, or took longer to pay off. That is small, but important distinction. When we, developers, try an idea, and it does not work as expected, we are so overwhelmed with frustration, that we overlook the good parts this idea brought. Those parts are often unexpected and unplanned, so it requires an effort to acknowledge them.
 
@@ -55,7 +55,7 @@ That is probably the most controversial topic. The prevailing wisdom is to write
 
 Since Max appeared on our team he was known to have a specific views on problem solving. If I remember correctly he was the one who started actively using functional programming concepts on the real-world production project. That’s actually how we became quite close: while everyone on the team thought it was far-reaching, I was excited and perceived it as a great opportunity to boost my skills, and learn something new from a person who has hands on experience. Was it difficult at first? Sure. Was it worth it? Definitely yes. Often while reading some lines of code I had to go and check books or documentation. You don’t get it first, but then, when you finally understand, you’re like “Wow! That’s smart!”, and ta-daa: there is another tool in your engineering toolbox.
 
-> **Anecdote.** Max’s teaching style resembled throwing a kitten into a river — sink or swim. One colleague, initially overwhelmed, later compared revisiting Max’s project to “reading Goethe poetry.” She said it was a revelation, a world apart from other work she had tackled. However, it took some effort to grow to that level, and experience other projects that were written in a more common fashion.
+> **Anecdote.** Max’s teaching style resembled throwing a kitten into a river -- sink or swim. One colleague, initially overwhelmed, later compared revisiting Max’s project to “reading Goethe poetry.” She said it was a revelation, a world apart from other work she had tackled. However, it took some effort to grow to that level, and experience other projects that were written in a more common fashion.
 
 So, my advice: **Leverage methods you deem fit and encourage peers to elevate their skill set**. Whether it’s adopting idiomatic code for your stack, integrating concepts from other paradigms, or even venturing into low-level optimizations, strive to elevate the standard rather than conforming to it.
 

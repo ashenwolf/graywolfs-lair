@@ -7,13 +7,13 @@ tags:
   - code
 lang: en
 draft: false
-description: Every business process is naturally a pipeline — data comes in, gets transformed, goes out. When code becomes hard to understand, it's because we've buried that pipeline under ad-hoc checks and scattered logic. Here's a mental tool for making it visible again.
+description: Every business process is naturally a pipeline -- data comes in, gets transformed, goes out. When code becomes hard to understand, it's because we've buried that pipeline under ad-hoc checks and scattered logic. Here's a mental tool for making it visible again.
 category: software-engineering
 image: /assets/images/2026/05/20260509002600.png
 ---
 > *"Bad programmers worry about the code. Good programmers worry about data structures and their relationships."* -- Linus Torvalds
 
-One thing I learned over the years is that the best solutions to complex problems don't *look* complex. They look obvious. You read the code and think "well, of course, what else would you do?" — and that feeling of inevitability is not an accident. It's the result of someone spending time thinking about the *shape* of the problem before writing a single line.
+One thing I learned over the years is that the best solutions to complex problems don't *look* complex. They look obvious. You read the code and think "well, of course, what else would you do?" -- and that feeling of inevitability is not an accident. It's the result of someone spending time thinking about the *shape* of the problem before writing a single line.
 
 I've been chasing this feeling for most of my career. Not always successfully -- I've overcomplicated things plenty of times and learned the hard way that "elegant" and "simple" are not the same thing. But along the way I've developed a mental tool that helps me get there consistently. It's not a framework or a design pattern. It's a way of looking at problems that prevents accidental complexity from creeping in. The core idea: every business process is naturally a pipeline. Data comes in, gets transformed, goes out. When code becomes hard to understand, it's almost never because the business logic is inherently complex -- it's because we've *hidden* the pipeline under layers of ad-hoc checks and scattered logic.
 
@@ -294,11 +294,11 @@ Eric Raymond in 2003: *"Fold knowledge into data, so program logic can be stupid
 
 Linus Torvalds in 2006: *"I'm a huge proponent of designing your code around the data, rather than the other way around, and I think it's one of the reasons git has been fairly successful."*
 
-Same idea. Decades apart. And yet most codebases I encounter still think algorithm-first. We know this stuff intellectually, but we don't practice it. Maybe because nobody showed us *how* -- just *that* it matters. Steve McConnell's [table-driven methods](https://www.oreilly.com/library/view/code-complete-2nd/0735619670/ch18.html) were my first exposure to the "how." Scott Wlaschin's [railway-oriented programming](https://fsharpforfunandprofit.com/rop/) was the next step. But it took me years of applying these ideas — sometimes badly — to arrive at the pipeline model I use today.
+Same idea. Decades apart. And yet most codebases I encounter still think algorithm-first. We know this stuff intellectually, but we don't practice it. Maybe because nobody showed us *how* -- just *that* it matters. Steve McConnell's [table-driven methods](https://www.oreilly.com/library/view/code-complete-2nd/0735619670/ch18.html) were my first exposure to the "how." Scott Wlaschin's [railway-oriented programming](https://fsharpforfunandprofit.com/rop/) was the next step. But it took me years of applying these ideas -- sometimes badly -- to arrive at the pipeline model I use today.
 
 ## The pitfall: don't worship the pipe
 
-I have to be honest. When I first discovered F# and the `|>` operator, I went overboard. Everything had to be a pipe. Filter, map, reduce — the holy trinity. Code that read as `x |> f |> g |> h` felt *right*. I started forcing every piece of logic into this shape, and it was a fun mind game, but not always a good idea.
+I have to be honest. When I first discovered F# and the `|>` operator, I went overboard. Everything had to be a pipe. Filter, map, reduce -- the holy trinity. Code that read as `x |> f |> g |> h` felt *right*. I started forcing every piece of logic into this shape, and it was a fun mind game, but not always a good idea.
 
 The worst case: I once built a message processing system in C#, trying to imitate railway-oriented programming. Every operation had to be a link in the chain. The result: 80% of the logic ended up crammed into a monstrous `.Aggregate()` call, just to maintain pipe purity. The code was technically a pipeline, but it was unreadable, undebuggable, and worse than the imperative version it replaced. I sacrificed clarity for dogma.
 
@@ -325,12 +325,12 @@ P.S. LISP-family languages took this idea to its logical extreme: what if the da
 ---
 ## References
 
-- Steve McConnell, [*Code Complete* — Table-Driven Methods](https://www.oreilly.com/library/view/code-complete-2nd/0735619670/ch18.html) (2004) — replacing branching logic with data lookups.
-- Scott Wlaschin, [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/) (2014) — modeling success/failure paths as data.
-- Scott Wlaschin, [*Domain Modeling Made Functional*](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/) (2018) — encoding business rules in types.
-- Rich Hickey, [The Value of Values](https://www.infoq.com/presentations/Value-Values) (2012) — why values beat places.
-- Yehonathan Sharvit, [*Data-Oriented Programming*](https://www.manning.com/books/data-oriented-programming) (2022) — separating code from data, language-agnostic.
-- Mike Acton, [Data-Oriented Design](https://www.youtube.com/watch?v=rX0ItVEVjHc) (CppCon 2014) — "The purpose of all programs is to transform data."
+- Steve McConnell, [*Code Complete* -- Table-Driven Methods](https://www.oreilly.com/library/view/code-complete-2nd/0735619670/ch18.html) (2004) -- replacing branching logic with data lookups.
+- Scott Wlaschin, [Railway-Oriented Programming](https://fsharpforfunandprofit.com/rop/) (2014) -- modeling success/failure paths as data.
+- Scott Wlaschin, [*Domain Modeling Made Functional*](https://pragprog.com/titles/swdddf/domain-modeling-made-functional/) (2018) -- encoding business rules in types.
+- Rich Hickey, [The Value of Values](https://www.infoq.com/presentations/Value-Values) (2012) -- why values beat places.
+- Yehonathan Sharvit, [*Data-Oriented Programming*](https://www.manning.com/books/data-oriented-programming) (2022) -- separating code from data, language-agnostic.
+- Mike Acton, [Data-Oriented Design](https://www.youtube.com/watch?v=rX0ItVEVjHc) (CppCon 2014) -- "The purpose of all programs is to transform data."
 
 ----
 *Cover Photo by [Shubham Dhage](https://unsplash.com/@theshubhamdhage?utm_source=Obsidian%20Image%20Inserter%20Plugin&utm_medium=referral) on [Unsplash](https://unsplash.com/?utm_source=Obsidian%20Image%20Inserter%20Plugin&utm_medium=referral)*

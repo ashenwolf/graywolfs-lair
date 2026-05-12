@@ -51,7 +51,7 @@ image: "https://farm4.staticflickr.com/3867/14359603598_fe332e3f22_h.jpg"
 
 > Пам'ятник Eve Online Universe поруч з офісом CCP. Я навіть в неї шпілив колись трохи :) [pic.twitter.com/5xeqExiZxr](http://t.co/5xeqExiZxr)
 >
-> — Sergii Gulenok (@ashenwolf) [28 Травень 2014](https://twitter.com/ashenwolf/status/471802809613312000)
+> -- Sergii Gulenok (@ashenwolf) [28 Травень 2014](https://twitter.com/ashenwolf/status/471802809613312000)
 
 ![](https://farm6.staticflickr.com/5589/14776118479_adc254dfa3_h.jpg)
 

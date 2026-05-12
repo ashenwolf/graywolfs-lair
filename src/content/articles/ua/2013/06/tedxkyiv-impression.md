@@ -6,7 +6,7 @@ lang: ua
 category: life
 ---
 
-"TED-лекції — це найкраща річ, яку можна подивитись в Інтернеті"  
+"TED-лекції -- це найкраща річ, яку можна подивитись в Інтернеті"  
 – на Вікі написано, що це з [The Guardian](http://www.guardian.co.uk/), але я не знайшов джерела
 
 [![TEDxKyiv](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358143/tedx_hx67az.png)](http://res.cloudinary.com/dsic6qnnl/image/upload/v1503358143/tedx_hx67az.png)

@@ -17,7 +17,7 @@ image: "https://farm3.staticflickr.com/2935/14388214838_1a1b7f620a_h.jpg"
 
 > Якось так ми зараз мандруємо :) [pic.twitter.com/MOVUt8W7cH](http://t.co/MOVUt8W7cH)
 >
-> — Sergii Gulenok (@ashenwolf) [29 Травень 2014](https://twitter.com/ashenwolf/status/472109476146061312)
+> -- Sergii Gulenok (@ashenwolf) [29 Травень 2014](https://twitter.com/ashenwolf/status/472109476146061312)
 
 Більшу частину дороги краєвиди виглядають десь так. Каміння й мох під ногами і гори на обрії.
 
@@ -63,4 +63,4 @@ image: "https://farm3.staticflickr.com/2935/14388214838_1a1b7f620a_h.jpg"
 
 > Зараз у кемпінгу :) [pic.twitter.com/GrzWu4MxZ8](http://t.co/GrzWu4MxZ8)
 >
-> — Sergii Gulenok (@ashenwolf) [30 Травень 2014](https://twitter.com/ashenwolf/status/472303260775514112)
+> -- Sergii Gulenok (@ashenwolf) [30 Травень 2014](https://twitter.com/ashenwolf/status/472303260775514112)
