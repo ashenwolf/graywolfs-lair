@@ -7,7 +7,7 @@ lang: en
 draft: false
 description:
 category: software-engineering
-image: /assets/images/2023/08/20260220195449.png
+image:
 ---
 Here is the second part of the useful insights I had got from my colleague and friend Max. You can check the [first part](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md) that is focused on individual productivity.
 

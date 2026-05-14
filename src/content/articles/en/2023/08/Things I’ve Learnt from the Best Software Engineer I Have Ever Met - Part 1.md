@@ -8,7 +8,7 @@ lang: en
 draft: false
 description: Tips to maximize personal productivity
 category: software-engineering
-image: /assets/images/2023/08/20260220195449.png
+image:
 ---
 A few months ago I have lost a dear friend, a former colleague, and the best software engineer I have met. So I wanted to honor his memory by sharing a few professional insights that helped me to become a better engineer and I hope you find those useful too.
 

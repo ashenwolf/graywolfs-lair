@@ -7,7 +7,7 @@ lang: en
 draft: false
 description:
 category: software-engineering
-image: /assets/images/2023/08/20260220195449.png
+image:
 ---
 My original list of insights was covered in [Part 2](Things%20I've%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%202.md) and [Part 1](Things%20I’ve%20Learnt%20From%20the%20Best%20Software%20Engineer%20I%20Have%20Ever%20Met%20-%20Part%201.md). However, during a recent discussion, I found myself echoing a phrase I often heard from Max: “we need to work on the culture of reading code”. This unexpected realization sparked the idea for this short addition to the series.
 

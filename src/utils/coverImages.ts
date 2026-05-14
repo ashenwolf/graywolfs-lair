@@ -1,5 +1,5 @@
 const categoryFallbackImages: Record<string, string> = {
-  "software-engineering": "/assets/images/2023/08/20260220195449.png",
+  "software-engineering": "/assets/images/common/cyberpunk-2100.png",
   "travel": "",
   "life": "",
 };
