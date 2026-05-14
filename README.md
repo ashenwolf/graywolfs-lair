@@ -2,6 +2,12 @@
 
 A bilingual (English + Ukrainian) static blog built with Astro 5, deployed to Cloudflare Pages.
 
+**Domains:**
+- **https://gulenok.lu** — English (primary/canonical)
+- **https://graywolf.org.ua** — Ukrainian
+
+The language toggle in production switches between domains (not just `/ua/` prefix).
+
 ## Stack
 
 - **Astro 5** — static site generation
@@ -31,9 +37,10 @@ src/
     ua/                # Ukrainian routes (/ua/*)
   layouts/             # Base.astro, Article.astro
   components/          # UI components
-  plugins/             # Custom remark plugins
+  plugins/             # Custom remark plugins + Astro integration
   styles/              # global.css (Tailwind theme)
-  utils/               # articleUrls.ts
+  utils/               # articleUrls.ts, collections.ts, coverImages.ts, date.ts, tags.ts
+  constants/           # labels.ts (i18n strings, category metadata)
 public/
   assets/              # Static images (YYYY/MM/DD/)
     excalidraw/        # Generated at build time (gitignored)
@@ -51,9 +58,9 @@ The site is bilingual. English routes are at the root; Ukrainian routes are unde
 | Route | File |
 |-------|------|
 | `/` | `src/pages/index.astro` |
-| `/tags` | `src/pages/tags/index.astro` |
-| `/tags/[tag]` | `src/pages/tags/[tag].astro` |
-| `/category/[category]` | `src/pages/category/[category].astro` |
+| `/tag` | `src/pages/tag/index.astro` |
+| `/tag/[tag]` | `src/pages/tag/[tag]/[...page].astro` |
+| `/category/[category]` | `src/pages/category/[category]/[...page].astro` |
 | `/cv` | `src/pages/cv.astro` |
 | `/photography` | `src/pages/photography/index.astro` |
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
@@ -73,23 +80,10 @@ Defined in `src/content.config.ts`:
 
 ## Custom remark plugins
 
-**`remark-obsidian-embeds.js`** — resolves Obsidian `![[filename]]` transclusions:
-- Regular images → `<img>` tags (searched recursively in `public/assets/`)
-- `![[name|500px]]` → image with width set
-- `![[name.excalidraw]]` → converts the source file to SVG at build time (see below)
-
-**`remark-mermaid.js`** — renders ` ```mermaid ` blocks to static SVGs using `beautiful-mermaid`, output to `public/assets/mermaid/` with content-hashed filenames.
-
-## Excalidraw pipeline
-
-When `remark-obsidian-embeds.js` encounters a `![[name.excalidraw]]` embed it:
-1. Locates the `.excalidraw.md` source file (searches from article's directory upward through `src/content/`)
-2. Decompresses the embedded Excalidraw JSON
-3. Converts to SVG via `excalidraw-to-svg`, embeds fonts as base64 data URIs
-4. Applies two upstream bug fixes (wrong font-family, `y="NaN"` on text elements)
-5. Writes the result to `public/assets/excalidraw/`
-
-The standalone `tools/scripts/convert-excalidraw.js` still exists as a utility but is not part of the build.
+- **`remark-mermaid.js`** — renders ` ```mermaid ` blocks to static SVGs using `beautiful-mermaid`, output to `public/assets/mermaid/` with content-hashed filenames.
+- **`remark-obsidian-embeds.js`** — resolves Obsidian `![[filename]]` transclusions: images → `<img>` tags, `![[name.excalidraw]]` → SVG conversion, `![[name|500px]]` → image with width.
+- **`remark-obsidian-links.js`** — converts Obsidian `[[wikilinks]]` to proper site URLs using date-based slug structure.
+- **`remark-image-captions.js`** — converts italic text immediately following an image into a `<figcaption>` wrapped in `<figure>`.
 
 ## Image optimization
 
@@ -99,26 +93,22 @@ The `integration-optimize-images.js` Astro integration runs after build and post
 - Adds `loading="lazy"`, `decoding="async"`, and `width`/`height` attributes
 - Outputs optimized files to `public/assets/optimized/` (gitignored)
 
-This means you keep original images in your Markdown and `public/assets/` — optimization happens automatically on `npm run build`.
+## Excalidraw pipeline
+
+When `remark-obsidian-embeds.js` encounters a `![[name.excalidraw]]` embed it:
+1. Locates the `.excalidraw.md` source file (searches from article's directory upward through `src/content/`)
+2. Decompresses the embedded Excalidraw JSON
+3. Converts to SVG via `excalidraw-to-svg`, embeds fonts as base64 data URIs
+4. Applies upstream bug fixes (wrong font-family, `y="NaN"` on text elements)
+5. Writes the result to `public/assets/excalidraw/`
 
 ## Analytics (PostHog)
 
 Client-side tracking via `src/components/posthog.astro`, included in `Base.astro` `<head>`.
-
 - EU instance (`https://eu.i.posthog.com`), configured via env vars `PUBLIC_POSTHOG_PROJECT_TOKEN` and `PUBLIC_POSTHOG_HOST`
-- Custom events: `article_read`, `tag_clicked`, `cv_viewed`, `social_link_clicked`, `language_switched`, `article_card_clicked`, `category_more_clicked`
 
 ## Tools
 
-**`tools/scripts/migrate-ghost.js`** — one-time Ghost 0.x → Astro migration:
-```bash
-node tools/scripts/migrate-ghost.js --db path/to/ghost.db [--ghost-url URL] [--dry-run] [--lang en|ua] [--add-tags tag1,tag2] [--category software-engineering|travel|life]
-```
-Reads the Ghost SQLite file, converts HTML to Markdown via `turndown`, downloads images, and writes article Markdown files with frontmatter.
-
-**`tools/scripts/add-categories.js`** — backfills `category` frontmatter on existing articles based on tags:
-```bash
-node tools/scripts/add-categories.js [--dry-run] [--force]
-```
-
-**`tools/scripts/convert-excalidraw.js`** — standalone Excalidraw → SVG converter (same logic as the remark plugin).
+- **`tools/scripts/migrate-ghost.js`** — one-time Ghost 0.x → Astro migration
+- **`tools/scripts/add-categories.js`** — backfills `category` frontmatter based on tags
+- **`tools/scripts/convert-excalidraw.js`** — standalone Excalidraw → SVG converter

@@ -2,6 +2,15 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+> **Self-update rule:** After every change to the codebase that affects architecture, routing, utilities, components, or conventions documented here, update this file (and AGENTS.md, which is a symlink to it) to reflect the new state. Keep README.md in sync as well.
+
+## Domains
+
+- **https://gulenok.lu** — English (primary/canonical, set as `site` in `astro.config.mjs`)
+- **https://graywolf.org.ua** — Ukrainian
+
+In production, the language toggle switches between domains (not just the `/ua/` path prefix). This is implemented client-side in `Header.astro` — it detects the hostname and rewrites the toggle link to the other domain. `Base.astro` sets `<link rel="canonical">` and OG URLs using the appropriate domain based on `lang`.
+
 ## Commands
 
 ```bash
@@ -38,17 +47,28 @@ The site is bilingual (English + Ukrainian). English routes are at the root; Ukr
 | Route | File |
 |-------|------|
 | `/` | `src/pages/index.astro` |
-| `/tags` | `src/pages/tags/index.astro` |
-| `/tags/[tag]` | `src/pages/tags/[tag].astro` |
-| `/category/[category]` | `src/pages/category/[category].astro` |
+| `/tag` | `src/pages/tag/index.astro` |
+| `/tag/[tag]` | `src/pages/tag/[tag]/[...page].astro` |
+| `/category/[category]` | `src/pages/category/[category]/[...page].astro` |
 | `/cv` | `src/pages/cv.astro` |
 | `/photography` | `src/pages/photography/index.astro` |
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
 
 ### Custom Remark Plugins (`src/plugins/`)
-- **`remark-obsidian-embeds.js`** — Resolves Obsidian `![[filename]]` transclusions to `<img>` tags. Looks up images recursively in `public/assets/`. Excalidraw embeds (`![[name.excalidraw]]`) resolve to converted SVGs in `public/assets/excalidraw/`. Supports optional size modifier `![[name|500px]]`.
 - **`remark-mermaid.js`** — Renders ` ```mermaid ` fenced code blocks to static SVGs at build time using `beautiful-mermaid`, writing them to `public/assets/mermaid/` (content-hashed filenames).
+- **`remark-obsidian-embeds.js`** — Resolves Obsidian `![[filename]]` transclusions to `<img>` tags. Looks up images recursively in `public/assets/`. Excalidraw embeds (`![[name.excalidraw]]`) resolve to converted SVGs in `public/assets/excalidraw/`. Supports optional size modifier `![[name|500px]]`.
+- **`remark-obsidian-links.js`** — Converts Obsidian `[[wikilinks]]` (and `[[filename|display text]]`) to proper site URLs using the date-based slug structure (`/YYYY/MM/DD/slug`). Looks up the target article's frontmatter date to build the URL.
+- **`remark-image-captions.js`** — Detects an italic paragraph immediately following an image paragraph and wraps both in a `<figure>` with the italic text as `<figcaption>`.
+
+### Image Optimization (`src/plugins/integration-optimize-images.js`)
+An Astro integration that runs as a post-build hook (`astro:build:done`). It:
+- Walks all generated HTML in `dist/`
+- Finds `<img>` tags pointing to local PNG/JPG files in `public/assets/`
+- Converts them to WebP (max 1200px width, quality 80) via `sharp`
+- Adds `loading="lazy"`, `decoding="async"`, and computed `width`/`height` attributes
+- Writes optimized files to `public/assets/optimized/` (gitignored)
+- Rewrites `src` attributes in the HTML to point to the optimized versions
 
 ### Excalidraw Pipeline
 Excalidraw conversion happens inside `remark-obsidian-embeds.js` as part of the normal Astro build. When the plugin encounters a `![[name.excalidraw]]` embed, it locates the source file (searching from the article's directory up through `src/content/`), decompresses the embedded JSON, converts it to SVG using `excalidraw-to-svg`, embeds fonts as data URIs, applies two upstream bug fixes (wrong font-family and `y="NaN"` on text elements), and writes the result to `public/assets/excalidraw/`. The standalone `tools/scripts/convert-excalidraw.js` still exists as a utility but is no longer part of the build.
@@ -72,6 +92,7 @@ Images are stored in `public/assets/YYYY/MM/DD/` by post date. Mermaid SVGs go t
 ### Utilities (`src/utils/`)
 - **`articleUrls.ts`** — `getArticleUrl(article)` generates `/YYYY/MM/DD/slug` from frontmatter date and filename. `getArticlesWithUrls(articles)` maps a collection to objects with the `url` property.
 - **`collections.ts`** — `getArticlesByLang(lang)` filters articles by language. `makeTagPaths(lang, opts)` and `makeCategoryPaths(lang, opts)` are `getStaticPaths` factories shared by the en/ua page pairs.
+- **`coverImages.ts`** — `getCoverImage(image?, category?)` returns the article's cover image or a category-specific fallback. Used by article cards and the Article layout.
 - **`date.ts`** — `formatDate(date, lang, "short"|"long")` and `formatDateShort(date, lang)` for locale-aware date formatting.
 - **`tags.ts`** — `countTags(articles)` and `getSortedTags(counts)` for tag frequency maps.
 
