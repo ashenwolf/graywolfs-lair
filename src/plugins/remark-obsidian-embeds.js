@@ -158,6 +158,19 @@ export default function remarkObsidianEmbeds() {
       if (isExcalidraw) {
         promises.push(
           (async () => {
+            const svgName = name.replace(/\.excalidraw(\.md)?$/, "") + ".svg";
+
+            // Use cached SVG if it already exists (avoids jsdom/canvas errors in dev)
+            const cachedSvg = findFile(
+              EXCALIDRAW_OUT_DIR,
+              svgName,
+              "/assets/excalidraw",
+            );
+            if (cachedSvg) {
+              parent.children[index] = buildImageNode(cachedSvg, alt, width);
+              return;
+            }
+
             const srcPath = articleDir
               ? findExcalidrawSource(name, articleDir)
               : null;
@@ -174,10 +187,8 @@ export default function remarkObsidianEmbeds() {
                 return;
               }
             } else {
-              // Fall back to already-converted SVG in public/
-              const svgName = name.replace(/\.excalidraw(\.md)?$/, ".svg");
               src = findFile(
-                resolve(PUBLIC_DIR, "assets/excalidraw"),
+                EXCALIDRAW_OUT_DIR,
                 svgName,
                 "/assets/excalidraw",
               );
