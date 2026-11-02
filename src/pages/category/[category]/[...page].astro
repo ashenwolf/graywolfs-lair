@@ -19,6 +19,6 @@ const label = (CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.en) ??
   <div class="container-inner">
     <h1 class="text-3xl font-bold mb-8">{label}</h1>
     <ArticleList articles={page.data} />
-    <Pagination page={page} />
+    <Pagination page={page} lang="en" />
   </div>
 </Base>

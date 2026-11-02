@@ -17,6 +17,6 @@ const { tag } = Astro.params;
   <div class="container-inner">
     <h1 class="text-3xl font-bold mb-8">Тег: {tag}</h1>
     <ArticleList articles={page.data} emptyMessage="Статей з цим тегом немає." lang="ua" />
-    <Pagination page={page} />
+    <Pagination page={page} lang="ua" />
   </div>
 </Base>

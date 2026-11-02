@@ -19,6 +19,6 @@ const label = (CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.ua) ??
   <div class="container-inner">
     <h1 class="text-3xl font-bold mb-8">{label}</h1>
     <ArticleList articles={page.data} emptyMessage="Статей у цій категорії немає." lang="ua" />
-    <Pagination page={page} />
+    <Pagination page={page} lang="ua" />
   </div>
 </Base>

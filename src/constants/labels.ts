@@ -26,6 +26,10 @@ export const UI = {
     noPosts: "No posts yet",
     noTags: "No tags yet.",
     tags: "Tags",
+    previous: "Previous",
+    next: "Next",
+    page: "Page",
+    of: "of",
   },
   ua: {
     home: "Головна",
@@ -37,6 +41,10 @@ export const UI = {
     noPosts: "Немає статей",
     noTags: "Тегів поки немає.",
     tags: "Теги",
+    previous: "Попередня",
+    next: "Наступна",
+    page: "Сторінка",
+    of: "з",
   },
 } satisfies Record<Lang, Record<string, string>>;
 

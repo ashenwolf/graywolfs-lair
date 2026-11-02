@@ -1,25 +1,29 @@
 ---
 import type { Page } from "astro";
+import { UI } from "../constants/labels";
+import type { Lang } from "../constants/labels";
 
 interface Props {
   page: Page<any>;
+  lang: Lang;
 }
 
-const { page } = Astro.props;
+const { page, lang } = Astro.props;
+const t = UI[lang];
 ---
 
 {page.lastPage > 1 && (
   <nav class="flex items-center justify-between mt-12 text-sm">
     {page.url.prev ? (
-      <a href={page.url.prev} class="text-gray-700 hover:text-black">← Previous</a>
+      <a href={page.url.prev} class="text-gray-700 hover:text-black">← {t.previous}</a>
     ) : (
-      <span class="text-gray-300">← Previous</span>
+      <span class="text-gray-300">← {t.previous}</span>
     )}
-    <span class="text-gray-500">Page {page.currentPage} of {page.lastPage}</span>
+    <span class="text-gray-500">{`${t.page} ${page.currentPage} ${t.of} ${page.lastPage}`}</span>
     {page.url.next ? (
-      <a href={page.url.next} class="text-gray-700 hover:text-black">Next →</a>
+      <a href={page.url.next} class="text-gray-700 hover:text-black">{t.next} →</a>
     ) : (
-      <span class="text-gray-300">Next →</span>
+      <span class="text-gray-300">{t.next} →</span>
     )}
   </nav>
 )}
