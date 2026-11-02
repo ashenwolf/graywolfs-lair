@@ -128,7 +128,7 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 | `article_read` | `title`, `category`, `tags`, `lang` | `Article.astro` |
 | `tag_clicked` | `tag`, `article_title` | `Article.astro` |
 | `cv_viewed` | — | `cv.astro` |
-| `social_link_clicked` | `platform` | `SocialLinks.astro` |
+| `social_link_clicked` | `platform` | `SocialLinks.astro` (one processed script per page), `cv.astro` (header links, plus `page: "cv"`) |
 | `language_switched` | `to_lang` | `Header.astro` |
 | `article_card_clicked` | `title`, `category`, `href` | `ArticleCardFeatured.astro` |
 | `category_more_clicked` | `section`, `href` | `SectionBlock.astro` |

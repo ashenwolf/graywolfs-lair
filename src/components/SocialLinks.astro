@@ -33,7 +33,7 @@ const socials = [
 ];
 ---
 
-<div class="flex flex-wrap gap-4" role="list" aria-label="Social links">
+<div class="flex flex-wrap gap-4" role="list" aria-label="Social links" data-social-links>
   {socials.map(({ label, href, svg }) => (
     <a
       href={href}
@@ -50,11 +50,12 @@ const socials = [
   ))}
 </div>
 
-<script is:inline>
-  document.querySelectorAll('[data-ph-social]').forEach(function (el) {
-    el.addEventListener('click', function () {
-      window.posthog?.capture('social_link_clicked', {
-        platform: el.getAttribute('data-ph-social'),
+{/* Processed (not is:inline) so Astro emits it once per page, however many SocialLinks render. */}
+<script>
+  document.querySelectorAll<HTMLAnchorElement>("[data-social-links] [data-ph-social]").forEach((el) => {
+    el.addEventListener("click", () => {
+      (window as any).posthog?.capture("social_link_clicked", {
+        platform: el.dataset.phSocial,
       });
     });
   });

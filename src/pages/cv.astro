@@ -103,7 +103,7 @@ import Base from "../layouts/Base.astro";
 
 <script is:inline>
   window.posthog?.capture('cv_viewed');
-  document.querySelectorAll('[data-ph-social]').forEach(function (el) {
+  document.querySelectorAll('article [data-ph-social]').forEach(function (el) {
     el.addEventListener('click', function () {
       window.posthog?.capture('social_link_clicked', {
         platform: el.getAttribute('data-ph-social'),
