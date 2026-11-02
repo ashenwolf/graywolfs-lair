@@ -22,9 +22,6 @@ npm run build
 
 # Preview production build locally
 npm run preview
-
-# One-time Ghost 0.x migration
-node tools/scripts/migrate-ghost.js --db path/to/ghost.db
 ```
 
 The build script runs `rm -rf .astro node_modules/.astro/data-store.json` before building — this is intentional to avoid stale content cache issues.
@@ -105,8 +102,6 @@ Images are stored in `public/assets/YYYY/MM/DD/` by post date. Mermaid SVGs go t
   - `buildNav(lang)` — returns `{ navLinks, langToggle }` used by both Header and Footer
 
 ### Tools (`tools/scripts/`)
-- **`migrate-ghost.js`** — One-time Ghost 0.x → Astro migration. CLI: `--db`, `--ghost-url`, `--dry-run`, `--lang`, `--add-tags`, `--category`. Uses `better-sqlite3` and `turndown`.
-- **`add-categories.js`** — Backfills `category` frontmatter on existing articles based on tags. CLI: `--dry-run`, `--force`.
 - **`convert-excalidraw.js`** — Standalone Excalidraw → SVG converter (same logic as the remark plugin).
 
 ### Routing / URL Structure

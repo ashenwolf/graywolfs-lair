@@ -110,6 +110,4 @@ Client-side tracking via `src/components/posthog.astro`, included in `Base.astro
 
 ## Tools
 
-- **`tools/scripts/migrate-ghost.js`** — one-time Ghost 0.x → Astro migration
-- **`tools/scripts/add-categories.js`** — backfills `category` frontmatter based on tags
 - **`tools/scripts/convert-excalidraw.js`** — standalone Excalidraw → SVG converter
