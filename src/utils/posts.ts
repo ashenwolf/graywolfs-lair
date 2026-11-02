@@ -56,14 +56,17 @@ export const tagCounts = (posts: Post[]) => {
   return [...counts.values()].sort((a, b) => b.count - a.count);
 };
 
-/** One home page section per category, in CATEGORY_IDS order. */
+/** One home page section per category, in CATEGORY_IDS order; `href` only when that category has a page in `lang`. */
 export const homeSections = (posts: Post[], lang: Lang) =>
-  CATEGORY_IDS.map((id) => ({
-    title: CATEGORIES[id][lang].label,
-    blurb: CATEGORIES[id][lang].blurb,
-    href: localPath(lang, `/category/${id}`),
-    posts: posts.filter((post) => post.category?.id === id).slice(0, 4),
-  }));
+  CATEGORY_IDS.map((id) => {
+    const inCategory = posts.filter((post) => post.category?.id === id);
+    return {
+      title: CATEGORIES[id][lang].label,
+      blurb: CATEGORIES[id][lang].blurb,
+      href: inCategory.length > 0 ? localPath(lang, `/category/${id}`) : undefined,
+      posts: inCategory.slice(0, 4),
+    };
+  });
 
 type Listing = { params: Record<string, string>; heading: string; posts: Post[] };
 

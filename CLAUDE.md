@@ -51,7 +51,7 @@ The site is bilingual (English + Ukrainian). English routes are at the root; Ukr
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
 | `/rss.xml` | `src/pages/rss.xml.ts` (English posts) |
 
-Category pages exist only for categories that have posts in that language (EN travel has none).
+Category pages exist only for categories that have posts in that language (EN travel has none); the home page section for such a category shows no "See more" link.
 
 ### Custom Remark Plugins (`src/plugins/`)
 - **`remark-mermaid.js`** — Renders ` ```mermaid ` fenced code blocks to static SVGs at build time using `beautiful-mermaid`, writing them to `public/assets/mermaid/` (content-hashed filenames).
