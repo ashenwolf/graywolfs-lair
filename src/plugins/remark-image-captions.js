@@ -1,5 +1,3 @@
-import { visit } from "unist-util-visit";
-
 // Returns true if the node is a paragraph containing only an image
 // (either a standard markdown image node or a raw HTML img produced by remark-obsidian-embeds)
 function isImageParagraph(node) {

@@ -97,7 +97,7 @@ export default function remarkObsidianLinks() {
     findAndReplace(tree, [
       [
         WIKI_LINK_RE,
-        (match, target, displayText) => {
+        (_match, target, displayText) => {
           const text = (displayText ?? target).trim();
           const url = resolveWikiLink(target.trim());
 

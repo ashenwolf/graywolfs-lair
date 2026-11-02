@@ -52,7 +52,7 @@ export default function imageOptimization() {
           const imgRegex = /<img\b([^>]*)\bsrc="(\/assets\/images\/[^"]+\.(png|jpg|jpeg))"([^>]*)>/gi;
           let match;
           while ((match = imgRegex.exec(html)) !== null) {
-            const [full, before, src, ext, after] = match;
+            const [full, before, src, , after] = match;
             const srcPath = resolve(PUBLIC_DIR, src.slice(1));
             const result = await optimizeImage(srcPath, htmlDir);
             if (!result) continue;
@@ -79,7 +79,7 @@ export default function imageOptimization() {
           const metaRegex = /<meta\b[^>]*(?:property="og:image"|name="twitter:image")[^>]*content="([^"]*\/assets\/images\/[^"]+\.(png|jpg|jpeg))"[^>]*>/gi;
           let metaMatch;
           while ((metaMatch = metaRegex.exec(html)) !== null) {
-            const [fullMeta, contentUrl, ext] = metaMatch;
+            const [fullMeta, contentUrl] = metaMatch;
             // Extract the path portion (strip domain if present)
             const pathMatch = contentUrl.match(/\/assets\/images\/[^"]+\.(png|jpg|jpeg)$/i);
             if (!pathMatch) continue;
