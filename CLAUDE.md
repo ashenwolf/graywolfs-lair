@@ -116,24 +116,23 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 - Project ID: 173488
 - Dashboard: https://eu.posthog.com/project/173488/dashboard/664021
 
-**Custom events:**
+**Custom events** (typed in `src/utils/analytics.ts`; one delegated listener in `posthog.astro` sends them):
 
-| Event | Properties | File |
+| Event | Properties | Declared in |
 |-------|-----------|------|
-| `article_read` | `title`, `category`, `tags`, `lang` | `Article.astro` |
+| `article_read` | `title`, `category`, `tags`, `lang` | `Article.astro` (`onView`) |
 | `tag_clicked` | `tag`, `article_title` | `Article.astro` |
-| `cv_viewed` | — | `cv.astro` |
-| `social_link_clicked` | `platform` | `SocialLinks.astro` (one processed script per page), `cv.astro` (header links, plus `page: "cv"`) |
+| `cv_viewed` | — | `cv.astro` (`onView`) |
+| `social_link_clicked` | `platform`, `page?` | `SocialLinks.astro`, `cv.astro` (header links, `page: "cv"`) |
 | `language_switched` | `to_lang` | `Header.astro` |
 | `article_card_clicked` | `title`, `category`, `href` | `ArticleCardFeatured.astro` |
 | `category_more_clicked` | `section`, `href` | `SectionBlock.astro` |
 
-**Guidelines for adding new events:**
-- Use `posthog.capture('event_name', { props })` in an inline `<script>` within the component
-- Keep event names snake_case and descriptive
-- Include contextual properties (what was clicked, which page, which language)
-- Don't track PII — no emails, names, or IP-derived data
-- The PostHog snippet uses `is:inline` to avoid Astro processing; new tracking scripts should do the same
+**Adding an event:**
+- Add it with its properties to `Events` in `src/utils/analytics.ts`.
+- Spread `onClick("event", props)` onto the clicked element, or `onView("event", props)` onto an element of the page that should report a view. No per-component `<script>`.
+- Keep event names snake_case; include context (what was clicked, which page, which language).
+- Don't track PII — no emails, names, or IP-derived data.
 
 ---
 

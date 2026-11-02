@@ -1,4 +1,5 @@
 ---
+import { onClick } from "../utils/analytics";
 import { buildNav } from "../constants/labels";
 import type { Lang } from "../constants/labels";
 
@@ -37,7 +38,8 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
       ))}
       <a
         href={langToggle.href}
-        data-lang-toggle={lang === "en" ? "ua" : "en"}
+        data-lang-toggle
+        {...onClick("language_switched", { to_lang: lang === "en" ? "ua" : "en" })}
         class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
       >
         {langToggle.label}
@@ -48,7 +50,8 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
     <div class="flex items-center gap-2 sm:hidden">
       <a
         href={langToggle.href}
-        data-lang-toggle={lang === "en" ? "ua" : "en"}
+        data-lang-toggle
+        {...onClick("language_switched", { to_lang: lang === "en" ? "ua" : "en" })}
         class="text-sm font-medium px-3 py-1 rounded border border-gray-300 text-gray-600 hover:bg-gray-100 transition-colors"
       >
         {langToggle.label}
@@ -95,7 +98,7 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
   const PROD_DOMAINS = ["gulenok.lu", "graywolf.org.ua"];
   if (PROD_DOMAINS.includes(window.location.hostname)) {
     document.querySelectorAll<HTMLAnchorElement>("[data-lang-toggle]").forEach((el) => {
-      const to = el.dataset.langToggle;
+      const to = JSON.parse(el.dataset.phProps ?? "{}").to_lang;
       const path = window.location.pathname;
       const isArticle = /^(\/ua)?\/\d{4}\/\d{2}\/\d{2}\//.test(path);
       if (to === "ua") {
@@ -105,12 +108,4 @@ const { navLinks, langToggle } = buildNav(lang as Lang);
       }
     });
   }
-
-  document.querySelectorAll<HTMLAnchorElement>("[data-lang-toggle]").forEach((el) => {
-    el.addEventListener("click", () => {
-      (window as any).posthog?.capture("language_switched", {
-        to_lang: el.dataset.langToggle,
-      });
-    });
-  });
 </script>

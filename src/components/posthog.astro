@@ -11,3 +11,14 @@
     })
   }
 </script>
+
+{/* The only tracking code: elements declare their event with onClick/onView from utils/analytics.ts. */}
+<script>
+  const capture = (el: HTMLElement | null, key: "phClick" | "phView") => {
+    const event = el?.dataset[key];
+    if (el && event) (window as any).posthog?.capture(event, JSON.parse(el.dataset.phProps ?? "{}"));
+  };
+
+  document.querySelectorAll<HTMLElement>("[data-ph-view]").forEach((el) => capture(el, "phView"));
+  document.addEventListener("click", (e) => capture((e.target as Element).closest("[data-ph-click]"), "phClick"));
+</script>

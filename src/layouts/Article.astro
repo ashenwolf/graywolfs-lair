@@ -1,5 +1,6 @@
 ---
 import Base from "./Base.astro";
+import { onClick, onView } from "../utils/analytics";
 import { CATEGORY_LABELS } from "../constants/labels";
 import type { Lang } from "../constants/labels";
 import { formatDate } from "../utils/date";
@@ -20,7 +21,7 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
 ---
 
 <Base title={title} lang={lang} description={description ?? undefined} image={image ?? undefined}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-8 py-12">
+  <article class="max-w-3xl mx-auto px-4 sm:px-8 py-12" {...onView("article_read", { title, category, tags, lang })}>
     <header class="mb-8">
       {
         category && (
@@ -40,8 +41,7 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
               <a
                 href={`${tagBase}/${tag}`}
                 class="text-sm bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200 transition-colors"
-                data-ph-tag={tag}
-                data-ph-article={title}
+                {...onClick("tag_clicked", { tag, article_title: title })}
               >
                 {tag}
               </a>
@@ -53,25 +53,5 @@ const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
     <div class="prose prose-gray max-w-none prose-code:text-[0.85em] prose-pre:text-[0.85em] prose-pre:leading-snug">
       <slot />
     </div>
-    <script
-      is:inline
-      define:vars={{ articleTitle: title, articleCategory: category, articleTags: tags, articleLang: lang }}
-    >
-      window.posthog?.capture("article_read", {
-        title: articleTitle,
-        category: articleCategory,
-        tags: articleTags,
-        lang: articleLang,
-      });
-
-      document.querySelectorAll("[data-ph-tag]").forEach(function (el) {
-        el.addEventListener("click", function () {
-          window.posthog?.capture("tag_clicked", {
-            tag: el.getAttribute("data-ph-tag"),
-            article_title: el.getAttribute("data-ph-article"),
-          });
-        });
-      });
-    </script>
   </article>
 </Base>

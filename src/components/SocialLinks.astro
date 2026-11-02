@@ -1,4 +1,6 @@
 ---
+import { onClick } from "../utils/analytics";
+
 const socials = [
   {
     label: "GitHub",
@@ -33,7 +35,7 @@ const socials = [
 ];
 ---
 
-<div class="flex flex-wrap gap-4" role="list" aria-label="Social links" data-social-links>
+<div class="flex flex-wrap gap-4" role="list" aria-label="Social links">
   {socials.map(({ label, href, svg }) => (
     <a
       href={href}
@@ -43,20 +45,10 @@ const socials = [
       title={label}
       role="listitem"
       class="text-gray-500 hover:text-gray-900 transition-colors"
-      data-ph-social={label}
+      {...onClick("social_link_clicked", { platform: label })}
     >
       <Fragment set:html={svg} />
     </a>
   ))}
 </div>
 
-{/* Processed (not is:inline) so Astro emits it once per page, however many SocialLinks render. */}
-<script>
-  document.querySelectorAll<HTMLAnchorElement>("[data-social-links] [data-ph-social]").forEach((el) => {
-    el.addEventListener("click", () => {
-      (window as any).posthog?.capture("social_link_clicked", {
-        platform: el.dataset.phSocial,
-      });
-    });
-  });
-</script>
