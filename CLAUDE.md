@@ -185,7 +185,7 @@ Every page, component, and route is the end of a pipeline. Push transformation w
 ### Escape hatches
 
 Don't force the abstraction when consumers genuinely need different shapes:
-- `src/pages/[...slug].astro` calls `getCollection` directly because it builds routes for both languages and intentionally includes drafts (so they can be previewed via direct URL during local dev). It is the only sanctioned second path into the article collection. If you add another, leave a comment explaining why.
+- `src/pages/[...slug].astro` calls `getCollection` directly because it builds routes for both languages. It includes drafts only under `astro dev` (`import.meta.env.DEV`), so they can be previewed by direct URL locally; production builds skip them. It is the only sanctioned second path into the article collection. If you add another, leave a comment explaining why.
 - **Don't pre-emptively factor.** If only one consumer needs a transformation, leave it inline. The point of consolidating is to kill *repeated* work, not to anticipate hypothetical reuse.
 - **Flags are a smell.** If a producer would need parameters like `getArticlesByLang(lang, { includeDrafts: true })` to serve two consumers, the consumers want different shapes. Split the producer instead of branching it internally.
 

@@ -5,7 +5,8 @@ import { getArticleUrl } from "../utils/articleUrls";
 import { getCoverImage } from "../utils/coverImages";
 
 export async function getStaticPaths() {
-  const articles = await getCollection("articles");
+  // Drafts get a route only in dev, for previewing by direct URL.
+  const articles = await getCollection("articles", ({ data }) => import.meta.env.DEV || !data.draft);
   return articles.map((article) => ({
     params: { slug: getArticleUrl(article).slice(1) },
     props: { article },
