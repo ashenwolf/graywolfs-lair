@@ -143,7 +143,7 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 ## Design Constraints
 
 ### i18n — one table, two surfaces
-- Everything that differs between the languages is a field of `LOCALES[lang]` in `src/constants/site.ts`. Components read `LOCALES[lang]`; they never branch on `lang === "ua"`. A new language-dependent value is a new field in both entries (the `satisfies` clause makes a missing one a type error).
+- Everything that differs between the languages is a field of `LOCALES[lang]` in `src/constants/site.ts`. Components read `LOCALES[lang]`; they never branch on `lang === "ua"`. A new language-dependent value is a new field in both entries: a field missing from one is a type error wherever it is read through `LOCALES[lang]` (and, for `home`, at the `satisfies` clause).
 - Never hardcode user-visible text in a component or view. Page-specific titles (e.g. `title="Фото"`) are passed by the route file.
 - `lang` flows top-down from route → view → layout → component and is a required prop everywhere (no `"en"` default), so a forgotten `lang` fails `astro check`.
 - Navigation is defined once in `nav(lang)` (`src/utils/urls.ts`); build site paths with `localPath(lang, path)`.
