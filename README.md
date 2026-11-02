@@ -92,6 +92,7 @@ The `integration-optimize-images.js` Astro integration runs after build and post
 - Converts them to WebP (max 1200px width, quality 80) using sharp
 - Adds `loading="lazy"`, `decoding="async"`, and `width`/`height` attributes
 - Outputs optimized files to `public/assets/optimized/` (gitignored)
+- Deletes the original PNG/JPG files from `dist/assets/images/`; rasters referenced outside `<img>` (like the favicon at `public/favicon.png`) must live elsewhere
 
 ## Excalidraw pipeline
 

@@ -69,6 +69,7 @@ An Astro integration that runs as a post-build hook (`astro:build:done`). It:
 - Adds `loading="lazy"`, `decoding="async"`, and computed `width`/`height` attributes
 - Writes optimized files to `public/assets/optimized/` (gitignored)
 - Rewrites `src` attributes in the HTML to point to the optimized versions
+- Deletes every PNG/JPG left under `dist/assets/images/`, so a raster referenced any other way (e.g. `<link rel="icon">`) must live outside `public/assets/images/`. The favicon is `public/favicon.png` for this reason. Cloudflare Pages serves missing paths as `200 text/html` (no `404.html`), so a deleted asset looks like a success.
 
 ### Excalidraw Pipeline
 Excalidraw conversion happens inside `remark-obsidian-embeds.js` as part of the normal Astro build. When the plugin encounters a `![[name.excalidraw]]` embed, it locates the source file (searching from the article's directory up through `src/content/`), decompresses the embedded JSON, converts it to SVG using `excalidraw-to-svg`, embeds fonts as data URIs, applies two upstream bug fixes (wrong font-family and `y="NaN"` on text elements), and writes the result to `public/assets/excalidraw/`. The standalone `tools/scripts/convert-excalidraw.js` still exists as a utility but is no longer part of the build.
