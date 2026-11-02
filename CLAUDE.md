@@ -50,6 +50,7 @@ The site is bilingual (English + Ukrainian). English routes are at the root; Ukr
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
 | `/rss.xml` | `src/pages/rss.xml.ts` (English posts) |
+| any missing path | `src/pages/404.astro` → `dist/404.html`, served by Cloudflare Pages with status 404 on both domains, so it shows both languages. No canonical URL, `noindex`; its language toggle goes to the other home page. |
 
 Category pages exist only for categories that have posts in that language (EN travel has none); the home page section for such a category shows no "See more" link.
 
@@ -67,7 +68,7 @@ An Astro integration that runs as a post-build hook (`astro:build:done`). It:
 - Adds `loading="lazy"`, `decoding="async"`, and computed `width`/`height` attributes
 - Writes optimized files to `public/assets/optimized/` (gitignored)
 - Rewrites `src` attributes in the HTML to point to the optimized versions
-- Deletes every PNG/JPG left under `dist/assets/images/`, so a raster referenced any other way (e.g. `<link rel="icon">`) must live outside `public/assets/images/`. The favicon is `public/favicon.png` for this reason. Cloudflare Pages serves missing paths as `200 text/html` (no `404.html`), so a deleted asset looks like a success.
+- Deletes every PNG/JPG left under `dist/assets/images/`, so a raster referenced any other way (e.g. `<link rel="icon">`) must live outside `public/assets/images/`. The favicon is `public/favicon.png` for this reason. A deleted asset then returns the 404 page (`src/pages/404.astro`) with status 404; before Nov 2026 there was no `404.html` and Cloudflare Pages served missing paths as `200 text/html`, so a deleted asset looked like a success.
 
 ### Excalidraw Pipeline
 Excalidraw conversion happens inside `remark-obsidian-embeds.js` as part of the normal Astro build. When the plugin encounters a `![[name.excalidraw]]` embed, it locates the source file (searching from the article's directory up through `src/content/`), decompresses the embedded JSON, converts it to SVG using `excalidraw-to-svg`, embeds fonts as data URIs, applies two upstream bug fixes (wrong font-family and `y="NaN"` on text elements), and writes the result to `public/assets/excalidraw/`. The standalone `tools/scripts/convert-excalidraw.js` still exists as a utility but is no longer part of the build.

@@ -65,6 +65,7 @@ The site is bilingual. English routes are at the root; Ukrainian routes are unde
 | `/photography` | `src/pages/photography/index.astro` |
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
+| any missing path | `src/pages/404.astro` (status 404, both languages) |
 
 Article URLs are date-based (`/YYYY/MM/DD/slug`), generated from frontmatter `date` and filename by `articlePath()` in `src/utils/urls.ts`.
 

@@ -1,0 +1,18 @@
+---
+import { LANGS, LOCALES } from "../constants/site";
+import Base from "../layouts/Base.astro";
+import { localPath } from "../utils/urls";
+
+// One file serves misses on both domains (Cloudflare Pages picks the top-level 404.html), so it speaks both languages.
+---
+
+<Base title={LOCALES.en.ui.notFound} lang="en">
+  <div class="container-inner space-y-4">
+    {LANGS.map((lang) => (
+      <p lang={LOCALES[lang].htmlLang}>
+        <span class="text-2xl font-bold block mb-1">{LOCALES[lang].ui.notFound}</span>
+        <a href={localPath(lang)} class="text-accent hover:underline">{LOCALES[lang].ui.goHome} →</a>
+      </p>
+    ))}
+  </div>
+</Base>

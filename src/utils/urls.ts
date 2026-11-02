@@ -28,10 +28,11 @@ export const nav = (lang: Lang) => {
   };
 };
 
-/** The page at `pathname` in the other language, on that language's domain. Articles have no translation: home. */
+/** The page at `pathname` in the other language, on that language's domain. Articles and the 404 page have no
+ * counterpart there, so they map to its home page. */
 export const crossDomainHref = (lang: Lang, pathname: string) => {
   const { prefix, other } = LOCALES[lang];
-  const rest = /^\/\d{4}\/\d{2}\/\d{2}\//.test(pathname) ? "/" : pathname.slice(prefix.length);
+  const rest = /^\/(\d{4}\/\d{2}\/\d{2}\/|404\b)/.test(pathname) ? "/" : pathname.slice(prefix.length);
   return absoluteUrl(other, localPath(other, rest === "/" ? "" : rest));
 };
 

@@ -16,7 +16,8 @@ interface Props {
 const { title, lang, description, image = SITE.authorPhoto } = Astro.props;
 const fullTitle = `${title} — ${SITE.author}`;
 const ogImage = absoluteUrl(lang, image);
-const canonicalUrl = absoluteUrl(lang, Astro.url.pathname);
+// The 404 page is served at every missing URL, so it has no address of its own to declare.
+const canonicalUrl = Astro.url.pathname.startsWith("/404") ? undefined : absoluteUrl(lang, Astro.url.pathname);
 ---
 
 <html lang={LOCALES[lang].htmlLang} class="scroll-smooth">
@@ -40,7 +41,7 @@ const canonicalUrl = absoluteUrl(lang, Astro.url.pathname);
     </style>
     <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{fullTitle}</title>
-    <link rel="canonical" href={canonicalUrl} />
+    {canonicalUrl ? <link rel="canonical" href={canonicalUrl} /> : <meta name="robots" content="noindex" />}
     <link rel="alternate" type="application/rss+xml" title={SITE.author} href="/rss.xml" />
 
     {description && <meta name="description" content={description} />}
@@ -49,7 +50,7 @@ const canonicalUrl = absoluteUrl(lang, Astro.url.pathname);
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={SITE.author} />
     <meta property="og:title" content={fullTitle} />
-    <meta property="og:url" content={canonicalUrl} />
+    {canonicalUrl && <meta property="og:url" content={canonicalUrl} />}
     <meta property="og:image" content={ogImage} />
     {description && <meta property="og:description" content={description} />}
 
