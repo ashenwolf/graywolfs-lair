@@ -9,7 +9,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - **https://gulenok.lu** — English (primary/canonical, set as `site` in `astro.config.mjs`)
 - **https://graywolf.org.ua** — Ukrainian
 
-In production, the language toggle switches between domains (not just the `/ua/` path prefix). This is implemented client-side in `Header.astro` — it detects the hostname and rewrites the toggle link to the other domain. `Base.astro` sets `<link rel="canonical">` and OG URLs using the appropriate domain based on `lang`.
+Each language's origin lives in `LOCALES` (`src/constants/site.ts`). `Base.astro` builds canonical and OG URLs on the page language's own domain. In production the header's language toggle switches domain (not just the `/ua/` prefix): `crossDomainHref()` in `src/utils/urls.ts` computes the target at build time into `data-prod-href`, and an inline script in `Header.astro` applies it only on the two live hostnames, so dev and `pages.dev` previews keep the relative link. Articles have no translation, so an article's toggle goes to the other language's home page. The footer toggle stays relative.
 
 ## Commands
 
@@ -34,12 +34,10 @@ The build script runs `rm -rf .astro node_modules/.astro/data-store.json` before
 - Content authored in **Markdown**, edited in **Obsidian**
 
 ### Content Collections (`src/content.config.ts`)
-Two collections defined with Astro's `glob` loader:
-- `articles` — loaded from `src/content/articles/`, organized by language subdirectory (`en/`, `ua/`). Frontmatter: `title`, `date`, `tags`, `lang` (en|ua), `draft`, `description`, `category` (software-engineering|travel|life), `image`. Excludes `*.excalidraw.md` files.
-- `pages` — loaded from `src/content/pages/`. Frontmatter: `title` only.
+One collection, `articles`, defined with Astro's `glob` loader from `src/content/articles/`, organized by language subdirectory (`en/`, `ua/`). Frontmatter: `title`, `date`, `tags`, `lang`, `draft`, `description`, `category`, `image`. The `lang` and `category` enums come from `LANGS` and `CATEGORY_IDS` in `src/constants/site.ts`. Excludes `*.excalidraw.md` files.
 
 ### Routing / i18n
-The site is bilingual (English + Ukrainian). English routes are at the root; Ukrainian routes are under `/ua/`. Each language has its own parallel set of pages under `src/pages/ua/`.
+The site is bilingual (English + Ukrainian). English routes are at the root; Ukrainian routes are under `/ua/`. Each route file pair renders one shared view from `src/views/` and differs only in `lang` (plus a page title where the copy is page-specific). The CV exists in English only; `/ua/cv` is a placeholder.
 
 | Route | File |
 |-------|------|
@@ -51,6 +49,9 @@ The site is bilingual (English + Ukrainian). English routes are at the root; Ukr
 | `/photography` | `src/pages/photography/index.astro` |
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
+| `/rss.xml` | `src/pages/rss.xml.ts` (English posts) |
+
+Category pages exist only for categories that have posts in that language (EN travel has none).
 
 ### Custom Remark Plugins (`src/plugins/`)
 - **`remark-mermaid.js`** — Renders ` ```mermaid ` fenced code blocks to static SVGs at build time using `beautiful-mermaid`, writing them to `public/assets/mermaid/` (content-hashed filenames).
@@ -74,38 +75,41 @@ Excalidraw conversion happens inside `remark-obsidian-embeds.js` as part of the 
 ### Static Assets
 Images are stored in `public/assets/YYYY/MM/DD/` by post date. Mermaid SVGs go to `public/assets/mermaid/`. Excalidraw SVGs go to `public/assets/excalidraw/`. Both generated directories are gitignored.
 
+### Data pipeline
+Content flows one way: content collection → `toPost()` → `Post` → views → components. Everything a component renders is precomputed on `Post`.
+
+- **`src/constants/site.ts`** — the tables. `LOCALES` holds one complete spec per language (origin, path prefix, `<html lang>`, date locale, home page copy, UI strings). `CATEGORIES` holds one per category (gradient, fallback cover, label and blurb per language); `CATEGORY_IDS` order is the home page section order. `SITE` holds the author name and photo.
+- **`src/utils/posts.ts`** — the producer. `Post` = `{ url, lang, title, date, description, cover, tags: {name, href}[], category: {id, label, gradient} }`. `loadPosts(lang)` returns published posts, newest first (URL breaks same-date ties, so pagination is stable across builds). `loadArticles()` returns every routable entry with its `Post` (drafts too under `astro dev`). `tagPaths`/`categoryPaths` are the `getStaticPaths` bodies for listings; each page gets a localized `heading` prop. `tagCounts` and `homeSections` feed the tag index and the home page.
+- **`src/utils/urls.ts`** — every URL rule: `localPath(lang, path)`, `absoluteUrl(lang, path)`, `articlePath(id, date)` (`/YYYY/MM/DD/slug`), `nav(lang)` (header and footer links plus toggle), `crossDomainHref`, `PROD_HOSTS`.
+- **`src/utils/date.ts`** — `formatDate(date, lang, "short" | "long" | "month")`.
+- **`src/utils/analytics.ts`** — the PostHog event table and the `onClick`/`onView` attribute helpers (see below).
+
+### Views (`src/views/`) — one body per EN/UA route pair
+- **`Home.astro`** — hero (copy from `LOCALES[lang].home`), latest 6 posts, one `SectionBlock` per category. Props: `lang`.
+- **`Listing.astro`** — paginated list of `ArticleCard`s for tag and category pages. Props: `lang`, `heading`, `page: Page<Post>`.
+- **`Tags.astro`** — tag index with counts. Props: `lang`.
+- **`ComingSoon.astro`** — placeholder for photography and the UA CV. Props: `lang`, `title`, `heading?`.
+
 ### Layouts (`src/layouts/`)
-- **`Base.astro`** — Root HTML shell with `<head>`, `Header`, `Footer`, Rubik font from Google Fonts. Props: `title: string`, `lang?: "en" | "ua"`.
-- **`Article.astro`** — Article page wrapper using `Base`. Props: `title`, `date`, `tags`, `lang`, `category`, `image`. Renders hero image, article header (date, category label, tag links), article body in `prose prose-gray` div, and Disqus comments section.
+- **`Base.astro`** — HTML shell: self-hosted Noto Serif `@font-face` + preloads, favicon, canonical/OG/Twitter meta on the page language's domain, PostHog, `Header`, `Footer`. Props: `title`, `lang`, `description?`, `image?` (defaults to `SITE.authorPhoto`).
+- **`Article.astro`** — article header (category label, title, date, tag links) and `prose` body. Props: `post: Post`.
 
 ### Components (`src/components/`)
-- **`Header.astro`** — Nav with Home / Photography / CV links and language toggle. Props: `lang?`.
-- **`Footer.astro`** — Three-column footer (nav, 2 recent posts, social links). Fetches articles at build time. Props: `lang?`.
-- **`ArticleCard.astro`** — Article card with thumbnail, date, title, tags. Props: `href`, `title`, `date`, `description?`, `tags?`, `image?`, `lang?`, `tagBase?`.
-- **`ArticleCardFeatured.astro`** — Featured card with gradient by category (blue/teal/purple), 16:9 aspect ratio. Props: `href`, `title`, `date`, `category?`, `image?`, `lang?`.
-- **`ArticleList.astro`** — Renders a list of articles using `ArticleCard`. Props: `articles`, `emptyMessage?`, `lang?`.
-- **`SectionBlock.astro`** — Homepage section with info column (1/3) and 2×2 featured grid (2/3). Props: `title`, `description`, `moreHref`, `moreLinkLabel?`, `articles`, `lang?`.
-- **`SocialLinks.astro`** — Hardcoded social icons (GitHub, LinkedIn, X, Instagram, Flickr, 500px) with inline SVGs.
-
-### Utilities (`src/utils/`)
-- **`articleUrls.ts`** — `getArticleUrl(article)` generates `/YYYY/MM/DD/slug` from frontmatter date and filename. `getArticlesWithUrls(articles)` maps a collection to objects with the `url` property.
-- **`collections.ts`** — `getArticlesByLang(lang)` filters articles by language. `makeTagPaths(lang, opts)` and `makeCategoryPaths(lang, opts)` are `getStaticPaths` factories shared by the en/ua page pairs.
-- **`coverImages.ts`** — `getCoverImage(image?, category?)` returns the article's cover image or a category-specific fallback. Used by article cards and the Article layout.
-- **`date.ts`** — `formatDate(date, lang, "short"|"long")` and `formatDateShort(date, lang)` for locale-aware date formatting.
-- **`tags.ts`** — `countTags(articles)` and `getSortedTags(counts)` for tag frequency maps.
-
-### Constants (`src/constants/`)
-- **`labels.ts`** — Single source of truth for all translatable strings and category metadata:
-  - `CATEGORY_LABELS` — category names in both languages
-  - `CATEGORY_GRADIENTS` — Tailwind gradient classes per category
-  - `UI` — UI strings for both languages (nav labels, section headings, empty states)
-  - `buildNav(lang)` — returns `{ navLinks, langToggle }` used by both Header and Footer
+All take `lang` as a required prop where they render text.
+- **`Header.astro`** — logo, `nav(lang)` links, language toggle (desktop + mobile), mobile menu.
+- **`Footer.astro`** — nav (with relative toggle), 2 most recent posts, social links.
+- **`ArticleCard.astro`** — list row: cover, date, title, tag names. Props: `post`, `lang`.
+- **`ArticleCardFeatured.astro`** — 16:9 card with cover or category gradient. Props: `post`, `lang`.
+- **`SectionBlock.astro`** — home page category section: blurb column and 2×2 grid. Props: `title`, `blurb`, `href`, `posts`, `lang`.
+- **`Pagination.astro`** — Previous / Page X of Y / Next, rendered only when there is more than one page. Props: `page`, `lang`.
+- **`SocialLinks.astro`** — social icons with inline SVGs.
+- **`posthog.astro`** — PostHog snippet plus the single delegated event listener.
 
 ### Tools (`tools/scripts/`)
 - **`convert-excalidraw.js`** — Standalone Excalidraw → SVG converter (same logic as the remark plugin).
 
 ### Routing / URL Structure
-Articles use a clean date-based URL structure: `/YYYY/MM/DD/slug`. The physical Markdown files remain organized by language in `src/content/articles/en/` and `src/content/articles/ua/`, but the public URLs follow the date-based pattern without any language prefix. URL generation is in `src/utils/articleUrls.ts`; routing is handled by `src/pages/[...slug].astro`.
+Articles use a clean date-based URL structure: `/YYYY/MM/DD/slug`. The physical Markdown files remain organized by language in `src/content/articles/en/` and `src/content/articles/ua/`, but the public URLs follow the date-based pattern without any language prefix. URL generation is `articlePath()` in `src/utils/urls.ts`; routing is handled by `src/pages/[...slug].astro`.
 
 ### PostHog Analytics (`src/components/posthog.astro`)
 Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
@@ -138,33 +142,32 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 
 ## Design Constraints
 
-### i18n — one truth, two surfaces
-- All translatable strings live in `src/constants/labels.ts` (`UI`, `CATEGORY_LABELS`). Never hardcode user-visible text directly in a component or page.
-- The `lang` prop flows top-down from page → layout → component. Components default to `"en"` when `lang` is omitted.
-- Navigation structure is defined once in `buildNav(lang)`. Do not reconstruct nav links inline in any component.
+### i18n — one table, two surfaces
+- Everything that differs between the languages is a field of `LOCALES[lang]` in `src/constants/site.ts`. Components read `LOCALES[lang]`; they never branch on `lang === "ua"`. A new language-dependent value is a new field in both entries (the `satisfies` clause makes a missing one a type error).
+- Never hardcode user-visible text in a component or view. Page-specific titles (e.g. `title="Фото"`) are passed by the route file.
+- `lang` flows top-down from route → view → layout → component and is a required prop everywhere (no `"en"` default), so a forgotten `lang` fails `astro check`.
+- Navigation is defined once in `nav(lang)` (`src/utils/urls.ts`); build site paths with `localPath(lang, path)`.
 
 ### Category metadata
-- Valid categories are the `CATEGORIES` tuple in `labels.ts`: `software-engineering`, `travel`, `life`. Do not add a new category without adding it there first (labels for both languages + gradient).
-- Always look up category display names via `CATEGORY_LABELS[category][lang]`. Never hardcode a category label string in a component or page.
+- Categories are the keys of `CATEGORIES` in `site.ts` (`CATEGORY_IDS`: `software-engineering`, `travel`, `life`). A new category is one new entry there (gradient, fallback cover, label and blurb for both languages); the content schema, home sections and category pages pick it up.
+- Components read `post.category.label` / `.gradient`; they never look categories up themselves.
 
 ### Bilingual page pairs
-- Every page under `src/pages/` has a mirror under `src/pages/ua/`. Keep them in sync structurally — they should differ only in the `lang` argument and genuinely language-specific content (hero copy, etc.).
-- Shared `getStaticPaths` logic belongs in `src/utils/collections.ts` as a factory. Page files delegate to the factory in one line; they do not contain collection-querying logic themselves.
-- Avoid adding language-specific logic to shared components — pass `lang` as a prop and look up strings from `labels.ts`.
+- Every route under `src/pages/` has a mirror under `src/pages/ua/` (except the English-only CV). A pair renders the same view from `src/views/` and differs only in `lang` and route-specific titles.
+- `getStaticPaths` for listings is one line delegating to `tagPaths`/`categoryPaths` in `src/utils/posts.ts`.
 
 ### Date formatting
-- All dates rendered to the user must go through `formatDate` or `formatDateShort` from `src/utils/date.ts`. Do not call `toLocaleDateString` inline.
+- All dates rendered to the user go through `formatDate` from `src/utils/date.ts`. Do not call `toLocaleDateString` inline.
 
 ### Styling
 - Tailwind CSS v4 only. All theme tokens (`--color-*`, `--font-*`, custom utilities) are defined in `src/styles/global.css`. Do not create a `tailwind.config.*` file.
 - Use existing design tokens (`text-accent`, `bg-surface`, `bg-hero-bg`, `photo-glow`, `container-inner`, etc.) rather than arbitrary hex values or one-off classes.
-- Category gradients are defined in `CATEGORY_GRADIENTS` in `labels.ts` — do not hardcode gradient classes in components.
+- Category gradients are defined in `CATEGORIES` in `site.ts` — do not hardcode gradient classes in components.
 - Prefer Tailwind classes over hand-written CSS. Global element styles (`scroll-smooth` on `<html>`, `font-sans` on `<body>`) belong as classes on the element in `Base.astro`, not in `@layer base` in `global.css`. Prose typography overrides belong as `prose-*` modifier classes on the prose container (they live in `@layer utilities` and beat the plugin's `@layer components` styles). Only add CSS to `global.css` when no Tailwind class can express the rule (e.g. attribute selectors like `[src*="..."]`, or complex `@keyframes`).
 
 ### Astro component conventions
 - Import order in frontmatter: external/Astro imports → internal components/layouts → utils → constants → types.
-- `lang` props are always typed as `"en" | "ua"` (the `Lang` type from `labels.ts`), never as plain `string`.
-- Use `Lang` from `labels.ts` for all language type annotations — do not redeclare it locally.
+- Type languages and categories with `Lang` and `Category` from `site.ts`, never as plain `string`, and do not redeclare them.
 - Do not create barrel `index.ts` files unless there is a clear need.
 
 ### Data flow — concentrate complexity in producers
@@ -172,16 +175,16 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 Every page, component, and route is the end of a pipeline. Push transformation work upstream into producers; keep consumers stupid. Consumers read pre-computed fields — they do not sort, filter, enrich, or re-derive.
 
 - **One producer per shape.** If multiple consumers need the same filtered/sorted/enriched data, that work lives in one function, not N. Adding a sixth `await getCollection(...).filter(...).sort(...)` to a page is a smell — the producer should already return that shape.
-- **Producers output the consumer-ready shape.** `getArticlesByLang(lang)` in `src/utils/collections.ts` is the single producer for "published articles in this language." It filters drafts, sorts by date desc, and attaches URLs in one pass. Every page, the Footer, the RSS feed, and the tag/category path factories consume its output directly.
-- **Type the enriched shape explicitly.** `ArticleWithUrl` (in `src/utils/articleUrls.ts`) is the contract that flows through the system. Components that need URLs declare `articles: ArticleWithUrl[]` in their props — they do not accept raw `CollectionEntry<"articles">[]` and re-enrich.
+- **Producers output the consumer-ready shape.** `loadPosts(lang)` in `src/utils/posts.ts` is the single producer for "published articles in this language." It filters drafts, sorts, and builds each `Post` (URL, cover fallback, localized category, tag links) in one pass. Every view, the Footer, the RSS feed, and the listing path producers consume its output directly.
+- **Type the enriched shape explicitly.** `Post` is the contract that flows through the system. Components declare `post: Post` (or `Post[]`); they never accept a raw `CollectionEntry<"articles">` and re-derive fields.
 - **Working backwards beats working forwards.** When adding a feature, first write down the shape the consumer wants. Then push the work to produce it as far upstream as it'll go. The consumer should look like rendering, not data prep.
 
 ### Escape hatches
 
 Don't force the abstraction when consumers genuinely need different shapes:
-- `src/pages/[...slug].astro` calls `getCollection` directly because it builds routes for both languages. It includes drafts only under `astro dev` (`import.meta.env.DEV`), so they can be previewed by direct URL locally; production builds skip them. It is the only sanctioned second path into the article collection. If you add another, leave a comment explaining why.
+- `loadArticles()` is the second producer, for `src/pages/[...slug].astro`: it needs both languages, the raw entry for `render()`, and drafts under `astro dev` (`import.meta.env.DEV`) so they can be previewed by direct URL locally; production builds skip them. These two are the only paths into the article collection. If you add another, leave a comment explaining why.
 - **Don't pre-emptively factor.** If only one consumer needs a transformation, leave it inline. The point of consolidating is to kill *repeated* work, not to anticipate hypothetical reuse.
-- **Flags are a smell.** If a producer would need parameters like `getArticlesByLang(lang, { includeDrafts: true })` to serve two consumers, the consumers want different shapes. Split the producer instead of branching it internally.
+- **Flags are a smell.** If a producer would need parameters like `loadPosts(lang, { includeDrafts: true })` to serve two consumers, the consumers want different shapes. Split the producer instead of branching it internally.
 
 ### Remark plugins follow the same rule
 
@@ -194,12 +197,12 @@ Remark plugins are pipeline stages by construction — unified composes them in 
 ### What belongs where
 | Concern | Location |
 |---------|----------|
-| Translatable UI strings | `src/constants/labels.ts` |
-| Category metadata (names, gradients) | `src/constants/labels.ts` |
-| Nav structure | `buildNav()` in `src/constants/labels.ts` |
+| Per-language strings, origins, locales | `LOCALES` in `src/constants/site.ts` |
+| Category metadata (labels, blurbs, gradients, fallback cover) | `CATEGORIES` in `src/constants/site.ts` |
+| Article shape, loading, listings, tag counts | `src/utils/posts.ts` |
+| URLs and nav | `src/utils/urls.ts` |
 | Date formatting | `src/utils/date.ts` |
-| Tag counting / sorting | `src/utils/tags.ts` |
-| Collection filtering + `getStaticPaths` factories | `src/utils/collections.ts` |
-| Article URL generation | `src/utils/articleUrls.ts` |
-| Page markup | `src/pages/` (keep thin — data prep only, delegate logic to utils) |
+| Analytics events | `src/utils/analytics.ts` |
+| Page bodies shared by EN/UA | `src/views/` |
+| Route files | `src/pages/` (one line of `getStaticPaths` at most, then a view) |
 | Reusable UI | `src/components/` |

@@ -1,32 +1,16 @@
 ---
-import { getCollection, render } from "astro:content";
+import { render } from "astro:content";
 import Article from "../layouts/Article.astro";
-import { getArticleUrl } from "../utils/articleUrls";
-import { getCoverImage } from "../utils/coverImages";
+import { loadArticles } from "../utils/posts";
 
 export async function getStaticPaths() {
-  // Drafts get a route only in dev, for previewing by direct URL.
-  const articles = await getCollection("articles", ({ data }) => import.meta.env.DEV || !data.draft);
-  return articles.map((article) => ({
-    params: { slug: getArticleUrl(article).slice(1) },
-    props: { article },
-  }));
+  return (await loadArticles()).map(({ entry, post }) => ({ params: { slug: post.url.slice(1) }, props: { entry, post } }));
 }
 
-const { article } = Astro.props;
-const { Content } = await render(article);
-
-const image = getCoverImage(article.data.image, article.data.category);
+const { entry, post } = Astro.props;
+const { Content } = await render(entry);
 ---
 
-<Article
-  title={article.data.title}
-  date={article.data.date}
-  tags={article.data.tags}
-  lang={article.data.lang}
-  category={article.data.category}
-  image={image || undefined}
-  description={article.data.description}
->
+<Article post={post}>
   <Content />
 </Article>

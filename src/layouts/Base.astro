@@ -3,26 +3,23 @@ import "../styles/global.css";
 import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import PostHog from "../components/posthog.astro";
+import { LOCALES, SITE, type Lang } from "../constants/site";
+import { absoluteUrl } from "../utils/urls";
 
 interface Props {
   title: string;
-  lang?: "en" | "ua";
+  lang: Lang;
   description?: string;
   image?: string;
 }
 
-const { title, lang = "en", description, image } = Astro.props;
-const siteUrl = lang === "ua" ? "https://graywolf.org.ua" : "https://gulenok.lu";
-const fullTitle = `${title} — Sergii Gulenok`;
-const ogImage = image
-  ? image.startsWith("http")
-    ? image
-    : `${siteUrl}${image}`
-  : `${siteUrl}/assets/images/2026/02/sergii-and-denzel.jpg`;
-const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
+const { title, lang, description, image = SITE.authorPhoto } = Astro.props;
+const fullTitle = `${title} — ${SITE.author}`;
+const ogImage = absoluteUrl(lang, image);
+const canonicalUrl = absoluteUrl(lang, Astro.url.pathname);
 ---
 
-<html lang={lang === "ua" ? "uk" : "en"} class="scroll-smooth">
+<html lang={LOCALES[lang].htmlLang} class="scroll-smooth">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
@@ -44,13 +41,13 @@ const canonicalUrl = new URL(Astro.url.pathname, siteUrl).href;
     <link rel="icon" type="image/png" href="/favicon.png" />
     <title>{fullTitle}</title>
     <link rel="canonical" href={canonicalUrl} />
-    <link rel="alternate" type="application/rss+xml" title="Sergii Gulenok" href="/rss.xml" />
+    <link rel="alternate" type="application/rss+xml" title={SITE.author} href="/rss.xml" />
 
     {description && <meta name="description" content={description} />}
 
     <!-- Open Graph -->
     <meta property="og:type" content="website" />
-    <meta property="og:site_name" content="Sergii Gulenok" />
+    <meta property="og:site_name" content={SITE.author} />
     <meta property="og:title" content={fullTitle} />
     <meta property="og:url" content={canonicalUrl} />
     <meta property="og:image" content={ogImage} />

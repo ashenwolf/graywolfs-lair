@@ -1,22 +1,12 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
-import Base from "../../../layouts/Base.astro";
-import ArticleList from "../../../components/ArticleList.astro";
-import Pagination from "../../../components/Pagination.astro";
-import { makeTagPaths } from "../../../utils/collections";
 
-export async function getStaticPaths(opts: GetStaticPathsOptions) {
-  return makeTagPaths("en", opts);
-}
+import { tagPaths } from "../../../utils/posts";
+import Listing from "../../../views/Listing.astro";
 
-const { page } = Astro.props;
-const { tag } = Astro.params;
+export const getStaticPaths = ({ paginate }: GetStaticPathsOptions) => tagPaths("en", paginate);
+
+const { page, heading } = Astro.props;
 ---
 
-<Base title={`Tag: ${tag}`} lang="en">
-  <div class="container-inner">
-    <h1 class="text-3xl font-bold mb-8">Tag: {tag}</h1>
-    <ArticleList articles={page.data} />
-    <Pagination page={page} lang="en" />
-  </div>
-</Base>
+<Listing lang="en" heading={heading} page={page} />

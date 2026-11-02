@@ -1,0 +1,61 @@
+---
+import { LOCALES, SITE, type Lang } from "../constants/site";
+import { homeSections, loadPosts } from "../utils/posts";
+
+import ArticleCardFeatured from "../components/ArticleCardFeatured.astro";
+import SectionBlock from "../components/SectionBlock.astro";
+import SocialLinks from "../components/SocialLinks.astro";
+import Base from "../layouts/Base.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { home, ui } = LOCALES[lang];
+const posts = await loadPosts(lang);
+---
+
+<Base title={ui.home} lang={lang} description={home.description}>
+
+  <!-- Hero -->
+  <section class="bg-hero-bg w-full">
+    <div class="max-w-5xl mx-auto px-4 sm:px-8 py-8 flex flex-col md:flex-row items-stretch gap-12">
+      <div class="flex-1 min-w-0 flex flex-col justify-center">
+        <h1 class="text-4xl md:text-5xl font-extrabold mb-5 leading-tight tracking-tight">
+          {home.heading}
+        </h1>
+        <p class="text-gray-700 text-lg leading-relaxed mb-3">
+          {home.lead}
+        </p>
+        <p class="text-gray-600 text-base leading-relaxed mb-8">
+          {home.intro}
+        </p>
+        <SocialLinks />
+      </div>
+      <div class="flex-1 min-w-0 flex items-center justify-center">
+        <img
+          src={SITE.authorPhoto}
+          alt={home.photoAlt}
+          class="w-[420px] aspect-[2/3] rounded-2xl object-cover photo-glow"
+          loading="eager"
+          fetchpriority="high"
+        />
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section class="max-w-5xl mx-auto px-4 sm:px-8 py-16">
+    <h2 class="text-2xl font-bold mb-8">{ui.latestArticles}</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {posts.slice(0, 6).map((post) => <ArticleCardFeatured post={post} lang={lang} />)}
+    </div>
+  </section>
+
+  <!-- Category sections -->
+  <div class="max-w-5xl mx-auto px-4 sm:px-8 pb-16">
+    {homeSections(posts, lang).map((section) => <SectionBlock {...section} lang={lang} />)}
+  </div>
+
+</Base>

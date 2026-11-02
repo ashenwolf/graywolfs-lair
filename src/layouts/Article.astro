@@ -1,49 +1,41 @@
 ---
 import Base from "./Base.astro";
 import { onClick, onView } from "../utils/analytics";
-import { CATEGORY_LABELS } from "../constants/labels";
-import type { Lang } from "../constants/labels";
 import { formatDate } from "../utils/date";
+import type { Post } from "../utils/posts";
 
 interface Props {
-  title: string;
-  date: Date;
-  tags: string[];
-  lang?: "en" | "ua";
-  category?: string;
-  image?: string;
-  description?: string | null;
+  post: Post;
 }
 
-const { title, date, tags, lang = "en", category, image, description } = Astro.props;
-
-const tagBase = lang === "ua" ? "/ua/tag" : "/tag";
+const { title, date, tags, lang, category, cover, description } = Astro.props.post;
+const readEvent = onView("article_read", { title, category: category?.id, tags: tags.map(({ name }) => name), lang });
 ---
 
-<Base title={title} lang={lang} description={description ?? undefined} image={image ?? undefined}>
-  <article class="max-w-3xl mx-auto px-4 sm:px-8 py-12" {...onView("article_read", { title, category, tags, lang })}>
+<Base title={title} lang={lang} description={description} image={cover}>
+  <article class="max-w-3xl mx-auto px-4 sm:px-8 py-12" {...readEvent}>
     <header class="mb-8">
       {
         category && (
           <span class="text-xs font-semibold uppercase tracking-wider text-accent block mb-2">
-            {CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.[lang as Lang] ?? category}
+            {category.label}
           </span>
         )
       }
       <h1 class="text-3xl font-bold mb-2">{title}</h1>
       <time class="text-sm text-gray-500" datetime={date.toISOString()}>
-        {formatDate(date, lang as Lang, "long")}
+        {formatDate(date, lang, "long")}
       </time>
       {
         tags.length > 0 && (
           <div class="mt-3 flex flex-wrap gap-2">
-            {tags.map((tag) => (
+            {tags.map(({ name, href }) => (
               <a
-                href={`${tagBase}/${tag}`}
+                href={href}
                 class="text-sm bg-gray-100 px-2 py-0.5 rounded hover:bg-gray-200 transition-colors"
-                {...onClick("tag_clicked", { tag, article_title: title })}
+                {...onClick("tag_clicked", { tag: name, article_title: title })}
               >
-                {tag}
+                {name}
               </a>
             ))}
           </div>

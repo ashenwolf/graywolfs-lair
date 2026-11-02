@@ -1,0 +1,27 @@
+---
+import { LOCALES, type Lang } from "../constants/site";
+import { loadPosts, tagCounts } from "../utils/posts";
+
+import Base from "../layouts/Base.astro";
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const { ui } = LOCALES[lang];
+const tags = tagCounts(await loadPosts(lang));
+---
+
+<Base title={ui.tags} lang={lang}>
+  <div class="container-inner">
+    <h1 class="text-3xl font-bold mb-8">{ui.tags}</h1>
+    <div class="flex flex-wrap gap-3">
+      {tags.map(({ name, href, count }) => (
+        <a href={href} class="bg-gray-100 px-3 py-1 rounded hover:bg-gray-200">
+          {name} <span class="text-gray-500">({count})</span>
+        </a>
+      ))}
+    </div>
+  </div>
+</Base>

@@ -1,24 +1,12 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
-import Base from "../../../../layouts/Base.astro";
-import ArticleList from "../../../../components/ArticleList.astro";
-import Pagination from "../../../../components/Pagination.astro";
-import { CATEGORY_LABELS } from "../../../../constants/labels";
-import { makeCategoryPaths } from "../../../../utils/collections";
 
-export async function getStaticPaths(opts: GetStaticPathsOptions) {
-  return makeCategoryPaths("ua", opts);
-}
+import { categoryPaths } from "../../../../utils/posts";
+import Listing from "../../../../views/Listing.astro";
 
-const { page } = Astro.props;
-const { category } = Astro.params;
-const label = (CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.ua) ?? category;
+export const getStaticPaths = ({ paginate }: GetStaticPathsOptions) => categoryPaths("ua", paginate);
+
+const { page, heading } = Astro.props;
 ---
 
-<Base title={label} lang="ua">
-  <div class="container-inner">
-    <h1 class="text-3xl font-bold mb-8">{label}</h1>
-    <ArticleList articles={page.data} emptyMessage="Статей у цій категорії немає." lang="ua" />
-    <Pagination page={page} lang="ua" />
-  </div>
-</Base>
+<Listing lang="ua" heading={heading} page={page} />

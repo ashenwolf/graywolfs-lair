@@ -1,19 +1,19 @@
 import rss from "@astrojs/rss";
-import { getArticlesByLang } from "../utils/collections";
 import type { APIContext } from "astro";
 
-export async function GET(context: APIContext) {
-  const articles = await getArticlesByLang("en");
+import { LOCALES, SITE } from "../constants/site";
+import { loadPosts } from "../utils/posts";
 
+export async function GET(context: APIContext) {
   return rss({
-    title: "Sergii Gulenok",
-    description: "Thoughts on people, software engineering and people in software engineering.",
-    site: context.site!,
-    items: articles.map((article) => ({
-      title: article.data.title,
-      pubDate: article.data.date,
-      description: article.data.description ?? undefined,
-      link: article.url,
+    title: SITE.author,
+    description: LOCALES.en.home.lead,
+    site: context.site ?? LOCALES.en.origin,
+    items: (await loadPosts("en")).map(({ title, date, description, url }) => ({
+      title,
+      pubDate: date,
+      description,
+      link: url,
     })),
   });
 }

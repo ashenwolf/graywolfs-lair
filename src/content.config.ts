@@ -1,6 +1,8 @@
 import { defineCollection, z } from "astro:content";
 import { glob } from "astro/loaders";
 
+import { CATEGORY_IDS, LANGS } from "./constants/site";
+
 const articles = defineCollection({
   loader: glob({
     pattern: ["**/*.md", "!**/*.excalidraw.md"],
@@ -10,19 +12,12 @@ const articles = defineCollection({
     title: z.string(),
     date: z.coerce.date(),
     tags: z.array(z.string()).default([]),
-    lang: z.enum(["en", "ua"]).default("en"),
+    lang: z.enum(LANGS).default("en"),
     draft: z.boolean().default(false),
     description: z.string().nullish(),
-    category: z.enum(["software-engineering", "travel", "life"]).optional(),
+    category: z.enum(CATEGORY_IDS).optional(),
     image: z.string().nullish(),
   }),
 });
 
-const pages = defineCollection({
-  loader: glob({ pattern: "**/*.md", base: "src/content/pages" }),
-  schema: z.object({
-    title: z.string(),
-  }),
-});
-
-export const collections = { articles, pages };
+export const collections = { articles };

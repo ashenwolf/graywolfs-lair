@@ -1,24 +1,12 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
-import Base from "../../../layouts/Base.astro";
-import ArticleList from "../../../components/ArticleList.astro";
-import Pagination from "../../../components/Pagination.astro";
-import { CATEGORY_LABELS } from "../../../constants/labels";
-import { makeCategoryPaths } from "../../../utils/collections";
 
-export async function getStaticPaths(opts: GetStaticPathsOptions) {
-  return makeCategoryPaths("en", opts);
-}
+import { categoryPaths } from "../../../utils/posts";
+import Listing from "../../../views/Listing.astro";
 
-const { page } = Astro.props;
-const { category } = Astro.params;
-const label = (CATEGORY_LABELS[category as keyof typeof CATEGORY_LABELS]?.en) ?? category;
+export const getStaticPaths = ({ paginate }: GetStaticPathsOptions) => categoryPaths("en", paginate);
+
+const { page, heading } = Astro.props;
 ---
 
-<Base title={label} lang="en">
-  <div class="container-inner">
-    <h1 class="text-3xl font-bold mb-8">{label}</h1>
-    <ArticleList articles={page.data} />
-    <Pagination page={page} lang="en" />
-  </div>
-</Base>
+<Listing lang="en" heading={heading} page={page} />

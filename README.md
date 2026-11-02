@@ -32,15 +32,15 @@ src/
     articles/
       en/              # English articles (organized by year/month)
       ua/              # Ukrainian articles (organized by year/month)
-    pages/             # Static pages (about, etc.)
-  pages/               # Astro route files
+  pages/               # Astro route files: thin, each renders a view
     ua/                # Ukrainian routes (/ua/*)
+  views/               # Page bodies shared by the EN/UA route pairs
   layouts/             # Base.astro, Article.astro
   components/          # UI components
   plugins/             # Custom remark plugins + Astro integration
   styles/              # global.css (Tailwind theme)
-  utils/               # articleUrls.ts, collections.ts, coverImages.ts, date.ts, tags.ts
-  constants/           # labels.ts (i18n strings, category metadata)
+  utils/               # posts.ts (Post producer), urls.ts, date.ts, analytics.ts
+  constants/           # site.ts (LOCALES, CATEGORIES, SITE tables)
 public/
   assets/              # Static images (YYYY/MM/DD/)
     excalidraw/        # Generated at build time (gitignored)
@@ -66,17 +66,18 @@ The site is bilingual. English routes are at the root; Ukrainian routes are unde
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
 
-Article URLs are date-based (`/YYYY/MM/DD/slug`), generated from frontmatter `date` and filename. See `src/utils/articleUrls.ts`.
+Article URLs are date-based (`/YYYY/MM/DD/slug`), generated from frontmatter `date` and filename by `articlePath()` in `src/utils/urls.ts`.
 
-## Content collections
+Everything that differs between the languages (domain, path prefix, date locale, UI strings, home page copy) is one entry of `LOCALES` in `src/constants/site.ts`; categories are entries of `CATEGORIES` there.
+
+## Content collection
 
 Defined in `src/content.config.ts`:
 
 **`articles`** — `src/content/articles/**/*.md` (excludes `*.excalidraw.md`)
 - `title` (required), `date` (required), `tags` (default `[]`), `lang` (`en`|`ua`, default `en`), `draft` (default `false`), `description`, `category` (`software-engineering`|`travel`|`life`), `image`
 
-**`pages`** — `src/content/pages/**/*.md`
-- `title` (required)
+Pages read articles only through `src/utils/posts.ts`, which turns each entry into a `Post` (URL, cover, localized category, tag links).
 
 ## Custom remark plugins
 
@@ -106,6 +107,7 @@ When `remark-obsidian-embeds.js` encounters a `![[name.excalidraw]]` embed it:
 ## Analytics (PostHog)
 
 Client-side tracking via `src/components/posthog.astro`, included in `Base.astro` `<head>`.
+- Events and their properties are typed in `src/utils/analytics.ts`; elements declare them with `onClick`/`onView`, and one delegated listener sends them
 - EU instance (`https://eu.i.posthog.com`), configured via env vars `PUBLIC_POSTHOG_PROJECT_TOKEN` and `PUBLIC_POSTHOG_HOST`
 
 ## Tools

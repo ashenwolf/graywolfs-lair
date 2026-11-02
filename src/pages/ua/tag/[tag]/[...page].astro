@@ -1,22 +1,12 @@
 ---
 import type { GetStaticPathsOptions } from "astro";
-import Base from "../../../../layouts/Base.astro";
-import ArticleList from "../../../../components/ArticleList.astro";
-import Pagination from "../../../../components/Pagination.astro";
-import { makeTagPaths } from "../../../../utils/collections";
 
-export async function getStaticPaths(opts: GetStaticPathsOptions) {
-  return makeTagPaths("ua", opts);
-}
+import { tagPaths } from "../../../../utils/posts";
+import Listing from "../../../../views/Listing.astro";
 
-const { page } = Astro.props;
-const { tag } = Astro.params;
+export const getStaticPaths = ({ paginate }: GetStaticPathsOptions) => tagPaths("ua", paginate);
+
+const { page, heading } = Astro.props;
 ---
 
-<Base title={`Тег: ${tag}`} lang="ua">
-  <div class="container-inner">
-    <h1 class="text-3xl font-bold mb-8">Тег: {tag}</h1>
-    <ArticleList articles={page.data} emptyMessage="Статей з цим тегом немає." lang="ua" />
-    <Pagination page={page} lang="ua" />
-  </div>
-</Base>
+<Listing lang="ua" heading={heading} page={page} />

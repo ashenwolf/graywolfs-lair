@@ -1,0 +1,20 @@
+---
+import { LOCALES, type Lang } from "../constants/site";
+
+import Base from "../layouts/Base.astro";
+
+interface Props {
+  lang: Lang;
+  title: string;
+  heading?: string;
+}
+
+const { lang, title, heading = title } = Astro.props;
+---
+
+<Base title={title} lang={lang}>
+  <div class="container-inner">
+    <h1 class="text-3xl font-bold mb-4">{heading}</h1>
+    <p class="text-gray-600">{LOCALES[lang].ui.comingSoon}</p>
+  </div>
+</Base>
