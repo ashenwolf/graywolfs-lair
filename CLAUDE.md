@@ -50,6 +50,7 @@ The site is bilingual (English + Ukrainian). English routes are at the root; Ukr
 | `/YYYY/MM/DD/slug` | `src/pages/[...slug].astro` |
 | `/ua/*` | mirrors the above under `src/pages/ua/` |
 | `/rss.xml` | `src/pages/rss.xml.ts` (English posts) |
+| `/sitemap.xml` | `src/pages/sitemap.xml.ts`: both home pages, `/cv/` and every published article, each at its canonical URL (own domain, trailing slash). One file serves both domains; both `robots.txt` files (`public/robots.txt`) name it. Tag and category listings are left out. |
 | any missing path | `src/pages/404.astro` → `dist/404.html`, served by Cloudflare Pages with status 404 on both domains, so it shows both languages. No canonical URL, `noindex`; its language toggle goes to the other home page. |
 
 Category pages exist only for categories that have posts in that language (EN travel has none); the home page section for such a category shows no "See more" link.
@@ -176,7 +177,7 @@ Client-side analytics via PostHog JS snippet, loaded in `Base.astro` `<head>`.
 Every page, component, and route is the end of a pipeline. Push transformation work upstream into producers; keep consumers stupid. Consumers read pre-computed fields — they do not sort, filter, enrich, or re-derive.
 
 - **One producer per shape.** If multiple consumers need the same filtered/sorted/enriched data, that work lives in one function, not N. Adding a sixth `await getCollection(...).filter(...).sort(...)` to a page is a smell — the producer should already return that shape.
-- **Producers output the consumer-ready shape.** `loadPosts(lang)` in `src/utils/posts.ts` is the single producer for "published articles in this language." It filters drafts, sorts, and builds each `Post` (URL, cover fallback, localized category, tag links) in one pass. Every view, the Footer, the RSS feed, and the listing path producers consume its output directly.
+- **Producers output the consumer-ready shape.** `loadPosts(lang)` in `src/utils/posts.ts` is the single producer for "published articles in this language." It filters drafts, sorts, and builds each `Post` (URL, cover fallback, localized category, tag links) in one pass. Every view, the Footer, the RSS feed, the sitemap, and the listing path producers consume its output directly.
 - **Type the enriched shape explicitly.** `Post` is the contract that flows through the system. Components declare `post: Post` (or `Post[]`); they never accept a raw `CollectionEntry<"articles">` and re-derive fields.
 - **Working backwards beats working forwards.** When adding a feature, first write down the shape the consumer wants. Then push the work to produce it as far upstream as it'll go. The consumer should look like rendering, not data prep.
 
