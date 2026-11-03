@@ -1,5 +1,6 @@
 ---
 import Base from "./Base.astro";
+import { LOCALES } from "../constants/site";
 import { onClick, onView } from "../utils/analytics";
 import { formatDate } from "../utils/date";
 import type { Post } from "../utils/posts";
@@ -10,6 +11,7 @@ interface Props {
 
 const { title, date, tags, lang, category, cover, description } = Astro.props.post;
 const readEvent = onView("article_read", { title, category: category?.id, tags: tags.map(({ name }) => name), lang });
+const { imageUnavailable, viewOnFlickr } = LOCALES[lang].ui;
 ---
 
 <Base title={title} lang={lang} description={description} image={cover}>
@@ -42,6 +44,58 @@ const readEvent = onView("article_read", { title, category: category?.id, tags: 
         )
       }
     </header>
+    {/* Inline and before the body, so the listener exists before any body image can fail. */}
+    <script is:inline define:vars={{ imageUnavailable, viewOnFlickr }}>
+      // Flickr thumbnail sizes (URL suffix) and their side in px; any other image gets a full-width 16:9 box.
+      const THUMB_SIDE = { s: 75, q: 150, t: 100, m: 240 };
+      const flickrId = (src) => /flickr\.com\/.*?\/(\d+)_/.exec(src)?.[1];
+      const thumbSide = (src) => THUMB_SIDE[/_([a-z])(?:_d)?\.\w+$/.exec(src)?.[1]];
+      const el = (tag, className, text = "") => Object.assign(document.createElement(tag), { className, textContent: text });
+
+      const thumbBox = (img, side) =>
+        Object.assign(
+          el("span", "not-prose inline-flex items-center justify-center rounded bg-gray-100 text-gray-400 align-middle", "×"),
+          { title: imageUnavailable, ariaLabel: img.alt || imageUnavailable, role: "img", style: `width:${side}px;height:${side}px` },
+        );
+
+      const photoBox = (img, id) => {
+        const box = el(
+          "span",
+          "not-prose my-6 flex aspect-video w-full flex-col items-center justify-center gap-1 rounded-md bg-gray-100 p-4" +
+            " text-center text-sm text-gray-500",
+        );
+        box.append(el("span", "font-semibold", imageUnavailable));
+        if (img.alt) box.append(el("span", "", img.alt));
+        const link = img.closest("a");
+        // Inside a link to Flickr the whole box is clickable already; a nested <a> would be invalid.
+        if (id && link && /flickr\.com/.test(link.href)) box.append(el("span", "text-accent", `${viewOnFlickr} →`));
+        if (id && !link) {
+          const href = `https://www.flickr.com/photo.gne?id=${id}`;
+          box.append(Object.assign(el("a", "text-accent hover:underline", `${viewOnFlickr} →`), { href }));
+        }
+        return box;
+      };
+
+      const placeholder = (img) => {
+        const id = flickrId(img.src);
+        const side = id && thumbSide(img.src);
+        return side ? thumbBox(img, side) : photoBox(img, id);
+      };
+
+      // Errors don't bubble, so listen in the capture phase. Retry once (Flickr throttles hotlinks), then give up.
+      document.addEventListener(
+        "error",
+        ({ target: img }) => {
+          if (!(img instanceof HTMLImageElement) || !img.closest(".prose")) return;
+          if (img.dataset.retried) img.replaceWith(placeholder(img));
+          else {
+            img.dataset.retried = "1";
+            setTimeout(() => (img.src = img.src), 2000);
+          }
+        },
+        true,
+      );
+    </script>
     <div class="prose prose-gray max-w-none prose-code:text-[0.85em] prose-pre:text-[0.85em] prose-pre:leading-snug">
       <slot />
     </div>

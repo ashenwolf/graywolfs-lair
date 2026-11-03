@@ -93,7 +93,7 @@ Content flows one way: content collection → `toPost()` → `Post` → views �
 
 ### Layouts (`src/layouts/`)
 - **`Base.astro`** — HTML shell: self-hosted Noto Serif `@font-face` + preloads, favicon, canonical/OG/Twitter meta on the page language's domain, PostHog, `Header`, `Footer`. Props: `title`, `lang`, `description?`, `image?` (defaults to `SITE.authorPhoto`).
-- **`Article.astro`** — article header (category label, title, date, tag links) and `prose` body. Props: `post: Post`.
+- **`Article.astro`** — article header (category label, title, date, tag links) and `prose` body. Props: `post: Post`. An inline script placed before the body (so it is listening before any body image fails) retries a failed body image once after 2 s, then replaces it with a placeholder: a 75–240 px grey square for Flickr thumbnails (size from the URL suffix), otherwise a 16:9 grey box with "Image unavailable", the alt text and, for Flickr, a link to the photo. Strings come from `LOCALES[lang].ui`. Most old UA images are Flickr hotlinks, which Flickr throttles.
 
 ### Components (`src/components/`)
 All take `lang` as a required prop where they render text.
