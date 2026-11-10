@@ -96,8 +96,95 @@ const { imageUnavailable, viewOnFlickr } = LOCALES[lang].ui;
         true,
       );
     </script>
-    <div class="prose prose-gray max-w-none prose-code:text-[0.85em] prose-pre:text-[0.85em] prose-pre:leading-snug">
+    <div class="prose prose-gray max-w-none prose-code:text-[0.85em] prose-pre:text-[0.85em] prose-pre:leading-snug relative">
       <slot />
     </div>
+    <script>
+      // Copies each footnote beside its first reference; global.css decides from which width the copies show.
+      type Note = { aside: HTMLElement; refs: [HTMLAnchorElement, ...HTMLAnchorElement[]] };
+      type Box = { aside: HTMLElement; anchor: number; height: number };
+
+      const STACK_GAP = 12; // px between a note and the one it was pushed below
+      const STYLE = {
+        note:
+          "absolute inset-x-0 -ml-2.5 border-l-2 border-transparent pl-2 text-xs/relaxed text-gray-600 transition-colors" +
+          " xl:text-sm/relaxed data-active:border-accent data-active:text-gray-900 [&_p]:m-0",
+        label: "float-left mr-1 font-semibold",
+      };
+
+      const el = <K extends keyof HTMLElementTagNameMap>(tag: K, className: string, text = "") =>
+        Object.assign(document.createElement(tag), { className, textContent: text });
+
+      const sidenote = (item: HTMLLIElement, label: string) => {
+        const aside = el("aside", STYLE.note);
+        aside.append(el("span", STYLE.label, `${label}.`), ...item.cloneNode(true).childNodes);
+        aside.querySelectorAll("[data-footnote-backref]").forEach((backref) => backref.remove());
+        return aside;
+      };
+
+      const toNote =
+        (refs: HTMLAnchorElement[]) =>
+        (item: HTMLLIElement): Note[] => {
+          const [first, ...rest] = refs.filter((ref) => ref.getAttribute("href") === `#${item.id}`);
+          return first ? [{ refs: [first, ...rest], aside: sidenote(item, first.textContent ?? "") }] : [];
+        };
+
+      // Each note sits level with its first reference, pushed down to clear the note above it.
+      const stack = (boxes: Box[]) =>
+        boxes.reduce(
+          ({ floor, placed }, { aside, anchor, height }) => {
+            const top = Math.max(anchor, floor);
+            return { floor: top + height + STACK_GAP, placed: [...placed, { aside, top }] };
+          },
+          { floor: -Infinity, placed: [] as { aside: HTMLElement; top: number }[] },
+        ).placed;
+
+      const layout = (container: HTMLElement, notes: Note[]) => {
+        const origin = container.getBoundingClientRect().top;
+        const boxes = notes.map(({ aside, refs: [first] }) => ({
+          aside,
+          anchor: first.getBoundingClientRect().top - origin,
+          height: aside.offsetHeight,
+        }));
+        stack(boxes).forEach(({ aside, top }) => (aside.style.top = `${top}px`));
+      };
+
+      const highlight = (notes: Note[], active?: Note) =>
+        notes.forEach((note) =>
+          [note.aside, ...note.refs].forEach((target) => target.toggleAttribute("data-active", note === active)),
+        );
+
+      const mount = (prose: HTMLElement, notes: Note[]) => {
+        const container = Object.assign(el("div", "sidenotes"), { ariaHidden: "true" }); // screen readers keep the end list
+        container.append(...notes.map(({ aside }) => aside));
+        prose.append(container);
+
+        notes.forEach((note) => {
+          [note.aside, ...note.refs].forEach((target) => {
+            target.addEventListener("mouseenter", () => highlight(notes, note));
+            target.addEventListener("mouseleave", () => highlight(notes));
+          });
+          // With the note on screen, a click highlights it instead of jumping to the hidden list.
+          note.refs.forEach((ref) =>
+            ref.addEventListener("click", (event) => {
+              if (!note.aside.checkVisibility()) return;
+              event.preventDefault();
+              highlight(notes, note);
+            }),
+          );
+        });
+
+        // Fires once on observe, then whenever the text reflows (fonts, images, width) or a note resizes.
+        const observer = new ResizeObserver(() => layout(container, notes));
+        [prose, ...notes.map(({ aside }) => aside)].forEach((target) => observer.observe(target));
+      };
+
+      const footnotes = document.querySelector("section[data-footnotes]");
+      const prose = footnotes?.parentElement;
+      if (footnotes && prose) {
+        const refs = [...prose.querySelectorAll<HTMLAnchorElement>("a[data-footnote-ref]")];
+        mount(prose, [...footnotes.querySelectorAll<HTMLLIElement>(":scope > ol > li")].flatMap(toNote(refs)));
+      }
+    </script>
   </article>
 </Base>

@@ -107,6 +107,10 @@ When `remark-obsidian-embeds.js` encounters a `![[name.excalidraw]]` embed it:
 4. Applies upstream bug fixes (wrong font-family, `y="NaN"` on text elements)
 5. Writes the result to `public/assets/excalidraw/`
 
+## Footnotes as sidenotes
+
+Markdown footnotes (`[^1]`) render as a normal list at the end of the article. A script in `src/layouts/Article.astro` also copies each one beside its reference: in a right gutter from 640px, in the page margin from 1280px. The end list stays for screen readers and narrow screens. Styles live in `src/styles/global.css`.
+
 ## Analytics (PostHog)
 
 Client-side tracking via `src/components/posthog.astro`, included in `Base.astro` `<head>`.

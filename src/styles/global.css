@@ -54,3 +54,44 @@
   margin-inline: auto;
 }
 
+/* Sidenotes: the script in Article.astro copies footnotes into .sidenotes, shown from sm in place of the end list. */
+.sidenotes {
+  @apply absolute top-0 hidden sm:block;
+
+  @variant max-xl {
+    left: calc(100% + var(--sidenote-gap));
+    width: var(--sidenote-width);
+  }
+
+  @variant xl {
+    left: calc(100% + 2.5rem);
+    /* 50% is the text column: fill the page margin, leaving 1.5rem before the viewport edge. */
+    width: min(15rem, calc(50vw - 50% - 4rem));
+  }
+}
+
+/* Below xl the page margin is too narrow, so a post with footnotes widens by a gutter its column gives up. */
+article:has(section[data-footnotes]) {
+  @variant sm {
+    @variant max-xl {
+      --sidenote-gap: 1.25rem;
+      --sidenote-width: clamp(9rem, 26vw, 15rem);
+      /* 3xl is Article.astro's max-w-3xl. */
+      max-width: calc(--theme(--container-3xl) + var(--sidenote-gap) + var(--sidenote-width));
+
+      & > * {
+        margin-right: calc(var(--sidenote-gap) + var(--sidenote-width));
+      }
+    }
+  }
+}
+
+/* Hidden only once the script has mounted the notes; screen readers still get the list. */
+.prose:has(> .sidenotes) > section[data-footnotes] {
+  @apply sm:sr-only;
+}
+
+a[data-footnote-ref] {
+  @apply rounded-xs transition-colors sm:data-active:bg-accent/15;
+}
+
