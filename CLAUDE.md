@@ -26,6 +26,10 @@ npm run preview
 
 The build script runs `rm -rf .astro node_modules/.astro/data-store.json` before building — this is intentional to avoid stale content cache issues.
 
+## Deployment
+
+Every push to `main` deploys through Cloudflare Pages. How it deploys, the checks to run before and after a push, and the findings of past live audits (two-domain duplicate content, sitemap counts, PostHog testing, Flickr images) are in [`docs/deployment.md`](docs/deployment.md). Add new production findings there, dated.
+
 ## Architecture
 
 ### Tech Stack
