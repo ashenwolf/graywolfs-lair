@@ -11,3 +11,4 @@ public/assets/mermaid/
 public/assets/optimized/
 .env
 .wrangler/
+.agents/scratchpad/
